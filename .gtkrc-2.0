@@ -1,0 +1,10 @@
+
+# Created by lxqt-config-appearance (DO NOT EDIT!)
+gtk-theme-name = "WhiteSur-Dark"
+gtk-icon-theme-name = "WhiteSur-dark"
+gtk-font-name = "Cantarell 10"
+gtk-button-images = 1
+gtk-menu-images = 1
+gtk-toolbar-style = GTK_TOOLBAR_BOTH_HORIZ
+gtk-cursor-theme-name = Breeze_Light
+gtk-cursor-theme-size = 22
