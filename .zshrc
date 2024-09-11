@@ -19,12 +19,12 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/asdf-vm/asdf.sh
 
 # Zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
 # Add in snippets
@@ -41,18 +41,13 @@ bindkey -s ^f "tmux-sessionizer\n"
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
+source <(fzf --zsh)
+
 # History
-HIST_SIZE=5000
-HIST_FILE=~/.zsh_history
-SAVEHIST=$HIST_SIZE
-HISTDUP=erase
+HISTFILE=~/.zsh_history
+HISTSIZE=5000
+SAVEHIST=5000
 setopt appendhistory
-setopt sharehistory
-setopt hist_ignore_space
-setopt hist_ignore_all_dups
-setopt hist_save_no_dups
-setopt hist_ignore_dups
-setopt hist_find_no_dups
 
 # Style completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -61,6 +56,7 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # For LVIM
 export PATH=~/.local/bin:$PATH
+EDITOR=nvim
 
 # For Agensgraph
 export PATH=~/workspace/agensgraph/bin:$PATH
@@ -71,7 +67,7 @@ export AGDATA=~/workspace/agdata
 export PATH=~/.local/scripts/:$PATH
 
 # Perl
-export PERL5LIB=~/perl5/:$PERL5LIB
+export PERL5LIB=~/perl5/lib/perl5:$PERL5LIB
 
 # NVidia settings
 __NV_PRIME_RENDER_OFFLOAD=1
