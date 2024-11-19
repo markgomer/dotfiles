@@ -56,25 +56,21 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 # For LVIM
 export PATH=~/.local/bin:$PATH
-EDITOR=nvim
-
-# For Agensgraph
-export PATH=~/workspace/agensgraph/bin:$PATH
-export LD_LIBRARY_PATH=~/workspace/agensgraph/lib:$LD_LIBRARY_PATH
-export AGDATA=~/workspace/agdata
+EDITOR=lvim
 
 # Tmux sessionizer
-export PATH=~/.local/scripts/:$PATH
+PATH="$PATH":"$HOME/.local/scripts/"
+export PATH=/home/majunior/.cargo/bin:$PATH
 
 # Perl
 export PERL5LIB=~/perl5/lib/perl5:$PERL5LIB
 
-# NVidia settings
-__NV_PRIME_RENDER_OFFLOAD=1
-__GLX_VENDOR_LIBRARY_NAME=nvidia
-
 # Aliases
-alias ls='ls --color'
+alias ls="exa -la --icons"
+alias cat="bat --style=auto"
 
 # Shell integrations
 eval "$(fzf --zsh)"
+
+# To customize prompt, run `p10k configure` or edit ~/dotfiles/.p10k.zsh.
+[[ ! -f ~/dotfiles/.p10k.zsh ]] || source ~/dotfiles/.p10k.zsh
