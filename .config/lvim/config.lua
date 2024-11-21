@@ -49,3 +49,34 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Replace token you're in
 vim.keymap.set("n", "<leader>r", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+lvim.colorscheme = "onedark"
+
+lvim.plugins = {
+    { 'navarasu/onedark.nvim',
+        require('onedark').setup  {
+            term_colors = true, -- Change terminal color as per the selected theme style
+            ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
+            style = 'deep', -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+            -- Change code style ---
+            -- Options are italic, bold, underline, none
+            -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'
+            code_style = {
+                comments = 'italic',
+                keywords = 'none',
+                functions = 'none',
+                strings = 'none',
+                variables = 'none'
+            },
+            highlights = {
+                ["@lsp.type.variable"] = {fg = '$red'},
+                ["@variable"] = {fg = '$red'},
+            }
+        }
+    },
+    {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+}
