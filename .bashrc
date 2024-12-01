@@ -27,5 +27,5 @@ unset rc
 test -f /usr/share/bazzite-cli/bling.sh && source /usr/share/bazzite-cli/bling.sh
 ### bling.sh source end
 
-alias power="$HOME/.local/scripts/powersave.sh"
+alias save="$HOME/.local/scripts/powersave.sh"
 alias perf="$HOME/.local/scripts/performance.sh"
