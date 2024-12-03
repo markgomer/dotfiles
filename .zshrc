@@ -175,6 +175,11 @@ export PATH=/home/majunior/.cargo/bin:$PATH
 # Perl
 export PERL5LIB=~/perl5/lib/perl5:$PERL5LIB
 
+# Postgres database
+export LD_LIBRARY_PATH="$HOME/projects/pgdata16/lib/"
+export PGDATA="$HOME/projects/pgdata16/"
+export PATH=$HOME/projects/postgres/bin:$PATH
+
 # Aliases
 alias ls="exa -la --icons"
 alias cat="bat --style=auto"
