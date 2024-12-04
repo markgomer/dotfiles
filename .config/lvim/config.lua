@@ -25,11 +25,14 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80" -- the limit black bar
 
+vim.opt.clipboard="unnamed,unnamedplus"
 
-lvim.colorscheme = "onedark"
+lvim.colorscheme = "catppuccin-mocha"
 
 lvim.plugins = {
-    { 'navarasu/onedark.nvim', },
+    { "navarasu/onedark.nvim" },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "rebelot/kanagawa.nvim" },
     {
         "ThePrimeagen/harpoon",
         branch = "harpoon2",
