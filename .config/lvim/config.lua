@@ -9,9 +9,9 @@ vim.opt.timeoutlen = 300
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
 vim.opt.wrap = true
@@ -27,15 +27,15 @@ vim.opt.colorcolumn = "80" -- the limit black bar
 
 vim.opt.clipboard="unnamed,unnamedplus"
 
-lvim.colorscheme = "catppuccin-mocha"
+lvim.colorscheme = "onedark"
 
 lvim.plugins = {
-    { "navarasu/onedark.nvim" },
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    { "rebelot/kanagawa.nvim" },
-    {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" },
-    },
+  { "navarasu/onedark.nvim" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+  { "rebelot/kanagawa.nvim" },
+  {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 }
