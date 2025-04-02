@@ -129,7 +129,6 @@ fi
 
 source "${ZINIT_HOME}/zinit.zsh"
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-source /opt/asdf-vm/asdf.sh
 
 # Zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
@@ -175,10 +174,8 @@ export PATH=/home/majunior/.cargo/bin:$PATH
 # Perl
 export PERL5LIB=~/perl5/lib/perl5:$PERL5LIB
 
-# Postgres database
-export LD_LIBRARY_PATH="$HOME/projects/pgdata16/lib/"
-export PGDATA="$HOME/projects/pgdata16/"
-export PATH=$HOME/projects/postgres/bin:$PATH
+export ASDF_DATA_DIR="/home/majunior/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # Aliases
 alias ls="exa -la --icons"
