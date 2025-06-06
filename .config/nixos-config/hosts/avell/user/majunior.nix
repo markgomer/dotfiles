@@ -46,9 +46,10 @@ in
   environment = {
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
+      distrobox
       lsd
       fzf
-    ]; 
+    ];
   };
 
   programs = {
