@@ -5,6 +5,7 @@
 
 let
   inherit (import ./variables.nix) gitUsername;
+  nixCfgDir = "~/dotfiles/.config/nixos-config";
 in
 {
   users = { 
@@ -91,14 +92,14 @@ in
         '';
 
         btw = "echo i use nixos btw";
-        nrs = "sudo nixos-rebuild switch --flake $HOME/.config/nixos-config#avell";
-        nhr = "home-manager switch --flake ~/.config/nixos-config#majunior";
+        nrs = "sudo nixos-rebuild switch --flake ${nixCfgDir}#avell";
+        nhr = "home-manager switch --flake ${nixCfgDir}#majunior";
         nfr = "nrs && nhr";
         nlg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         ngc = "nix-collect-garbage";
         nso = "nix-store --optmise";
-        update = "cd $HOME/.config/nixos-config && nix flake update";
-        ecf = "lvim $HOME/.config/nixos-config/flake.nix";
+        update = "cd ${nixCfgDir} && nix flake update";
+        ecf = "lvim ${nixCfgDir}";
         sv = "~/.local/scripts/powersave.sh";
         eq = "$HOME/.local/scripts/equilibrado.sh";
         pw = "$HOME/.local/scripts/performance.sh";
