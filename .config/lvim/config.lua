@@ -34,6 +34,10 @@ lvim.plugins = {
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "rebelot/kanagawa.nvim" },
   {
+    "lukas-reineke/indent-blankline.nvim",
+    enabled = false,
+  },
+  {
     "ThePrimeagen/harpoon",
     branch = "harpoon2",
     dependencies = { "nvim-lua/plenary.nvim" },
