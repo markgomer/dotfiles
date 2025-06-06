@@ -33,6 +33,8 @@ in
         ripgrep
         asdf-vm
         lazygit
+        tmux
+        tmux-sessionizer
       ];
     };
 
