@@ -2,8 +2,8 @@
   imports = [
     ./hw-modules
     ./system-config
+    ./user
 
-    ./users.nix
     ./packages-fonts.nix
   ];
 }

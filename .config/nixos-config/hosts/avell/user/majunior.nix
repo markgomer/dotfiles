@@ -4,8 +4,8 @@
 { pkgs, username, ... }:
 
 let
-  inherit (import ./variables.nix) gitUsername;
-  nixCfgDir = "~/dotfiles/.config/nixos-config";
+  nixCfgDir = "$HOME/dotfiles/.config/nixos-config";
+  inherit (import ../variables.nix) gitUsername;
 in
 {
   users = { 
@@ -36,20 +36,22 @@ in
         lazygit
         tmux
         tmux-sessionizer
+        zsh-powerlevel10k
       ];
     };
 
     defaultUserShell = pkgs.zsh;
   }; 
 
-  environment.shells = with pkgs; [ zsh ];
-  environment.systemPackages = with pkgs; [
-    lsd
-    fzf
-  ]; 
-    
+  environment = {
+    shells = with pkgs; [ zsh ];
+    systemPackages = with pkgs; [
+      lsd
+      fzf
+    ]; 
+  };
+
   programs = {
-    # Zsh configuration
 	  zsh = {
     	enable = true;
 	  	enableCompletion = true;
@@ -58,14 +60,11 @@ in
         plugins = ["git"];
         theme = "agnoster"; 
       };
-      
       autosuggestions.enable = true;
       syntaxHighlighting.enable = true;
-      
       promptInit = ''
         #pokemon colorscripts like. Make sure to install krabby package
         #krabby random --no-mega --no-gmax --no-regional --no-title -s; 
-
         # Set-up icons for files/directories in terminal using lsd
         alias ls='lsd'
         alias l='ls -l'
@@ -74,6 +73,8 @@ in
         alias lt='ls --tree'
 
         source <(fzf --zsh);
+        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+
         HISTFILE=~/.zsh_history;
         HISTSIZE=10000;
         SAVEHIST=10000;
