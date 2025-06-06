@@ -100,7 +100,7 @@ in
         ngc = "nix-collect-garbage";
         nso = "nix-store --optmise";
         update = "cd ${nixCfgDir} && nix flake update";
-        ecf = "lvim ${nixCfgDir}";
+        ecf = "lvim ${nixCfgDir}/flake.nix";
         sv = "~/.local/scripts/powersave.sh";
         eq = "$HOME/.local/scripts/equilibrado.sh";
         pw = "$HOME/.local/scripts/performance.sh";
