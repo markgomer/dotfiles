@@ -67,19 +67,19 @@ in
         #pokemon colorscripts like. Make sure to install krabby package
         #krabby random --no-mega --no-gmax --no-regional --no-title -s; 
         # Set-up icons for files/directories in terminal using lsd
-        alias ls='lsd'
-        alias l='ls -l'
-        alias la='ls -a'
-        alias lla='ls -la'
-        alias lt='ls --tree'
+        # alias ls='lsd'
+        # alias l='ls -l'
+        # alias la='ls -a'
+        # alias lla='ls -la'
+        # alias lt='ls --tree'
 
-        source <(fzf --zsh);
-        source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
+        # source <(fzf --zsh);
+        # source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
-        HISTFILE=~/.zsh_history;
-        HISTSIZE=10000;
-        SAVEHIST=10000;
-        setopt appendhistory;
+        # HISTFILE=~/.zsh_history;
+        # HISTSIZE=10000;
+        # SAVEHIST=10000;
+        # setopt appendhistory;
       '';
 
       shellAliases = {
