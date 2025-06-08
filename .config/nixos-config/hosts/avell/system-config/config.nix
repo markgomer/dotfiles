@@ -18,12 +18,12 @@ in {
 
   # zram
   zramSwap = {
-	  enable = true;
-	  priority = 100;
-	  memoryPercent = 30;
-	  swapDevices = 1;
+    enable = true;
+    priority = 100;
+    memoryPercent = 30;
+    swapDevices = 1;
     algorithm = "zstd";
-    };
+  };
 
   powerManagement = {
   	enable = true;
@@ -35,12 +35,6 @@ in {
   #  extraBackends = [ pkgs.sane-airscan ];
   #  disabledDefaultBackends = [ "escl" ];
   #};
-
-  # Extra Logitech Support
-  hardware.logitech.wireless.enable = false;
-  hardware.logitech.wireless.enableGraphical = false;
-
-  hardware.pulseaudio.enable = false; # stable branch
 
   # Bluetooth
   hardware = {

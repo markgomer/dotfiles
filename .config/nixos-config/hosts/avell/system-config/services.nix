@@ -28,28 +28,28 @@ in {
       enable = false;
       autodetect = true;
     };
-    
-	  gvfs.enable = true;
-	  tumbler.enable = true;
 
-	  pipewire = {
+    gvfs.enable = true;
+    tumbler.enable = true;
+
+    pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
-	    wireplumber.enable = true;
+      wireplumber.enable = true;
     };
-	
+
     #pulseaudio.enable = false; #unstable
 	  udev.enable = true;
 	  envfs.enable = true;
 	  dbus.enable = true;
 
-	  fstrim = {
+    fstrim = {
       enable = true;
       interval = "weekly";
     };
-  
+
     libinput.enable = true;
 
     rpcbind.enable = false;
