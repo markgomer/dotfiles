@@ -34,6 +34,7 @@ in
         ripgrep
         asdf-vm
         lazygit
+        stow
         tmux
         tmux-sessionizer
         zsh-powerlevel10k
@@ -46,6 +47,7 @@ in
   environment = {
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
+      alacritty
       distrobox
       lsd
       fzf
@@ -54,8 +56,8 @@ in
 
   programs = {
 	  zsh = {
-    	enable = true;
-	  	enableCompletion = true;
+      enable = true;
+      enableCompletion = true;
       ohMyZsh = {
         enable = true;
         plugins = ["git"];
