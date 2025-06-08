@@ -10,27 +10,27 @@ fi
 
 # Set directory to store zinit and plugins
 export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
 # Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
+# if [ ! -d "$ZINIT_HOME" ]; then
+#    mkdir -p "$(dirname $ZINIT_HOME)"
+#    git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+# fi
 
-source "${ZINIT_HOME}/zinit.zsh"
+# source "${ZINIT_HOME}/zinit.zsh"
 # source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 # Zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
+# zinit light zsh-users/zsh-syntax-highlighting
+# zinit light zsh-users/zsh-completions
+# zinit light zsh-users/zsh-autosuggestions
+# zinit light Aloxaf/fzf-tab
 
 # Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::git
+# zinit snippet OMZP::sudo
+# zinit snippet OMZP::archlinux
 
 # Ctrl-e to accept autocompletion
 bindkey -e
@@ -39,7 +39,7 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # Load completions
 autoload -Uz compinit && compinit
-zinit cdreplay -q
+# zinit cdreplay -q
 
 source <(fzf --zsh)
 
@@ -50,9 +50,9 @@ SAVEHIST=5000
 setopt appendhistory
 
 # Style completion
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+# zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 
 EDITOR=lvim
 
