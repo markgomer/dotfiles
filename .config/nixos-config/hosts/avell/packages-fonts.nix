@@ -52,7 +52,6 @@ in
     cava
     cliphist
     loupe
-    gnome-software
     gnome-system-monitor
     grim
     gtk-engine-murrine #for gtk themes
@@ -110,9 +109,9 @@ in
     #nerd-fonts.fira-code # unstable
     #nerd-fonts.fantasque-sans-mono #unstable
  	];
-  
+
   programs = {
-	  hyprland = {
+    hyprland = {
       enable = true;
       #package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland; #hyprland-git
       #portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland; #xdph-git
