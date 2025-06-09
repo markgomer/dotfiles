@@ -4,8 +4,8 @@
 { pkgs, ...}:
 
 {
-  environment.systemPackages = (with pkgs; [
   # System Packages
+  environment.systemPackages = (with pkgs; [
     bc
     baobab
     btrfs-progs
@@ -13,6 +13,7 @@
     curl
     cpufrequtils
     duf
+    fastfetch
     findutils
     ffmpeg   
     glib #for gsettings to work
@@ -28,10 +29,6 @@
     xdg-user-dirs
     xdg-utils
 
-    fastfetch
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
-    #ranger
   ]);
-
-
 }
