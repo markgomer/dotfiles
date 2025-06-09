@@ -1,9 +1,8 @@
 {
   imports = [
     ./hw-modules
+    ./hyprland
     ./system-config
     ./user
-
-    ./packages-fonts.nix
   ];
 }

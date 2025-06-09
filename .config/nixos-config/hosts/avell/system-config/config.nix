@@ -16,6 +16,19 @@ in {
     '';
   };
 
+  # Extra Portal Configuration
+  xdg.portal = {
+    enable = true;
+    wlr.enable = false;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+  };
+
   # zram
   zramSwap = {
     enable = true;
@@ -23,11 +36,6 @@ in {
     memoryPercent = 30;
     swapDevices = 1;
     algorithm = "zstd";
-  };
-
-  powerManagement = {
-  	enable = true;
-	  cpuFreqGovernor = "schedutil";
   };
 
   #hardware.sane = {

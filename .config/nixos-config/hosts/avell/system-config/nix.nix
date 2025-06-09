@@ -1,6 +1,8 @@
 { ... }:
 
 {
+  nixpkgs.config.allowUnfree = true;
+
   # Cachix, Optimization settings and garbage collection automation
   nix = {
     settings = {
