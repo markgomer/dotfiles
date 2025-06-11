@@ -1,15 +1,15 @@
 { pkgs, ... }:
 {
   programs = {
-	  firefox.enable = true;
+    firefox.enable = true;
 
     git.enable = true;
 
     nm-applet.indicator = true;
 
-	  thunar = {
+    thunar = {
       enable = true;
-	    plugins = with pkgs.xfce; [
+      plugins = with pkgs.xfce; [
         exo
         mousepad
         thunar-archive-plugin

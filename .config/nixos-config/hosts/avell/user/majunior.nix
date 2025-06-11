@@ -32,7 +32,6 @@ in
         eza
         lunarvim
         ripgrep
-        asdf-vm
         lazygit
         stow
         tmux

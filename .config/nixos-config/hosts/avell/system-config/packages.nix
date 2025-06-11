@@ -18,7 +18,6 @@
     ffmpeg   
     glib #for gsettings to work
     gsettings-qt
-    git
     killall  
     libappindicator
     libnotify
