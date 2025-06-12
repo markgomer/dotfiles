@@ -24,6 +24,7 @@ in
         "input" 
         "audio"
         "users"
+        "plugdev"
       ];
 
       # define user packages here

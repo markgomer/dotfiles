@@ -41,9 +41,22 @@ in {
     };
 
     #pulseaudio.enable = false; #unstable
-	  udev.enable = true;
-	  envfs.enable = true;
-	  dbus.enable = true;
+	 udev = {
+      enable = true;
+      # Thing for NS-USBLoader
+      packages = [
+         (pkgs.writeTextFile {
+           name = "wally_udev";
+           text = ''
+             SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666";
+            '';
+           destination = "/etc/udev/rules.d/99-NS.rules";
+         })
+      ];
+         
+    };
+    envfs.enable = true;
+    dbus.enable = true;
 
     fstrim = {
       enable = true;
