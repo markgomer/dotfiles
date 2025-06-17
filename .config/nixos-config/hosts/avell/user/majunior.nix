@@ -26,8 +26,6 @@ in
         "users"
         "plugdev"
       ];
-
-      # define user packages here
       packages = with pkgs; [
         bat
         eza
@@ -40,7 +38,6 @@ in
         zsh-powerlevel10k
       ];
     };
-
     defaultUserShell = pkgs.zsh;
   }; 
 
