@@ -11,9 +11,10 @@ vim.opt.relativenumber = true
 vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Tabulation
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
+local tabstop = 4
+vim.opt.tabstop = tabstop
+vim.opt.softtabstop = tabstop
+vim.opt.shiftwidth = tabstop
 vim.opt.expandtab = true -- Use spaces instead of tabs by default
 
 vim.opt.hlsearch = false -- highlight search
