@@ -4,7 +4,7 @@ echo 1 > /sys/devices/system/cpu/cpu4/online; \
 echo 1 > /sys/devices/system/cpu/cpu5/online; \
 echo 1 > /sys/devices/system/cpu/cpu6/online; \
 echo 1 > /sys/devices/system/cpu/cpu7/online; \
-echo "500" > /sys/class/drm/card0/gt_min_freq_mhz; \
+echo "350" > /sys/class/drm/card0/gt_min_freq_mhz; \
 echo "1100" > /sys/class/drm/card0/gt_max_freq_mhz; \
 echo "1100" > /sys/class/drm/card0/gt_boost_freq_mhz;'
 

@@ -54,21 +54,6 @@
       "keyColor": "blue"
     },
     {
-      "type": "icons",
-      "key": "│ ├󰀻",
-      "keyColor": "blue"
-    },
-    {
-      "type": "cursor",
-      "key": "│ ├",
-      "keyColor": "blue",
-    },
-    {
-      "type": "terminalfont",
-      "key": "│ ├",
-      "keyColor": "blue",
-    },
-    {
       "type": "terminal",
       "key": "│ └",
       "keyColor": "blue"
@@ -77,17 +62,6 @@
     {
       "type": "host",
       "key": "󰌢 SYSTEM",
-      "keyColor": "green"
-    },
-    {
-      "type": "cpu",
-      "key": "│ ├󰻠",
-      "keyColor": "green"
-    },
-    {
-      "type": "gpu",
-      "key": "│ ├󰻑",
-      "format": "{2}",
       "keyColor": "green"
     },
     {
@@ -106,7 +80,7 @@
     },
     {
       "type": "custom",
-      "format": "\u001b[90m  \u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[39m  \u001b[37m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m "
+      "format": "\u001b[31m  \u001b[32m  \u001b[33m  \u001b[34m  \u001b[35m  \u001b[36m  \u001b[35m  \u001b[34m  \u001b[33m  \u001b[32m  \u001b[31m "
     },
     "break",
   ]
