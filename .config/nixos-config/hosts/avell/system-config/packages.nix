@@ -15,10 +15,10 @@
     duf
     fastfetch
     findutils
-    ffmpeg   
+    ffmpeg
     glib #for gsettings to work
     gsettings-qt
-    killall  
+    killall
     libappindicator
     libnotify
     openssl #required by Rainbow borders

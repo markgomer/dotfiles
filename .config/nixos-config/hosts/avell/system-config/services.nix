@@ -5,13 +5,13 @@ in {
   # Services to start
   services = {
     xserver = {
-      enable = false;
+      enable = true;
       xkb = {
         layout = "${keyboardLayout}";
         variant = "";
       };
     };
-    
+
     greetd = {
       enable = true;
       vt = 3;
@@ -23,7 +23,7 @@ in {
         };
       };
     };
-    
+
     smartd = {
       enable = false;
       autodetect = true;
@@ -41,7 +41,7 @@ in {
     };
 
     #pulseaudio.enable = false; #unstable
-	 udev = {
+    udev = {
       enable = true;
       # Thing for NS-USBLoader
       packages = [
@@ -53,8 +53,8 @@ in {
            destination = "/etc/udev/rules.d/99-NS.rules";
          })
       ];
-         
     };
+
     envfs.enable = true;
     dbus.enable = true;
 
@@ -67,18 +67,19 @@ in {
 
     rpcbind.enable = false;
     nfs.server.enable = false;
-  
+
     openssh.enable = true;
+
     flatpak.enable = true;
 	
   	blueman.enable = true;
-  	
+
 	  fwupd.enable = true;
 
 	  upower.enable = true;
-    
+
     gnome.gnome-keyring.enable = true;
-    
+
     printing = {
       enable = false;
       # drivers = [
@@ -93,15 +94,15 @@ in {
       analogioOffset = -127;
       uncoreOffset = -127;
     };
-    
+
     #avahi = {
     #  enable = true;
     #  nssmdns4 = true;
     #  openFirewall = true;
     #};
-    
+
     #ipp-usb.enable = true;
-    
+
     #syncthing = {
     #  enable = false;
     #  user = "${username}";

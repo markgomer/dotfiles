@@ -20,12 +20,12 @@
       "nowatchdog" 
       "modprobe.blacklist=sp5100_tco" #watchdog for AMD
       "modprobe.blacklist=iTCO_wdt" #watchdog for Intel
- 	  ];
+    ];
 
     # This is for OBS Virtual Cam Support
     #kernelModules = [ "v4l2loopback" ];
     #  extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-    
+
 
     # Needed For Some Steam Games
     #kernel.sysctl = {
@@ -35,14 +35,14 @@
     ## BOOT LOADERS: NOTE USE ONLY 1. either systemd or grub  
     # Bootloader SystemD
     loader.systemd-boot.enable = true;
-  
+
     loader.efi = {
 	    #efiSysMountPoint = "/efi"; #this is if you have separate /efi partition
 	    canTouchEfiVariables = true;
   	};
 
-    loader.timeout = 5;    
-  			
+    loader.timeout = 5;
+
     # Bootloader GRUB
     #loader.grub = {
 	    #enable = true;
@@ -52,7 +52,7 @@
 	    #  memtest86.enable = true;
 	    #  extraGrubInstallArgs = [ "--bootloader-id=${host}" ];
 	    #  configurationName = "${host}";
-  	  #	 };
+  	  #};
 
     # Bootloader GRUB theme, configure below
 
@@ -65,13 +65,13 @@
     #};
 
     ## -end of BOOTLOADERS----- ##
-  
+
     # Make /tmp a tmpfs
     tmp = {
       useTmpfs = false;
       tmpfsSize = "30%";
       };
-    
+
     # Appimage Support
     binfmt.registrations.appimage = {
       wrapInterpreterInShell = false;
@@ -81,7 +81,7 @@
       mask = ''\xff\xff\xff\xff\x00\x00\x00\x00\xff\xff\xff'';
       magicOrExtension = ''\x7fELF....AI\x02'';
       };
-    
+
     plymouth.enable = true;
   };
 }

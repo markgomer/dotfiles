@@ -12,32 +12,32 @@ in
 
   config = mkIf cfg.enable {
     services.xserver.videoDrivers = [ "nvidia" ];
-    
+
   hardware.graphics = {
   	enable = true;
   	enable32Bit = true;
 	  extraPackages = with pkgs; [
 	    vaapiVdpau
   	  libvdpau
-  	  libvdpau-va-gl 
+  	  libvdpau-va-gl
   	  nvidia-vaapi-driver
   	  vdpauinfo
 	    libva
- 		  libva-utils	
+      libva-utils
     	];
   	};
 
   hardware.nvidia = {
     # Modesetting is required.
     modesetting.enable = true;
-      
+
     # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
     powerManagement.enable = false;
-      
+
     # Fine-grained power management. Turns off GPU when not in use.
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
-      
+
     #dynamicBoost.enable = true; # Dynamic Boost
 
     nvidiaPersistenced = false;
@@ -50,12 +50,11 @@ in
     # Only available from driver 515.43.04+
     # Currently alpha-quality/buggy, so false is currently the recommended setting.
     open = false;
-      
+
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
-      
     nvidiaSettings = true;
-      
+
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.vulkan_beta;
     };

@@ -22,7 +22,7 @@ in
 
   environment.systemPackages = (with pkgs; [
     # Hyprland Stuff
-    ags # desktop overview  
+    ags # desktop overview
     btop
     brightnessctl # for brightness control
     cava
@@ -32,7 +32,7 @@ in
     grim
     gtk-engine-murrine #for gtk themes
     hypridle
-    imagemagick 
+    imagemagick
     inxi
     jq
     kitty
@@ -40,7 +40,7 @@ in
     networkmanagerapplet
     nwg-displays
     nwg-look
-    nvtopPackages.full	 
+    nvtopPackages.full
     pamixer
     pavucontrol
     playerctl

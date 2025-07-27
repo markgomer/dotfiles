@@ -1,5 +1,5 @@
 {
-  description = "KooL's NixOS-Hyprland"; 
+  description = "KooL's NixOS-Hyprland";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11"; # or /nixos-unstable
@@ -7,7 +7,7 @@
     #hyprland.url = "github:hyprwm/Hyprland"; # hyprland development
     #distro-grub-themes.url = "github:AdisonCavani/distro-grub-themes";
     ags.url = "github:aylur/ags/v1"; # aylurs-gtk-shell-v1
- 	};
+  };
 
   outputs = 
     inputs@{ self, nixpkgs, ... }:
@@ -25,13 +25,13 @@
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem rec {
-          specialArgs = { 
+          specialArgs = {
             inherit system;
             inherit inputs;
             inherit username;
             inherit host;
           };
-          modules = [ 
+          modules = [
             ./hosts/${host}
             # inputs.distro-grub-themes.nixosModules.${system}.default
           ];
