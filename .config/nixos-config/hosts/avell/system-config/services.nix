@@ -7,7 +7,7 @@ in {
     xserver = {
       enable = true;
       xkb = {
-        layout = "${keyboardLayout}";
+        layout = "br";
         variant = "";
       };
     };
