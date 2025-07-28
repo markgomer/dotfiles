@@ -9,6 +9,7 @@
     bc
     baobab
     btrfs-progs
+    btop
     clang
     curl
     cpufrequtils
@@ -21,13 +22,13 @@
     killall
     libappindicator
     libnotify
-    openssl #required by Rainbow borders
+    nvtopPackages.full
     pciutils
-    vim
+    neovim
+    xarchiver
     wget
     xdg-user-dirs
     xdg-utils
-
     (mpv.override {scripts = [mpvScripts.mpris];}) # with tray
   ]);
 }

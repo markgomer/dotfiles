@@ -23,7 +23,6 @@ in
   environment.systemPackages = (with pkgs; [
     # Hyprland Stuff
     ags # desktop overview
-    btop
     brightnessctl # for brightness control
     cava
     cliphist
@@ -40,12 +39,12 @@ in
     networkmanagerapplet
     nwg-displays
     nwg-look
-    nvtopPackages.full
     pamixer
     pavucontrol
     playerctl
     polkit_gnome
     libsForQt5.qt5ct
+    openssl #required by Rainbow borders
     kdePackages.qt6ct
     kdePackages.qtwayland
     kdePackages.qtstyleplugin-kvantum #kvantum
@@ -59,7 +58,6 @@ in
     wallust
     wl-clipboard
     wlogout
-    xarchiver
     yad
     yt-dlp
 

@@ -29,13 +29,12 @@ in
       packages = with pkgs; [
         bat
         eza
-        lunarvim
-        ripgrep
+        fd
+        fzf
         lazygit
+        ripgrep
         stow
-        tmux
-        tmux-sessionizer
-        zsh-powerlevel10k
+        zellij
       ];
     };
     defaultUserShell = pkgs.zsh;
@@ -80,13 +79,11 @@ in
 
         btw = "echo i use nixos btw";
         nrs = "sudo nixos-rebuild switch --flake ${nixCfgDir}#avell";
-        nhr = "home-manager switch --flake ${nixCfgDir}#majunior";
-        nfr = "nrs && nhr";
         nlg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
         ngc = "nix-collect-garbage";
         nso = "nix-store --optmise";
         update = "cd ${nixCfgDir} && nix flake update";
-        ecf = "lvim ${nixCfgDir}/flake.nix";
+        ecf = "nvim ${nixCfgDir}/flake.nix";
         sv = "~/.local/scripts/powersave.sh";
         eq = "$HOME/.local/scripts/equilibrado.sh";
         pw = "$HOME/.local/scripts/performance.sh";
