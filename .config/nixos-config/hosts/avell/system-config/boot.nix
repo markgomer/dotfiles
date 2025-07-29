@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # BOOT related stuff
   boot = {
     initrd = { 
       availableKernelModules = [
