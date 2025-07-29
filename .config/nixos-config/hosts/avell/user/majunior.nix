@@ -46,6 +46,7 @@ in
       distrobox
       lsd
       fzf
+      zoxide
     ];
   };
 

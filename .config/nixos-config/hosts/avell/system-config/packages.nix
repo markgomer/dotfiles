@@ -1,13 +1,10 @@
-# 💫 https://github.com/JaKooLit 💫 #
-# Packages and Fonts config including the "programs" options
-
 { pkgs, ...}:
 
 {
   # System Packages
   environment.systemPackages = (with pkgs; [
+    bash-completion
     bc
-    baobab
     btrfs-progs
     btop
     clang
@@ -17,14 +14,18 @@
     fastfetch
     findutils
     ffmpeg
-    glib #for gsettings to work
+    glib # for gsettings to work
     gsettings-qt
     killall
     libappindicator
     libnotify
     nvtopPackages.full
     pciutils
+    man
     neovim
+    tldr
+    unzip
+    undervolt
     xarchiver
     wget
     xdg-user-dirs

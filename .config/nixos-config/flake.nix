@@ -25,12 +25,7 @@
     in {
       nixosConfigurations = {
         "${host}" = nixpkgs.lib.nixosSystem rec {
-          specialArgs = {
-            inherit system;
-            inherit inputs;
-            inherit username;
-            inherit host;
-          };
+          specialArgs = { inherit system inputs username host; };
           modules = [
             ./hosts/${host}
             # inputs.distro-grub-themes.nixosModules.${system}.default

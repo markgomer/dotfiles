@@ -16,19 +16,6 @@ in {
     '';
   };
 
-  # Extra Portal Configuration
-  xdg.portal = {
-    enable = true;
-    wlr.enable = false;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
-    configPackages = [
-      pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal
-    ];
-  };
-
   # zram
   zramSwap = {
     enable = true;
@@ -36,26 +23,6 @@ in {
     memoryPercent = 30;
     swapDevices = 1;
     algorithm = "zstd";
-  };
-
-  #hardware.sane = {
-  #  enable = true;
-  #  extraBackends = [ pkgs.sane-airscan ];
-  #  disabledDefaultBackends = [ "escl" ];
-  #};
-
-  # Bluetooth
-  hardware = {
-  	bluetooth = {
-	    enable = true;
-	    powerOnBoot = true;
-	    settings = {
-		    General = {
-		      Enable = "Source,Sink,Media,Socket";
-		      Experimental = true;
-		    };
-      };
-    };
   };
 
   # OpenGL

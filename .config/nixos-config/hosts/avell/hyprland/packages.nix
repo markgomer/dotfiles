@@ -31,14 +31,18 @@ in
     grim
     gtk-engine-murrine #for gtk themes
     hypridle
+    hyprshot
+    hyprland-qtutils
     imagemagick
     inxi
     jq
     kitty
+    libqalculate
     libsForQt5.qtstyleplugin-kvantum #kvantum
     networkmanagerapplet
     nwg-displays
     nwg-look
+    mako
     pamixer
     pavucontrol
     playerctl
@@ -51,17 +55,16 @@ in
     rofi-wayland
     slurp
     swappy
+    swaybg
     swaynotificationcenter
+    swayosd
     swww
-    unzip
-    undervolt
+    walker
     wallust
     wl-clipboard
     wlogout
-    yad
-    yt-dlp
 
-    #waybar  # if wanted experimental next line
+    waybar  # if wanted experimental next line
     #(pkgs.waybar.overrideAttrs (oldAttrs: { mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];}))
   ]) ++ [
 	  python-packages

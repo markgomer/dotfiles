@@ -1,7 +1,9 @@
 {
   imports = [
     ./boot.nix
+    ./bluetooth.nix
     ./config.nix
+    ./fonts.nix
     ./locale.nix
     ./networking.nix
     ./nix.nix

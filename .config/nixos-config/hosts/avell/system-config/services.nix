@@ -86,7 +86,7 @@ in {
 
     flatpak.enable = true;
 	
-  	blueman.enable = true;
+  	#blueman.enable = true;
 
 	  fwupd.enable = true;
 
