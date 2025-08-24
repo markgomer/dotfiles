@@ -1,10 +1,10 @@
-# Source manjaro-zsh-configuration
-if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
-  source /usr/share/zsh/manjaro-zsh-config
-fi
+source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+source ~/dotfiles/.config/zsh/rc
 
-source ~/.local/share/omakub/defaults/zsh/rc
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-# Editor used by CLI
-export EDITOR="nvim"
-export SUDO_EDITOR="$EDITOR"
+# append completions to fpath
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
