@@ -22,16 +22,6 @@ UserScripts="$HOME/.config/hypr/UserScripts"
 # Function to display the menu options without numbers
 menu() {
   cat <<EOF
-view/edit User Defaults
-view/edit ENV variables
-view/edit Window Rules
-view/edit User Keybinds
-view/edit User Settings
-view/edit Startup Apps
-view/edit Decorations
-view/edit Animations
-view/edit Laptop Keybinds
-view/edit Default Keybinds
 Choose Kitty Terminal Theme
 Configure Monitors (nwg-displays)
 Configure Workspace Rules (nwg-displays)
@@ -53,16 +43,6 @@ main() {
 
   # Map choices to corresponding files
   case "$choice" in
-  "view/edit User Defaults") file="$UserConfigs/01-UserDefaults.conf" ;;
-  "view/edit ENV variables") file="$UserConfigs/envs.conf" ;;
-  "view/edit Window Rules") file="$UserConfigs/WindowRules.conf" ;;
-  "view/edit User Keybinds") file="$UserConfigs/UserKeybinds.conf" ;;
-  "view/edit User Settings") file="$UserConfigs/UserSettings.conf" ;;
-  "view/edit Startup Apps") file="$UserConfigs/Startup_Apps.conf" ;;
-  "view/edit Decorations") file="$UserConfigs/UserDecorations.conf" ;;
-  "view/edit Animations") file="$UserConfigs/UserAnimations.conf" ;;
-  "view/edit Laptop Keybinds") file="$UserConfigs/Laptops.conf" ;;
-  "view/edit Default Keybinds") file="$configs/Keybinds.conf" ;;
   "Choose Kitty Terminal Theme") $scriptsDir/Kitty_themes.sh ;;
   "Configure Monitors (nwg-displays)")
     if ! command -v nwg-displays &>/dev/null; then
@@ -120,4 +100,3 @@ if pidof rofi >/dev/null; then
 fi
 
 main
-
