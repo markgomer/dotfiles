@@ -243,6 +243,7 @@
 		"class<codeblocks>": "󰅩 ",
 		"title<.*github.*>": " ",
 		"class<mousepad>": " ",
+		"class<org.gnome.Evince>": " ",
 		"class<libreoffice-writer>": " ",
 		"class<libreoffice-startcenter>": "󰏆 ",
 		"class<libreoffice-calc>": " ",
@@ -253,7 +254,8 @@
 		"title<.*jira.*>": " ",
 		"class<jetbrains-idea>": " ",
 
-		"class<obs|com.obsproject.Studio>": " ",
+		"class<com.obsproject.Studio>": " ",
+        "class<obsidian>": "",
 
 		"class<polkit-gnome-authentication-agent-1>": "󰒃 ",
 		"class<nwg-look>": " ",
