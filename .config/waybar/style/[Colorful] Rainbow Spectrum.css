@@ -68,8 +68,8 @@ tooltip label{
 #workspaces button:hover {
     background: #eb6f92;
     color: #f6c177;
-    padding-left: 3px;
-    padding-right: 3px;
+    /* padding-left: 3px; */
+    /* padding-right: 3px; */
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
