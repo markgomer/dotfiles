@@ -18,8 +18,9 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   -- The 'pattern' accepts a table (list) to target multiple file extensions
   pattern = { "*.js", "*.jsx", "*.ts", "*.tsx", "*.html" },
   callback = function()
-    vim.opt_local.tabstop = 2
-    vim.opt_local.softtabstop = 2
-    vim.opt_local.shiftwidth = 2
+    local tabstop = 4
+    vim.opt_local.tabstop = tabstop
+    vim.opt_local.softtabstop = tabstop
+    vim.opt_local.shiftwidth = tabstop
   end,
 })
