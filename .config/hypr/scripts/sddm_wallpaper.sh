@@ -5,7 +5,7 @@
 # for the upcoming changes on the simple_sddm_theme
 
 # variables
-terminal=kitty
+terminal=alacritty
 wallDIR="$HOME/Pictures/wallpapers"
 SCRIPTSDIR="$HOME/.config/hypr/scripts"
 wallpaper_current="$HOME/.config/hypr/wallpaper_effects/.wallpaper_current"
@@ -74,3 +74,4 @@ sudo cp \"$wallpaper_path\" \"$sddm_simple/Backgrounds/default\"
 
 notify-send -i \"$iDIR/ja.png\" \"SDDM\" \"Background SET\"
 "
+
