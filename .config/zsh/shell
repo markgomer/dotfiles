@@ -1,14 +1,9 @@
 # History control
-#shopt -s histappend
+HISTFILE=~/.config/zsh/.histfile
 HISTCONTROL=ignoreboth
 HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
-# Autocompletion
-#source /usr/share/bash-completion/bash_completion
-
 # Set complete path
-export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:$PATH"
+export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
-
-export OMAKUB_PATH="/home/$USER/.local/share/omakub"
