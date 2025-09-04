@@ -1,7 +1,7 @@
 config-file = "./init"
 config-file = "./theme"
 config-file = "./font"
-config-file = "./padding"
+config-file = "./window"
 
 
 # This is the configuration file for Ghostty.
