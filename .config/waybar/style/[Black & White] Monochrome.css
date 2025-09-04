@@ -102,6 +102,7 @@ tooltip label{
 
 #workspaces button.persistent {
 	border-radius: 10px;
+    background-color: transparent;
 }
 
 #backlight,
