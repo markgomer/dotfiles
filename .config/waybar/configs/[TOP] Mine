@@ -1,6 +1,3 @@
-/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
-// Sleek
-
 {
   "include": [
     "$HOME/.config/waybar/Modules",
@@ -12,10 +9,10 @@
 
   "layer": "top",
   "position": "top",
-  "height": 14,
+  "height": 26,
   "margin-left": 10,
   "margin-right": 10,
-  "margin-top": 2,
+  "margin-top": 0,
 
   "modules-left": [
     "custom/menu",
@@ -43,5 +40,5 @@
     "pulseaudio",
     "battery",
     "custom/power"
-    ],
+  ],
 }

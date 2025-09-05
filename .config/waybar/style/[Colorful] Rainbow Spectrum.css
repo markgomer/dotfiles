@@ -2,7 +2,7 @@
 /* Rainbow Spectrum */
 
 * {
-font-family: "JetBrainsMono Nerd Font";
+font-family: "FantasqueSans Nerd Font Propo";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -11,13 +11,13 @@ font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
 window#waybar {
-  	background-color: rgba(0,0,0,0);
-  	transition-property: background-color;
-  	transition-duration: .5s;
+    background-color: rgba(0,0,0,0);
+    transition-property: background-color;
+    transition-duration: .5s;
 }
 
 window#waybar.hidden {
-  	opacity: 0.5;
+    opacity: 0.5;
 }
 
 window#waybar.empty,
@@ -42,8 +42,8 @@ tooltip label{
 
 #taskbar button,
 #workspaces button {
-  	background-color: #d9e0ee;
-  	color: #3A3B3C;
+    background-color: #d9e0ee;
+    color: #3A3B3C;
     box-shadow: none;
 	text-shadow: none;
     padding: 0px;
@@ -56,8 +56,8 @@ tooltip label{
 
 #taskbar button.active,
 #workspaces button.active {
-  	background-color: #eba0ac;
-  	color: #3A3B3C;
+    background-color: #eba0ac;
+    color: #3A3B3C;
     padding-left: 8px;
     padding-right: 8px;
     animation: gradient_f 20s ease-in infinite;
@@ -132,8 +132,8 @@ tooltip label{
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
 	border-radius: 16px;
-  	color: #3A3B3C;
-  	border: 1px solid #b4befe;
+    color: #3A3B3C;
+    border: 1px solid #b4befe;
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-right: 6px;
@@ -149,9 +149,9 @@ tooltip label{
 }
 
 @keyframes blink {
-		to {
-			color: #000000;
-		}
+    to {
+        color: #000000;
+    }
 }
 
 #battery.critical:not(.charging) {
@@ -192,10 +192,10 @@ tooltip label{
 	background-color: #b4befe;
 }
 #tray > .passive {
-		-gtk-icon-effect: dim;
+    -gtk-icon-effect: dim;
 }
 #tray > .needs-attention {
-		-gtk-icon-effect: highlight;
+    -gtk-icon-effect: highlight;
 }
 
 #custom-menu {
@@ -203,8 +203,8 @@ tooltip label{
 	/*padding: 1px;*/
 	padding-right: 10px;
 	border-radius: 16px;
-  	color: #3A3B3C;
-  	border: 1px solid #b4befe;
+    color: #3A3B3C;
+    border: 1px solid #b4befe;
 }
 
 #custom-power {
@@ -250,7 +250,7 @@ tooltip label{
 
 #custom-quit,
 #temperature {
-  	background-color: #86b4fa;
+    background-color: #86b4fa;
 }
 
 #temperature.critical {
@@ -261,7 +261,7 @@ tooltip label{
 #custom-light_dark,
 #custom-hypridle,
 #idle_inhibitor {
-  	background-color: #86b4fa;
+    background-color: #86b4fa;
 }
 
 /*-----Indicators----*/
