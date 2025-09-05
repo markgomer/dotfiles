@@ -61,9 +61,9 @@
 	},
 	"format": "{icon}",
 	"format-icons": {
-            "active": "<span font='12'>󰮯</span>",
+            "active": "<span font='12'>󰮯 </span>",
             "empty": "<span font='8'></span>",
-            "default": "󰊠",
+            "default": "󰊠 ",
 	},
 },
 // Kanji / Japanese style
@@ -121,8 +121,8 @@
 	//"format": " {icon} ",
 	"show-special": false,
 	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"on-scroll-up": "hyprctl dispatch workspace e-1",
+	"on-scroll-down": "hyprctl dispatch workspace e+1",
 	"all-outputs": true,
 	"sort-by-number": true,
 	"format-icons": {
@@ -136,8 +136,8 @@
 		"8": " ",
 		"9": "",
 		"10": "10",
-		"focused": "",
-		"default": "",
+		"focused": " ",
+		"default": " ",
 	},
 },
 // numbers styles
@@ -174,8 +174,8 @@
 	"sort-by-number": true,
 	"show-special": false,
 	"on-click": "activate",
-	"on-scroll-up": "hyprctl dispatch workspace e+1",
-	"on-scroll-down": "hyprctl dispatch workspace e-1",
+	"on-scroll-up": "hyprctl dispatch workspace e-1",
+	"on-scroll-down": "hyprctl dispatch workspace e+1",
     "persistent-workspaces": {
       "1": [],
       "2": [],
