@@ -20,7 +20,5 @@ vim.opt.expandtab = true -- Use spaces instead of tabs by default
 vim.opt.hlsearch = false -- highlight search
 vim.opt.incsearch = true -- incremental search
 
-vim.opt.termguicolors = true
-
 vim.opt.colorcolumn = "80" -- the limit black bar
 vim.opt.wrap = true
