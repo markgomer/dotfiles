@@ -1,5 +1,0 @@
-source ~/dotfiles/.config/zsh/shell
-source ~/dotfiles/.config/zsh/aliases
-source ~/dotfiles/.config/zsh/functions
-source ~/dotfiles/.config/zsh/prompt
-source ~/dotfiles/.config/zsh/init
