@@ -22,3 +22,7 @@ vim.opt.incsearch = true -- incremental search
 
 vim.opt.colorcolumn = "80" -- the limit black bar
 vim.opt.wrap = true
+
+vim.g.snacks_animate = false
+
+vim.opt.smoothscroll = false
