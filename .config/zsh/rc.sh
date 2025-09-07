@@ -1,5 +1,5 @@
-source ~/dotfiles/.config/zsh/shell.sh
-source ~/dotfiles/.config/zsh/aliases.sh
-source ~/dotfiles/.config/zsh/functions.sh
-source ~/dotfiles/.config/zsh/prompt.sh
-source ~/dotfiles/.config/zsh/init.sh
+source ~/.config/zsh/shell.sh
+source ~/.config/zsh/aliases.sh
+source ~/.config/zsh/functions.sh
+source ~/.config/zsh/prompt.sh
+source ~/.config/zsh/init.sh

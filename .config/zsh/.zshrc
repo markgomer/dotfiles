@@ -1,5 +1,5 @@
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-source ~/dotfiles/.config/zsh/rc.sh
+source ~/.config/zsh/rc.sh
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
