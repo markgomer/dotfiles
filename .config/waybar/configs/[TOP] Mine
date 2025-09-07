@@ -1,10 +1,10 @@
 {
   "include": [
-    "$HOME/.config/waybar/Modules.jsonc",
-    "$HOME/.config/waybar/ModulesWorkspaces.jsonc",
-    "$HOME/.config/waybar/ModulesCustom.jsonc",
-    "$HOME/.config/waybar/ModulesGroups.jsonc",
-    "$HOME/.config/waybar/UserModules.jsonc",
+    "$HOME/.config/waybar/modules/Modules.jsonc",
+    "$HOME/.config/waybar/modules/ModulesWorkspaces.jsonc",
+    "$HOME/.config/waybar/modules/ModulesCustom.jsonc",
+    "$HOME/.config/waybar/modules/ModulesGroups.jsonc",
+    "$HOME/.config/waybar/modules/UserModules.jsonc",
   ],
 
   "layer": "top",
