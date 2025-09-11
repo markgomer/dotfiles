@@ -3,7 +3,7 @@
 /*  As stated on title, best style for vertical layout waybar config */
 
 * {
-	font-family: "JetBrainsMono Nerd Font";
+	font-family: "FantasqueSans Nerd Font Propo";
 	font-weight: bold;
 	min-height: 0;
 	/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -35,10 +35,10 @@ tooltip label {
 #workspaces button {
   color: @surface2;
   background-color: transparent;
-  	padding-top: 4px;
-	padding-bottom: 4px;
-	padding-right: 6px;
-	padding-left: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 6px;
+  padding-left: 4px;
 }
 
 #taskbar button.active,
@@ -140,8 +140,7 @@ tooltip label {
 
 #battery {
   color: #a6e3a1;
-  padding-left: 15px;
-  border-radius: 15px 0 0 15px;
+  padding-right: 10px;
 }
 
 @keyframes blink {

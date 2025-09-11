@@ -11,7 +11,6 @@
 	font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
-@import "../waybar/style/catppuccin-themes/mocha.css";
 @import "./wallust/colors-waybar.css";
 
 window#waybar {
@@ -20,21 +19,21 @@ window#waybar {
 }
 
 tooltip {
-  background: @base;
+  background: @background;
   opacity: 1;
   border-radius: 10px;
   border-width: 2px;
   border-style: solid;
-  border-color: @sapphire;
+  border-color: @color15;
 }
 
 tooltip label {
-  color: @blue;
+  color: @color15;
 }
 
 #taskbar button,
 #workspaces button {
-  color: @color4;
+  color: @color11;
   background-color: transparent;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -131,7 +130,7 @@ tooltip label {
 }
 
 #idle_inhibitor {
-  color: @color10;
+  color: @color8;
 }
 
 #mpris {
