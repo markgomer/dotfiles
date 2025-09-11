@@ -1,1 +1,1 @@
-/home/majunior/.config/omarchy/current/theme/neovim.lua
+/home/majunior/.local/share/omarchy/themes/nord/neovim.lua
