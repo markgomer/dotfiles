@@ -1,15 +1,15 @@
 {
   "include": [
-    "$HOME/.config/waybar/modules/Modules.jsonc",
-    "$HOME/.config/waybar/modules/ModulesWorkspaces.jsonc",
-    "$HOME/.config/waybar/modules/ModulesCustom.jsonc",
-    "$HOME/.config/waybar/modules/ModulesGroups.jsonc",
-    "$HOME/.config/waybar/modules/UserModules.jsonc",
+    "$HOME/.config/waybar/modules/common.jsonc",
+    "$HOME/.config/waybar/modules/workspaces.jsonc",
+    "$HOME/.config/waybar/modules/custom.jsonc",
+    "$HOME/.config/waybar/modules/groups.jsonc",
+    "$HOME/.config/waybar/modules/user.jsonc",
   ],
 
   "layer": "top",
   "position": "top",
-  "height": 26,
+  "height": 22,
   "margin-left": 10,
   "margin-right": 10,
   "margin-top": 0,
@@ -37,6 +37,7 @@
     "custom/separator#blank_2",
     "group/mobo_drawer",
     "custom/separator#blank",
+    "keyboard-state",
     "pulseaudio",
     "battery",
     "custom/power"

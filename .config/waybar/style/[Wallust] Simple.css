@@ -2,7 +2,7 @@
 /* Wallust - Simple */
 
 *{
-font-family: "JetBrainsMono Nerd Font";
+font-family: "FantasqueSans Nerd Font Propo";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
@@ -10,7 +10,7 @@ font-size: 97%;
 font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
 }
 
-@import '../../.config/waybar/wallust/colors-waybar.css';
+@import './wallust/colors-waybar.css';
 
 #waybar.empty, #waybar.tiled, #waybar.floating {
 	background-color: transparent;
@@ -26,7 +26,7 @@ window#waybar.empty #window {
 
 tooltip {
 	color: @color13;
-	background: @color10;
+	background: @color8;
 	opacity: 1.0;
 	border-radius: 10px;
 }
@@ -35,7 +35,7 @@ tooltip {
 .modules-left,
 .modules-center,
 .modules-right {
-	background-color: @color0;
+	background-color: @color8;
 	border: 0.5px solid @color15;
 	border-radius: 10px;
 	padding-top: 2px;
@@ -47,7 +47,7 @@ tooltip {
 
 #taskbar button,
 #workspaces button {
-    color: @color2;
+    color: @color4;
     box-shadow: none;
 	text-shadow: none;
     padding: 0px;
@@ -61,9 +61,7 @@ tooltip {
 #taskbar button.active,
 #workspaces button.active {
     color: @foreground;
-    background-color: @color2;
-    padding-left: 8px;
-    padding-right: 8px;
+    background-color: @color7;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -79,9 +77,8 @@ tooltip {
 
 #taskbar button:hover,
 #workspaces button:hover {
-    color: @color4;
-    padding-left: 2px;
-    padding-right: 2px;
+    color: @color1;
+    background-color: @color8;
     animation: gradient_f 20s ease-in infinite;
     transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -143,7 +140,7 @@ tooltip {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
-	color: @color12;
+	color: @color5;
 	padding-top: 4px;
 	padding-bottom: 4px;
 	padding-right: 6px;
