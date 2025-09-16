@@ -4,7 +4,7 @@
 
 iDIR="$HOME/.config/swaync/icons"
 notification_timeout=1000
-step=10  # INCREASE/DECREASE BY THIS VALUE
+step=5  # INCREASE/DECREASE BY THIS VALUE
 
 # Get current brightness as an integer (without %)
 get_brightness() {
@@ -30,7 +30,7 @@ send_notification() {
         -h string:x-canonical-private-synchronous:brightness_notif \
         -h int:value:"$brightness" \
         -u low \
-        -i "$icon_path" \
+        -i \ #"$icon_path" \
         "Screen" "Brightness: ${brightness}%"
 }
 
