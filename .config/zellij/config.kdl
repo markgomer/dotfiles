@@ -8,16 +8,16 @@ keybinds clear-defaults=true {
         bind "Ctrl z" { SwitchToMode "normal"; }
     }
     normal {
-      bind "f" {
-        LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
-          floating true
-          move_to_focused_tab true
-          cwd "/"
-          root_dirs "/home/majunior;/home/majunior/Projects;/home/majunior/Documentos"
-          session_layout "compact"
-        };
-        SwitchToMode "Locked";
-      }
+        bind "f" {
+            LaunchOrFocusPlugin "file:~/.config/zellij/plugins/zellij-sessionizer.wasm" {
+                floating true
+                move_to_focused_tab true
+                cwd "/"
+                root_dirs "/home/majunior;/home/majunior/Projects;/home/majunior/Documentos"
+                session_layout "compact"
+            };
+            SwitchToMode "Locked";
+        }
     }
     pane {
         bind "left" { MoveFocus "left"; }
