@@ -1,5 +1,5 @@
 config-file = "./init"
-config-file = "./theme"
+# config-file = "./theme"
 config-file = "./font"
 config-file = "./window"
 
