@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 sudo sh -c 'echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo; \
 echo 1 > /sys/devices/system/cpu/cpu4/online; \
 echo 1 > /sys/devices/system/cpu/cpu5/online; \
