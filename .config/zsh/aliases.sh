@@ -1,7 +1,8 @@
 alias lzg='lazygit'
 alias lzd='lazydocker'
 
-alias edf='nvim ~/dotfiles'
+alias edf='nvim ~/dotfiles' # Edit dotfiles
+alias eom='nvim ~/.local/share/omarchy' # Edit Omarchy
 alias ujust='just -g'
 
 alias sv="$HOME/dotfiles/.local/bin/powersave.sh"
