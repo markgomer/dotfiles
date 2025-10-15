@@ -41,6 +41,18 @@ function pokefetch() {
     fi
 }
 
+
+# Starts a zellij session with a random pokemon name
+function pokezellij() {
+    # Pick a random Pokémon name from the list provided by pokemon-colorscripts.
+    POKEMON_NAME=$(pokemon-colorscripts -l | shuf -n 1)
+    # Export the name as an environment variable.
+    export ZELLIJ_POKEMON_NAME="$POKEMON_NAME"
+    # Use 'exec' to start Zellij with the session named after the Pokémon.
+    exec zellij --session "$POKEMON_NAME"
+}
+
+
 precmd() {
     echo -n -e "\033]0;$(pwd)\007"
 }
