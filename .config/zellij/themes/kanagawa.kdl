@@ -2,7 +2,7 @@ themes {
     kanagawa {
         text_unselected {
             base 220 215 186
-            background 22 22 29
+            // background 22 22 29
             emphasis_0 255 160 102
             emphasis_1 127 180 202
             emphasis_2 118 148 106
