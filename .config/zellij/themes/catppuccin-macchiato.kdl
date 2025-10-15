@@ -2,7 +2,7 @@ themes {
     catppuccin-macchiato {
         text_unselected {
             base 202 211 245
-            background 30 32 48
+            // background 30 32 48
             emphasis_0 245 169 127
             emphasis_1 145 215 227
             emphasis_2 166 218 149
