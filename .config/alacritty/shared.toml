@@ -5,8 +5,8 @@ TERM = "xterm-256color"
 program = "/home/majunior/dotfiles/.local/bin/poke-zellij.sh"
 
 [window]
-padding.x = 7
-padding.y = 5
+padding.x = 14
+padding.y = 14
 decorations = "None"
 opacity = 0.98
 

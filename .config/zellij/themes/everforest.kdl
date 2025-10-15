@@ -2,7 +2,7 @@ themes {
   everforest-dark {
         text_unselected {
             base 211 198 170
-            background 75 86 92
+            // background 75 86 92
             emphasis_0 255 158 100
             emphasis_1 131 192 146
             emphasis_2 167 192 128

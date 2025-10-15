@@ -1,6 +1,5 @@
 [general]
 import = [
-  # "~/.config/alacritty/theme.toml",
   "~/.config/omarchy/current/theme/alacritty.toml",
   "~/.config/alacritty/font.toml",
   "~/.config/alacritty/shared.toml"
