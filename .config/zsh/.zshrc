@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 source /usr/share/cachyos-zsh-config/cachyos-config.zsh
-source ~/.config/zsh/rc.sh
+source /home/majunior/.config/zsh/rc.sh
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
