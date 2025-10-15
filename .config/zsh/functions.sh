@@ -11,27 +11,32 @@ function y() {
     rm -f -- "$tmp"
 }
 
+# Starts fastfetch with a pokemon with the same name as the zellij session
 function pokefetch() {
-    # get the zellij session name
+    # Get the zellij session name and update the exported variable.
+    # The variable must be set again like this in case we change the zellij
+    # session to another pokemon name.
     export ZELLIJ_POKEMON_NAME=$(zellij list-sessions | \grep '(current)' | sed -r "s/\x1b\[[0-9;]*m//g" | awk '{print $1}')
 
+    # check if fastfetch is installed
     if command -v fastfetch &>/dev/null; then
+        # Check if the variable is set
         if [ -n "$ZELLIJ_POKEMON_NAME" ]; then
             pokemon-colorscripts \
                 --no-title -n "$ZELLIJ_POKEMON_NAME" |
-            fastfetch \
-                --logo-type file-raw \
-                --logo-height 10 \
-                --logo-width 5 \
-                --logo -
+                fastfetch \
+                    --logo-type file-raw \
+                    --logo-height 10 \
+                    --logo-width 5 \
+                    --logo -
         else
             # show a random pokemon instead
             pokemon-colorscripts --no-title -r |
-            fastfetch \
-                --logo-type file-raw \
-                --logo-height 10 \
-                --logo-width 5 \
-                --logo -
+                fastfetch \
+                    --logo-type file-raw \
+                    --logo-height 10 \
+                    --logo-width 5 \
+                    --logo -
         fi
     fi
 }
