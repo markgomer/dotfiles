@@ -1,2 +1,9 @@
 linutil:
     curl -fsSL https://christitus.com/linux | sh
+
+# Make a WebP from a PNG: just make-webp input.png output.webp
+make-webp INPUT OUTPUT:
+    @if [ -z "{{INPUT}}" ] || [ -z "{{OUTPUT}}" ]; then \
+        echo "Usage: just make-webp <input.png> <output.webp>"; exit 1; \
+    fi
+    ffmpeg -y -i "{{INPUT}}" -vcodec libwebp -lossless 1 -qscale 75 -preset default "{{OUTPUT}}"
