@@ -5,7 +5,7 @@
 #     source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
-# source /usr/share/cachyos-zsh-config/cachyos-config.zsh
+source /home/majunior/.config/zsh/cachyos-config.zsh
 source /home/majunior/.config/zsh/shell.sh
 source /home/majunior/.config/zsh/aliases.sh
 source /home/majunior/.config/zsh/functions.sh
