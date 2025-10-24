@@ -1,8 +1,8 @@
-source /home/majunior/.config/zsh/shell.sh
-source /home/majunior/.config/zsh/aliases.sh
-source /home/majunior/.config/zsh/functions.sh
-source /home/majunior/.config/zsh/prompt.sh
-source /home/majunior/.config/zsh/init.sh
+source $HOME/.config/zsh/shell.zsh
+source $HOME/.config/zsh/aliases.sh
+source $HOME/.config/zsh/functions.sh
+source $HOME/.config/zsh/prompt.sh
+source $HOME/.config/zsh/init.sh
 
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
