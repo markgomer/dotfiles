@@ -7,7 +7,7 @@ REPO_URL="https://github.com/markgomer/dotfiles.git"
 DOTFILES_DIR="$HOME/dotfiles"
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 OH_MY_ZSH_DIR="$HOME/.local/share/ohmyzsh"
-ZSH_PLUGINS_DIR="/usr/share/zsh/plugins"
+ZSH_PLUGINS_DIR="/usr/share/zsh/packages"
 
 # Clone or update the dotfiles repository
 clone_dotfiles() {
@@ -60,33 +60,6 @@ link_zsh_config() {
     return 0
 }
 
-# Install zsh using the appropriate package manager
-install_zsh() {
-    echo "→ Checking for zsh..."
-
-    if command -v zsh &> /dev/null; then
-        echo "  ✓ zsh already installed"
-        return 0
-    fi
-
-    echo "  ⚠ zsh not found. Installing..."
-
-    if command -v apt &> /dev/null; then
-        sudo apt update && sudo apt install -y zsh
-    elif command -v dnf &> /dev/null; then
-        sudo dnf install -y zsh
-    elif command -v pacman &> /dev/null; then
-        sudo pacman -S --noconfirm zsh
-    elif command -v brew &> /dev/null; then
-        brew install zsh
-    else
-        echo "  ✗ Could not detect package manager. Please install zsh manually."
-        return 1
-    fi
-
-    echo "  ✓ zsh installed"
-    return 0
-}
 
 # Install oh-my-zsh to custom location
 install_oh_my_zsh() {
@@ -111,19 +84,21 @@ install_oh_my_zsh() {
     return 0
 }
 
-# Install zsh plugins
-install_zsh_plugins() {
-    echo "→ Installing zsh plugins..."
+# Install zsh packages
+install_packages() {
+    echo "→ Installing packages..."
 
-    local plugins=(
+    local packages=(
+        "zsh"
         "zsh-syntax-highlighting"
         "zsh-autosuggestions"
         "zsh-history-substring-search"
+        "fzf"
     )
 
     # check if they are installed in each package manager
     if command -v apt &> /dev/null; then
-        for plugin in "${plugins[@]}"; do
+        for plugin in "${packages[@]}"; do
             if dpkg -l | grep -q "$plugin"; then
                 echo "  ✓ $plugin already installed"
             else
@@ -132,7 +107,7 @@ install_zsh_plugins() {
             fi
         done
     elif command -v dnf &> /dev/null; then
-        for plugin in "${plugins[@]}"; do
+        for plugin in "${packages[@]}"; do
             if rpm -q "$plugin" &> /dev/null; then
                 echo "  ✓ $plugin already installed"
             else
@@ -141,7 +116,7 @@ install_zsh_plugins() {
             fi
         done
     elif command -v pacman &> /dev/null; then
-        for plugin in "${plugins[@]}"; do
+        for plugin in "${packages[@]}"; do
             if pacman -Q "$plugin" &> /dev/null; then
                 echo "  ✓ $plugin already installed"
             else
@@ -150,7 +125,7 @@ install_zsh_plugins() {
             fi
         done
     elif command -v brew &> /dev/null; then
-        for plugin in "${plugins[@]}"; do
+        for plugin in "${packages[@]}"; do
             if brew list "$plugin" &> /dev/null; then
                 echo "  ✓ $plugin already installed"
             else
@@ -160,14 +135,14 @@ install_zsh_plugins() {
         done
     else
         echo "  ⚠ Could not detect package manager"
-        echo "  → Please install these plugins manually:"
-        for plugin in "${plugins[@]}"; do
+        echo "  → Please install these packages manually:"
+        for plugin in "${packages[@]}"; do
             echo "     - $plugin"
         done
         return 1
     fi
 
-    echo "  ✓ All plugins installed"
+    echo "  ✓ All packages installed"
     return 0
 }
 
@@ -257,13 +232,10 @@ main() {
     configure_zdotdir
     echo
 
-    install_zsh
+    install_packages
     echo
 
     install_oh_my_zsh
-    echo
-
-    install_zsh_plugins
     echo
 
     install_starship
