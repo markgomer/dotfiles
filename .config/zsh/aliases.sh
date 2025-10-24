@@ -1,7 +1,7 @@
 alias lzg='lazygit'
 alias lzd='lazydocker'
 
-alias edf='nvim ~/dotfiles' # Edit dotfiles
+alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
 alias eom='nvim ~/.local/share/omarchy' # Edit Omarchy
 alias ujust='just -g'
 
