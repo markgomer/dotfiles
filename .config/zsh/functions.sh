@@ -18,14 +18,14 @@ function pokefetch() {
     if ! command -v fastfetch &>/dev/null; then
         return
     fi
-    
+
     # check if zellij is installed
     if command -v zellij &>/dev/null; then
         # Get the zellij session name and update the exported variable.
         # The variable must be set again like this in case we change the zellij
         # session to another pokemon name.
         export ZELLIJ_POKEMON_NAME=$(zellij list-sessions | \grep '(current)' | sed -r "s/\x1b\[[0-9;]*m//g" | awk '{print $1}')
-        
+
         # Check if the variable is set (i.e., we're inside a zellij session)
         if [ -n "$ZELLIJ_POKEMON_NAME" ]; then
             pokemon-colorscripts \
@@ -38,7 +38,7 @@ function pokefetch() {
             return
         fi
     fi
-    
+
     # If zellij is not installed or we're not in a session, show a random pokemon
     pokemon-colorscripts --no-title -r |
         fastfetch \
@@ -56,7 +56,7 @@ function pokezellij() {
     # Export the name as an environment variable.
     export ZELLIJ_POKEMON_NAME="$POKEMON_NAME"
     # Use 'exec' to start Zellij with the session named after the Pokémon.
-    exec zellij --session "$POKEMON_NAME"
+    zellij --session "$POKEMON_NAME"
 }
 
 
