@@ -1,9 +1,7 @@
 alias lzg='lazygit'
-alias lzd='lazydocker'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
-alias eom='nvim ~/.local/share/omarchy' # Edit Omarchy
-alias ujust='just -g'
+alias ijust='just -g'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -16,6 +14,13 @@ alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-# Hotkeys
+# Zellij Hotkeys
 bindkey -s ^f "zellij-picker $HOME/Projects/ \n"
 bindkey -s ^n "pokezellij \n"
+
+# Tmux hotkeys
+bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s '\eh' "tmux-sessionizer -s 0\n"
+bindkey -s '\ej' "tmux-sessionizer -s 1\n"
+bindkey -s '\ek' "tmux-sessionizer -s 2\n"
+bindkey -s '\el' "tmux-sessionizer -s 3\n"
