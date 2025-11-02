@@ -14,11 +14,8 @@ alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 # Recent installed packages
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-# Zellij Hotkeys
-bindkey -s ^f "zellij-picker $HOME/Projects/ \n"
-bindkey -s ^n "pokezellij \n"
-
 # Tmux hotkeys
+bindkey -s ^n "pokemux\n"
 bindkey -s ^f "tmux-sessionizer\n"
 bindkey -s '\eh' "tmux-sessionizer -s 0\n"
 bindkey -s '\ej' "tmux-sessionizer -s 1\n"

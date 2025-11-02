@@ -55,9 +55,61 @@ function pokezellij() {
     POKEMON_NAME=$(pokemon-colorscripts -l | shuf -n 1)
     # Export the name as an environment variable.
     export ZELLIJ_POKEMON_NAME="$POKEMON_NAME"
-    # Use 'exec' to start Zellij with the session named after the Pokémon.
+    # start Zellij with the session named after the Pokémon.
     zellij --session "$POKEMON_NAME"
 }
+
+
+function
+pokemux()
+{
+    export tmuxmon=$(pokemon-colorscripts -r | head -1)
+    tmux new -s "$tmuxmon"
+}
+
+# Starts fastfetch with a pokemon with the same name as the zellij session
+function pokefetch2() {
+    # check if fastfetch is installed
+    if ! command -v fastfetch &>/dev/null; then
+        return
+    fi
+
+    # check if tmux is installed
+    if command -v tmux &>/dev/null; then
+        # Get the tmux session name and update the exported variable.
+        # The variable must be set again like this in case we change the tmux
+        # session to another pokemon name.
+        export tmuxmon=$(tmux display-message -p '#S')
+
+        if tmux ls >/dev/null 2>&1; then
+            export tmuxmon=$(tmux display-message -p '#S')
+        else
+            # Optionally do something else or just do nothing
+            :  # This is a no-op (does nothing)
+        fi
+
+        # Check if the variable is set (i.e., we're inside a tmux session)
+        if [ -n "$tmuxmon" ]; then
+            pokemon-colorscripts \
+                --no-title -n "$tmuxmon" |
+                fastfetch \
+                    --logo-type file-raw \
+                    --logo-height 10 \
+                    --logo-width 5 \
+                    --logo -
+            return
+        fi
+    fi
+
+    # If zellij is not installed or we're not in a session, show a random pokemon
+    pokemon-colorscripts --no-title -r |
+        fastfetch \
+            --logo-type file-raw \
+            --logo-height 10 \
+            --logo-width 5 \
+            --logo -
+}
+
 
 
 precmd() {
