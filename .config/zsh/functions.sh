@@ -11,6 +11,9 @@ function y() {
     rm -f -- "$tmp"
 }
 
+function filesize() {
+    du -sk * | sort -h
+}
 
 # Starts fastfetch with a pokemon with the same name as the zellij session
 function pokefetch() {
