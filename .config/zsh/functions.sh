@@ -62,9 +62,8 @@ function pokezellij() {
     zellij --session "$POKEMON_NAME"
 }
 
-
-function
-pokemux()
+# Starts a tmux session named after a pokemon
+function pokemux()
 {
     export tmuxmon=$(pokemon-colorscripts -r | head -1)
     tmux new -s "$tmuxmon"
