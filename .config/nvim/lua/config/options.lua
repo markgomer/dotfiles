@@ -8,7 +8,7 @@ vim.opt.updatetime = 50
 vim.opt.nu = true -- show line numbers
 vim.opt.relativenumber = true
 
--- vim.opt.clipboard = "unnamed,unnamedplus"
+vim.opt.clipboard = "unnamed,unnamedplus"
 
 -- Tabulation
 local tabstop = 4
