@@ -4,7 +4,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "kanagawa",
     },
   },
   {
@@ -20,6 +20,11 @@ return {
   },
   {
     "sainnhe/everforest",
+    lazy = true,
+    priority = 1000,
+  },
+  {
+    "bjarneo/ethereal.nvim",
     lazy = true,
     priority = 1000,
   },
@@ -62,7 +67,14 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = true,
-    priority = 1000,
+    -- priority = 1000,
+    opts = {
+      transparent = true,
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+        },
+    },
   },
   {
     "navarasu/onedark.nvim",
