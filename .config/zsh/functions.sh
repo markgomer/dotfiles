@@ -2,6 +2,7 @@
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
 
+
 # change the current working directory when exiting Yazi
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -11,12 +12,59 @@ function y() {
     rm -f -- "$tmp"
 }
 
-function filesize() {
+
+function filesize()
+{
     du -sk * | sort -h
 }
 
+
+# Starts a tmux session named after a pokemon
+function pokemux()
+{
+    export tmuxmon=$(pokemon-colorscripts -r | head -1)
+    tmux new -s "$tmuxmon"
+}
+
+
 # Starts fastfetch with a pokemon with the same name as the zellij session
-function pokefetch() {
+function pokefetch()
+{
+    # check if fastfetch is installed
+    if ! command -v fastfetch &>/dev/null; then
+        return
+    fi
+
+    # check if tmux is installed
+    if tmux ls >/dev/null 2>&1; then
+        # Get the tmux session name and update the exported variable.
+        # The variable must be set again like this in case we change the tmux
+        # session to another pokemon name.
+        export tmuxmon=$(tmux display-message -p '#S')
+
+        if [ -n "$tmuxmon" ]; then
+            pokemon-colorscripts \
+                --no-title -n "$tmuxmon" |
+                fastfetch \
+                --logo-type file-raw \
+                --logo-height 10 \
+                --logo-width 5 \
+                --logo -
+            return
+        fi
+    fi
+    # If tmux is not installed or we're not in a session, show a random pokemon
+    pokemon-colorscripts --no-title -r |
+        fastfetch \
+            --logo-type file-raw \
+            --logo-height 10 \
+            --logo-width 5 \
+            --logo -
+}
+
+# Starts fastfetch with a pokemon with the same name as the zellij session
+function pokefetch2()
+{
     # check if fastfetch is installed
     if ! command -v fastfetch &>/dev/null; then
         return
@@ -62,47 +110,6 @@ function pokezellij() {
     zellij --session "$POKEMON_NAME"
 }
 
-# Starts a tmux session named after a pokemon
-function pokemux()
-{
-    export tmuxmon=$(pokemon-colorscripts -r | head -1)
-    tmux new -s "$tmuxmon"
-}
-
-# Starts fastfetch with a pokemon with the same name as the zellij session
-function pokefetch2() {
-    # check if fastfetch is installed
-    if ! command -v fastfetch &>/dev/null; then
-        return
-    fi
-
-    # check if tmux is installed
-    if tmux ls >/dev/null 2>&1; then
-        # Get the tmux session name and update the exported variable.
-        # The variable must be set again like this in case we change the tmux
-        # session to another pokemon name.
-        export tmuxmon=$(tmux display-message -p '#S')
-        pokemon-colorscripts \
-            --no-title -n "$tmuxmon" |
-            fastfetch \
-            --logo-type file-raw \
-            --logo-height 10 \
-            --logo-width 5 \
-            --logo -
-    else
-        # If zellij is not installed or we're not in a session, show a random pokemon
-        export tmuxmon=$(pokemon-colorscripts -r | head -1)
-        pokemon-colorscripts \
-            --no-title -n "$tmuxmon" |
-            fastfetch \
-            --logo-type file-raw \
-            --logo-height 10 \
-            --logo-width 5 \
-            --logo -
-    fi
-}
-
-
 
 precmd() {
     echo -n -e "\033]0;$(pwd)\007"
@@ -113,6 +120,10 @@ webm2mp4() {
     input_file="$1"
     output_file="${input_file%.webm}.mp4"
     ffmpeg -i "$input_file" -c:v libx264 -preset slow -crf 22 -c:a aac -b:a 192k "$output_file"
+}
+
+png2webp() {
+    ffmpeg -i "$@"
 }
 
 # Write iso file to sd card
