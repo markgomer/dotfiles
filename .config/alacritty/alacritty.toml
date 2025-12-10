@@ -17,8 +17,8 @@ padding.x = 0
 padding.y = 0
 
 [window.dimensions]
-columns = 90
-lines = 30
+columns = 88
+lines = 26
 
 [window.class]
 instance = "Alacritty"
@@ -33,7 +33,7 @@ multiplier = 3
 normal = { family = "terminal-font", style = "Regular" }
 bold = { family = "terminal-font", style = "Bold" }
 italic = { family = "terminal-font", style = "Italic" }
-size = 10
+size = 11
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
