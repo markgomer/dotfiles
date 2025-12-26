@@ -1,4 +1,7 @@
 # yazi.toml
+[general]
+import = [ "~/.config/yazi/keymap.toml" ]
+
 [mgr]
 show_hidden = true
 ratio = [1, 4, 3]

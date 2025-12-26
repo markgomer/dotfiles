@@ -1,0 +1,14 @@
+[[mgr.prepend_keymap]]
+on   = [ "c", "l", "s" ]
+run  = "plugin makelink save"
+desc = "Link: Save source path"
+
+[[mgr.prepend_keymap]]
+on   = ["c", "l", "l" ]
+run  = "plugin makelink soft"
+desc = "Link: Create soft link"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "l", "h" ]
+run  = "plugin makelink hard"
+desc = "Link: Create hard link"
