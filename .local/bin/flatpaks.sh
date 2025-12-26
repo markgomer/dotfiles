@@ -1,4 +1,4 @@
-flatpak install app.zen_browser.zen \
+flatpak install \
     com.github.tchx84.Flatseal \
     org.gnome.baobab \
     io.github.flattool.Warehouse \

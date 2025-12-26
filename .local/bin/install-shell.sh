@@ -4,7 +4,7 @@ set -e
 
 # Configuration
 REPO_URL="https://github.com/markgomer/dotfiles.git"
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="/home/majunior/dotfiles"
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 OH_MY_ZSH_DIR="$HOME/.local/share/ohmyzsh"
 ZSH_PLUGINS_DIR="/usr/share/zsh/packages"

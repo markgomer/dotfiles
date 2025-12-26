@@ -2,6 +2,7 @@ alias lzg='lazygit'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
 alias ijust='just -g'
+alias box='distrobox enter archbox'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
