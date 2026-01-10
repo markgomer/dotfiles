@@ -20,3 +20,10 @@
 |------"--------------------------------------"-------|
 `-----------------------------------------------------'
 ```
+
+
+NOTE: input-remapper macro for caps lock:
+
+`if_single(key(Escape), hold(Control_L))`
+
+> caps as ctrl on hold, as esc on tap.
