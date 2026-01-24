@@ -92,7 +92,7 @@ install_packages() {
         "zsh"
         "zsh-syntax-highlighting"
         "zsh-autosuggestions"
-        "zsh-history-substring-search"
+        # "zsh-history-substring-search"
         "fzf"
     )
 
