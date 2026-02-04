@@ -50,22 +50,14 @@
         };
     };
 
-    # BTRFS Optimizations & Bees Deduplication
-    fileSystems."/" = {
-        device = "/dev/disk/by-label/nixos"; # Match your actual label
-        fsType = "btrfs";
-        options = [ "subvol=@" "compress=zstd" "noatime" "discard=async" ];
-    };
-
-    services.beesd.instances.root = {
-        spec = "/"; # Deduplicate the root partition
-        hashTableSizeMB = 1024; # Adjust based on RAM (approx 1GB per 1TB of storage)
-    };
+    # services.beesd.instances.root = {
+    #     spec = "/"; # Deduplicate the root partition
+    # };
 
     # --- 3. DESKTOP & GAMING ---
-    services.xserver.enable = true;
-    services.xserver.displayManager.gdm.enable = true;
-    services.xserver.desktopManager.gnome.enable = true;
+    # services.xserver.enable = true;
+    services.displayManager.gdm.enable = true;
+    services.desktopManager.gnome.enable = true;
 
     # Gaming & Binaries
     programs.steam = {
@@ -155,19 +147,10 @@
         analogioOffset = -127;
         uncoreOffset = -127;
     };
-    services.udev = {
-        enable = true;
-        # Thing for NS-USBLoader
-        packages = [
-            (pkgs.writeTextFile {
-                name = "wally_udev";
-                text = ''
-                    SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666";
-                '';
-                destination = "/etc/udev/rules.d/99-NS.rules";
-            })
-        ];
-    };
+    # Thing for NS-USBLoader
+    services.udev.extraRules = ''
+        SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"
+    '';
     services.keyd = {
         enable = true;
         keyboards = {
