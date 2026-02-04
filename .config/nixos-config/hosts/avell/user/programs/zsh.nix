@@ -32,7 +32,7 @@ in
         btw = "echo i use nixos btw";
         nrs = "sudo nixos-rebuild switch --flake ${nixCfgDir}#avell";
         nlg = "sudo nix-env --list-generations --profile /nix/var/nix/profiles/system";
-        ngc = "nix-collect-garbage";
+        ncg = "nix-collect-garbage";
         nso = "nix-store --optmise";
         update = "cd ${nixCfgDir} && nix flake update";
         ecf = "nvim ${nixCfgDir}/flake.nix";
