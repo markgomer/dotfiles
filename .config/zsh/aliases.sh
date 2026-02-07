@@ -4,16 +4,16 @@ alias lzg='lazygit'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
 alias ijust='just -g'
-alias box='distrobox enter archbox'
+alias box='distrobox enter box'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
+# NixOS aliases
 alias nrs="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell";
-alias update="cd $ConfigDir && nix flake update && sudo nixos-rebuild switch --impure --flake $ConfigDir#avell";
-alias nix-gc="sudo nix-collect-garbage -d && nix-store --optimize";
-alias bees-status="sudo journalctl -u beesd@root.service -f";
-alias ecf="nvim $ConfigDir";
+alias update="cd $ConfigDir && nix flake update && nrs";
+alias ncg="sudo nix-collect-garbage -d && nix-store --optimize";
+alias ecf="nvim $ConfigDir"; # edit config file
 
 # Cleanup orphaned packages
 # alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"

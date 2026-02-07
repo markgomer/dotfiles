@@ -1,4 +1,4 @@
-source $HOME/.config/zsh/shell.zsh
+# source $HOME/.config/zsh/shell.zsh
 source $HOME/.config/zsh/aliases.sh
 source $HOME/.config/zsh/functions.sh
 source $HOME/.config/zsh/prompt.sh

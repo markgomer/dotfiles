@@ -9,7 +9,7 @@
         # Customizing Limine: Place a 'background.png' in /boot/ or use 'config' attribute
         # to define colors/fonts. Limine looks for 'limine.conf' which NixOS generates.
     };
-
+    boot.loader.timeout = 1;
     boot.loader.efi.canTouchEfiVariables = true;
 
     boot.plymouth = {
@@ -182,7 +182,9 @@
     environment.systemPackages = with pkgs; [
         gcc
         gnumake
-        python314
+        python313
+        nodejs_24
+        unzip
         linuxKernel.packages.linux_6_18.cpupower
 
         blueberry
