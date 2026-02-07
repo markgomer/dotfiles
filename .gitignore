@@ -5,3 +5,7 @@
 .local/bin/zaparoo
 .config/zsh/.zcompdump-bazzite-5.9
 .config/zsh/.zcompdump-bazzite-5.9.zwc
+.config/zsh/.zshrc
+.config/fontconfig/conf.d/10-hm-fonts.conf
+.config/fontconfig/conf.d/52-hm-default-fonts.conf
+.config/zsh/.zsh_history
