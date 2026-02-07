@@ -10,10 +10,14 @@
         # to define colors/fonts. Limine looks for 'limine.conf' which NixOS generates.
     };
 
+    boot.loader.efi.canTouchEfiVariables = true;
+
     boot.plymouth = {
         enable = true;
         theme = "breeze"; # One of the smoothest for GNOME transitions
     };
+
+    boot.kernelPackages = pkgs.linuxPackages_latest;
 
     # Silent Boot Parameters
     boot.consoleLogLevel = 0;
@@ -50,52 +54,56 @@
         };
     };
 
-    # services.beesd.instances.root = {
-    #     spec = "/"; # Deduplicate the root partition
-    # };
+    services.beesd = {
+        filesystems = {
+            root = {
+                spec = "LABEL=nixos";
+                hashTableSizeMB = 1024;
+                verbosity = "crit";
+                extraOptions = [ "--loadavg-target" "5.0" ];
+            };
+        };
+    };
 
     # --- 3. DESKTOP & GAMING ---
     # services.xserver.enable = true;
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
 
-    # Gaming & Binaries
-    programs.steam = {
-        enable = true;
-        remotePlay.openFirewall = true;
-        dedicatedServer.openFirewall = true;
-    };
-    
-    programs.nix-ld.enable = true; # Run Homebrew/external binaries seamlessly
-
-    environment.systemPackages = with pkgs; [
-        blueberry
-        gnome-extension-manager
-        lutris
-        heroic
-        distrobox
-        podman-compose
-        input-remapper
-        git
-        kitty
-        neovim
-        tmux
-        bat
-        eza
-        fd
-        lazygit
-        ripgrep
-
-        # for 25.05 onwards
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.fira-code
-        nerd-fonts.fantasque-sans-mono
-        nerd-fonts.caskaydia-mono
-    ];
 
     # --- 4. NETWORKING & CONTAINERS ---
     networking.hostName = "avell";
-    networking.firewalld.enable = true;
+
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    # networking.firewall.enable = false;
+
+    # Configure network proxy if necessary
+    # networking.proxy.default = "http://user:password@proxy:port/";
+    # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Enable networking
+    networking.networkmanager.enable = true;
+
+    # Set your time zone.
+    time.timeZone = "America/Sao_Paulo";
+
+    # Select internationalisation properties.
+    i18n.defaultLocale = "en_US.UTF-8";
+
+    i18n.extraLocaleSettings = {
+        LC_ADDRESS = "pt_BR.UTF-8";
+        LC_IDENTIFICATION = "pt_BR.UTF-8";
+        LC_MEASUREMENT = "pt_BR.UTF-8";
+        LC_MONETARY = "pt_BR.UTF-8";
+        LC_NAME = "pt_BR.UTF-8";
+        LC_NUMERIC = "pt_BR.UTF-8";
+        LC_PAPER = "pt_BR.UTF-8";
+        LC_TELEPHONE = "pt_BR.UTF-8";
+        LC_TIME = "pt_BR.UTF-8";
+    };
 
     virtualisation.podman = {
         enable = true;
@@ -103,43 +111,33 @@
         defaultNetwork.settings.dns_enabled = true;
     };
 
-    # --- 5. USER & SHELL ---
-    users.users.majunior = {
-        isNormalUser = true;
-        extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
-        shell = pkgs.zsh;
-        packages = with pkgs; [
-        ];
+    # Configure console keymap
+    console.keyMap = "br-abnt2";
+
+    # Enable CUPS to print documents.
+    services.printing.enable = true;
+
+    # Enable sound with pipewire.
+    services.pulseaudio.enable = false;
+    security.rtkit.enable = true;
+    services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+        # If you want to use JACK applications, uncomment this
+        #jack.enable = true;
+
+        # use the example session manager (no others are packaged yet so this is enabled by default,
+        # no need to redefine it in your config for now)
+        #media-session.enable = true;
     };
 
-    programs = {
-        zsh = {
-            enable = true;
-            autosuggestions.enable = true;
-            syntaxHighlighting.enable = true;
-            enableCompletion = true;
-            shellAliases = {
-                nix-switch = "sudo nixos-rebuild switch --impure --flake .";
-                update = "cd ~/.config/nixos-new-flake && nix flake update && sudo nixos-rebuild switch --impure --flake .";
-                nix-gc = "sudo nix-collect-garbage -d && nix-store --optimize";
-                bees-status = "sudo journalctl -u beesd@root.service -f";
-                ecf = "nvim ~/.config/nixos-new-flake/flake.nix";
-            };
-            ohMyZsh = {
-                enable = false;
-                plugins = ["git"];
-                theme = "agnoster"; 
-            };
-        }
-    };
+    # Enable touchpad support (enabled default in most desktopManager).
+    # services.xserver.libinput.enable = true;
 
     services.flatpak.enable = true;
-    systemd.services.flatpak-repo = {
-        path = [ pkgs.flatpak ];
-        script = ''
-            flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-        '';
-    };
+
     services.undervolt = {
         enable = true;
         coreOffset = -127;
@@ -167,7 +165,69 @@
         };
     };
 
+    programs = {
+        zsh.enable = true;
+
+        starship.enable = true;
+
+        nix-ld.enable = true; # Run Homebrew/external binaries seamlessly
+
+        steam = {
+            enable = true;
+            remotePlay.openFirewall = true;
+            dedicatedServer.openFirewall = true;
+        };
+    };
+
+    environment.systemPackages = with pkgs; [
+        gcc
+        gnumake
+        python314
+        linuxKernel.packages.linux_6_18.cpupower
+
+        blueberry
+        bluetui
+        btop
+        fastfetch
+        lazygit
+        ripgrep
+        yazi
+        git
+        neovim
+        tmux
+        bat
+        eza
+        fd
+        distrobox
+        podman-compose
+        mise
+
+        gnome-extension-manager
+        gnomeExtensions.pop-shell
+
+        kitty
+
+        lutris
+        heroic
+
+        nerd-fonts.jetbrains-mono
+        nerd-fonts.fira-code
+        nerd-fonts.fantasque-sans-mono
+        nerd-fonts.caskaydia-mono
+    ];
+
+    users.users.majunior = {
+        isNormalUser = true;
+        description = "Marco Aurélio S.S.Jr";
+        extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
+        shell = pkgs.zsh;
+        packages = with pkgs; [
+        ];
+    };
+
+
     # Nix Settings
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
+    nixpkgs.config.allowUnfree = true;
     system.stateVersion = "25.11";
 }
