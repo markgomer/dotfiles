@@ -4,34 +4,34 @@
     imports = [ /etc/nixos/hardware-configuration.nix ]; # Ensure this exists via nixos-generate-config
 
     # --- 1. BOOTLOADER & VISUALS (Limine + Plymouth) ---
-    boot.loader.limine = {
-        enable = true;
-        # Customizing Limine: Place a 'background.png' in /boot/ or use 'config' attribute
-        # to define colors/fonts. Limine looks for 'limine.conf' which NixOS generates.
+    boot = {
+        kernelPackages = pkgs.linuxPackages_latest;
+        loader = {
+            limine = {
+                enable = true;
+                # Customizing Limine: Place a 'background.png' in /boot/ or use 'config' attribute
+                # to define colors/fonts. Limine looks for 'limine.conf' which NixOS generates.
+            };
+            timeout = 1;
+            efi.canTouchEfiVariables = true;
+        };
+        consoleLogLevel = 0;
+        initrd.verbose = false;
+        kernelParams = [
+            "quiet"
+            "splash"
+            "boot.shell_on_fail"
+            "loglevel=3"
+            "rd.systemd.show_status=false"
+            "rd.udev.log_level=3"
+            "udev.log_priority=3"
+            "vt.global_cursor_default=0"
+        ];
+        plymouth = {
+            enable = true;
+            theme = "breeze"; # One of the smoothest for GNOME transitions
+        };
     };
-    boot.loader.timeout = 1;
-    boot.loader.efi.canTouchEfiVariables = true;
-
-    boot.plymouth = {
-        enable = true;
-        theme = "breeze"; # One of the smoothest for GNOME transitions
-    };
-
-    boot.kernelPackages = pkgs.linuxPackages_latest;
-
-    # Silent Boot Parameters
-    boot.consoleLogLevel = 0;
-    boot.initrd.verbose = false;
-    boot.kernelParams = [
-        "quiet"
-        "splash"
-        "boot.shell_on_fail"
-        "loglevel=3"
-        "rd.systemd.show_status=false"
-        "rd.udev.log_level=3"
-        "udev.log_priority=3"
-        "vt.global_cursor_default=0"
-    ];
 
     # --- 2. HARDWARE & PERFORMANCE (NVIDIA + BTRFS) ---
     services.xserver.videoDrivers = [ "nvidia" ];
@@ -58,9 +58,9 @@
         filesystems = {
             root = {
                 spec = "LABEL=nixos";
-                hashTableSizeMB = 1024;
-                verbosity = "crit";
-                extraOptions = [ "--loadavg-target" "5.0" ];
+                hashTableSizeMB = 128;
+                # verbosity = "crit";
+                # extraOptions = [ "--loadavg-target" "5.0" ];
             };
         };
     };
@@ -186,6 +186,7 @@
         nodejs_24
         unzip
         linuxKernel.packages.linux_6_18.cpupower
+        pciutils
 
         blueberry
         bluetui
