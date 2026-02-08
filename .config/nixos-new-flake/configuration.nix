@@ -29,7 +29,7 @@
         ];
         plymouth = {
             enable = true;
-            theme = "breeze"; # One of the smoothest for GNOME transitions
+            theme = "breeze";
         };
     };
 
@@ -69,7 +69,7 @@
     # services.xserver.enable = true;
     services.displayManager.gdm.enable = true;
     services.desktopManager.gnome.enable = true;
-
+    services.gnome.core-apps.enable = false;
 
     # --- 4. NETWORKING & CONTAINERS ---
     networking.hostName = "avell";
