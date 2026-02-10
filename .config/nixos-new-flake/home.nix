@@ -1,4 +1,3 @@
-# home.nix
 { config, pkgs, ... }:
 let
   ConfigDir = "/home/majunior/.config/nixos-new-flake";
@@ -18,13 +17,10 @@ in
         # pkgs.hello
     ];
 
-    # Home Manager can also manage your environment variables through 'home.sessionVariables'
     home.sessionVariables = {
         EDITOR = "nvim";
+        GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # gnome extensions gtk access
     };
-    home.sessionPath = [
-        "$HOME/.local/bin"
-    ];
 
     programs = {
         zsh = {
@@ -36,15 +32,12 @@ in
             initContent = ''
                 source $HOME/.config/zsh/aliases.sh
                 source $HOME/.config/zsh/functions.sh
-                source $HOME/.config/zsh/prompt.sh
                 source $HOME/.config/zsh/init.sh
                 '';
             oh-my-zsh = {
                 enable = true;
                 plugins = [
-                    "git"
                     "history-substring-search"
-                    "z"
                 ];
                 # theme = "robbyrussell"; # or any other theme you like
             };
@@ -54,27 +47,6 @@ in
             enableZshIntegration = true;
         };
     };
-
-    # programs.zsh = {
-    #     enable = true;
-    #     dotDir = "~/.config/zsh";
-    #     autosuggestions.enable = true;
-    #     syntaxHighlighting.enable = true;
-    #     enableCompletion = true;
-    #     enableLsColors = true;
-    #     shellAliases = {
-    #         nrs = "sudo nixos-rebuild switch --impure --flake ${ConfigDir}#avell";
-    #         update = "cd ${ConfigDir} && nix flake update && sudo nixos-rebuild switch --impure --flake ${ConfigDir}#avell";
-    #         nix-gc = "sudo nix-collect-garbage -d && nix-store --optimize";
-    #         bees-status = "sudo journalctl -u beesd@root.service -f";
-    #         ecf = "nvim ${ConfigDir}";
-    #     };
-    #     ohMyZsh = {
-    #         enable = true;
-    #         plugins = [ "git" "z" ];
-    #         # theme = "agnoster"; 
-    #     };
-    # };
 
     # Let Home Manager install and manage itself
     programs.home-manager.enable = true;
