@@ -1,6 +1,7 @@
 ConfigDir=$HOME/.config/nixos-new-flake
 
 alias lzg='lazygit'
+alias ls='eza'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
 alias ijust='just -g'
@@ -10,10 +11,11 @@ alias box='distrobox enter box'
 alias jctl="journalctl -p 3 -xb"
 
 # NixOS aliases
-alias nrs="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell";
-alias update="cd $ConfigDir && nix flake update && nrs";
-alias ncg="sudo nix-collect-garbage -d && nix-store --optimize";
+alias nrs="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell"
+alias update="cd $ConfigDir && nix flake update && nrs"
+alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
 alias ecf="nvim $ConfigDir"; # edit config file
+alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # Cleanup orphaned packages
 # alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
