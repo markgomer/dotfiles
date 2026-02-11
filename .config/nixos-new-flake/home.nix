@@ -22,6 +22,10 @@ in
         GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # gnome extensions gtk access
     };
 
+    # home.sessionPath = [
+    #   "$HOME/.local/bin"
+    # ];
+
     programs = {
         zsh = {
             enable = true;

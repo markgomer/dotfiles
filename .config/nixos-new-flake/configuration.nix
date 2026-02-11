@@ -1,7 +1,10 @@
 { config, pkgs, ... }:
 
 {
-    imports = [ /etc/nixos/hardware-configuration.nix ]; # Ensure this exists via nixos-generate-config
+    # Ensure this exists via nixos-generate-config.
+    # This requires using the flag --impure when building.
+    # I choose this to resist the urge to edit this file.
+    imports = [ /etc/nixos/hardware-configuration.nix ];
 
     # --- 1. BOOTLOADER & VISUALS (Limine + Plymouth) ---
     boot = {
@@ -176,6 +179,9 @@
     environment.systemPackages = with pkgs; [
         # Essentials
         unzip
+        curl
+        tree
+        # python314 # for pokemon colorscripts
         linuxKernel.packages.linux_6_18.cpupower
         pciutils
         xdg-user-dirs
@@ -188,15 +194,19 @@
         distrobox
         eza
         fastfetch
-        fd
         git
-        lazygit
-        neovim
         podman-compose
-        ripgrep
         tealdeer
-        yazi
         tmux
+        yazi
+        zoxide
+
+        # lazyvim pack
+        neovim
+        fd
+        lazygit
+        ripgrep
+        tree-sitter
 
         # Gnome system level
         gnomeExtensions.pop-shell
@@ -229,6 +239,7 @@
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
         packages = with pkgs; [
+            pokemon-colorscripts
         ];
     };
 
