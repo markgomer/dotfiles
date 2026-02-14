@@ -41,12 +41,11 @@
         initrd.verbose = false;
     };
 
-    # Enable networking
     networking = {
         networkmanager.enable = true;
         hostName = "avell";
         # Open ports in the firewall.
-        firewall.allowedTCPPorts = [ 53317 ];
+        firewall.allowedTCPPorts = [ 53317 ]; # LocalSend
         # networking.firewall.allowedUDPPorts = [ ... ];
         # Or disable the firewall altogether.
         # networking.firewall.enable = false;
@@ -56,10 +55,8 @@
         # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
     };
 
-    # Set your time zone.
     time.timeZone = "America/Sao_Paulo";
 
-    # Select internationalisation properties.
     i18n = {
         defaultLocale = "en_US.UTF-8";
         extraLocaleSettings = {
@@ -75,7 +72,6 @@
         };
     };
 
-    # Configure console keymap
     console.keyMap = "br-abnt2";
 
     hardware = {
@@ -103,7 +99,7 @@
                 };
             };
         };
-        # --- 3. DESKTOP & GAMING ---
+
         displayManager.gdm.enable = true;   
         desktopManager.gnome.enable = true; 
         gnome.core-apps.enable = false;
@@ -176,12 +172,20 @@
         };
     };
 
+    xdg.terminal-exec = {
+        enable = true;
+        settings = {
+            default = [
+                "kitty.desktop"
+            ];
+        };
+    };
+
     environment.systemPackages = with pkgs; [
         # Essentials
         unzip
         curl
         tree
-        # python314 # for pokemon colorscripts
         linuxKernel.packages.linux_6_18.cpupower
         pciutils
         xdg-user-dirs
@@ -215,9 +219,9 @@
         # Theming
         adw-gtk3
         gtk3
-        kdePackages.qt5compat
+        libsForQt5.qtstyleplugin-kvantum
+        libsForQt5.qt5ct
         kdePackages.qt6ct
-        adwaita-qt6
 
         # Terminals
         kitty

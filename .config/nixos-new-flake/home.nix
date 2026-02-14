@@ -20,6 +20,7 @@ in
     home.sessionVariables = {
         EDITOR = "nvim";
         GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # gnome extensions gtk access
+        QT_QPA_PLATFORMTHEME = "qt5ct";
     };
 
     # home.sessionPath = [
