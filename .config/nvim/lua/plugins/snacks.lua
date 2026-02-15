@@ -17,11 +17,11 @@ return {
                     },
                     files = {
                         hidden = true, -- Show hidden/dotfiles
-                        ignored = true, -- Respect .gitignore
+                        ignored = false, -- Respect .gitignore
                     },
                     grep = {
                         hidden = true, -- Also search in hidden files
-                        ignored = true,
+                        ignored = false,
                     },
                 },
             },
