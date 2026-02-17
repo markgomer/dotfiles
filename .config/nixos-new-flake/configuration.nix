@@ -130,9 +130,9 @@
             uncoreOffset = -127;
         };
 
-        udev.extraRules = ''
-            SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"
-        '';
+        # udev.extraRules = ''
+        #     SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"
+        # '';
 
         keyd = {
             enable = true;
@@ -162,13 +162,16 @@
     programs = {
         zsh.enable = true;
         starship.enable = true;
-
-        nix-ld.enable = true; # Run Homebrew/external binaries seamlessly
-
+        ns-usbloader.enable = true;
         steam = {
             enable = true;
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
+        };
+        nix-ld.enable = true; # Run Homebrew/external binaries seamlessly
+        appimage = {
+            enable = true;
+            binfmt = true;
         };
     };
 
