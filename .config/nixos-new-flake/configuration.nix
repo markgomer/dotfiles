@@ -45,11 +45,14 @@
         networkmanager.enable = true;
         hostName = "avell";
         # Open ports in the firewall.
-        firewall.allowedTCPPorts = [ 53317 ]; # LocalSend
-        # networking.firewall.allowedUDPPorts = [ ... ];
-        # Or disable the firewall altogether.
-        # networking.firewall.enable = false;
-
+        firewall = {
+            enable = true;
+            allowedTCPPorts = [
+                53317 # LocalSend
+                631 # CUPS
+            ];
+            allowedUDPPorts = [];
+        };
         # Configure network proxy if necessary
         # networking.proxy.default = "http://user:password@proxy:port/";
         # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -104,7 +107,12 @@
         desktopManager.gnome.enable = true; 
         gnome.core-apps.enable = false;
 
-        printing.enable = true;
+        printing = {
+            enable = true;
+            drivers = [
+                pkgs.gutenprint
+            ];
+        };
 
         pulseaudio.enable = false;
         pipewire = {
