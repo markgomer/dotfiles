@@ -229,11 +229,10 @@
         nautilus
 
         # Theming
-        adw-gtk3
         gtk3
-        libsForQt5.qtstyleplugin-kvantum
         libsForQt5.qt5ct
         kdePackages.qt6ct
+        nwg-look
 
         # Terminals
         kitty
