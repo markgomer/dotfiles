@@ -85,10 +85,11 @@
         nvidia = {
             modesetting.enable = true;
             powerManagement.enable = true;
-            powerManagement.finegrained = false;
-            open = false; # GTX 1050 Ti (Pascal) prefers proprietary over 'open' kernel modules
+            powerManagement.finegrained = false; #WARN: incompatible with 1050
+            open = false; #WARN: GTX 1050 Ti (Pascal) prefers proprietary over 'open' kernel modules
             nvidiaSettings = true;
             package = config.boot.kernelPackages.nvidiaPackages.stable;
+            prime.offload.enable = false; #WARN: GTX 1050 Ti is not compatible!
         };
     };
 
