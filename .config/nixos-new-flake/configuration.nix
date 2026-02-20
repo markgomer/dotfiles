@@ -104,9 +104,21 @@
             };
         };
 
-        displayManager.gdm.enable = true;   
-        desktopManager.gnome.enable = true; 
-        gnome.core-apps.enable = false;
+        displayManager = {
+            gdm.enable = true;
+        };
+        desktopManager = {
+            gnome.enable = true;
+            cosmic = {
+                enable = false;
+                xwayland.enable = true;
+            };
+        };
+        gnome = {
+            core-apps.enable = false;
+            gnome-software.enable = true;
+        };
+        # environment.cosmic.excludePackages = [];
 
         printing = {
             enable = true;
