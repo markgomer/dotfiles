@@ -4,7 +4,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "kanagawa",
+            colorscheme = "catppuccin",
         },
     },
     {
@@ -50,11 +50,6 @@ return {
     },
     {
         "loctvl842/monokai-pro.nvim",
-        lazy = true,
-        priority = 1000,
-    },
-    {
-        "shaunsingh/nord.nvim",
         lazy = true,
         priority = 1000,
     },
