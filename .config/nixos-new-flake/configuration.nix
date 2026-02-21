@@ -184,7 +184,6 @@
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
         };
-        nix-ld.enable = true; # Run Homebrew/external binaries
         appimage = {
             enable = true;
             binfmt = true;
@@ -252,9 +251,7 @@
         description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
-        # packages = with pkgs; [
-        #     
-        # ];
+        packages = with pkgs; [ ]; #NOTE: let's use home-manager for this part
     };
 
 
