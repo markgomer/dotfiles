@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
 {
-    # Ensure this exists via nixos-generate-config.
-    # This requires using the flag --impure when building.
-    # I choose this to resist the urge to edit this file.
-    imports = [ /etc/nixos/hardware-configuration.nix ];
-
-    # --- 1. BOOTLOADER & VISUALS (Limine + Plymouth) ---
     boot = {
         kernelPackages = pkgs.linuxPackages_latest;
         kernelModules = ["nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia"];
@@ -27,8 +21,9 @@
         loader = {
             limine = {
                 enable = true;
-                # Customizing Limine: Place a 'background.png' in /boot/ or use 'config' attribute
-                # to define colors/fonts. Limine looks for 'limine.conf' which NixOS generates.
+                # Customizing Limine: Place a 'background.png' in /boot/ or
+                # use 'config' attribute to define colors/fonts.
+                # Limine looks for 'limine.conf' which NixOS generates.
             };
             timeout = 1;
             efi.canTouchEfiVariables = true;
@@ -189,7 +184,7 @@
             remotePlay.openFirewall = true;
             dedicatedServer.openFirewall = true;
         };
-        nix-ld.enable = true; # Run Homebrew/external binaries seamlessly
+        nix-ld.enable = true; # Run Homebrew/external binaries
         appimage = {
             enable = true;
             binfmt = true;
@@ -215,7 +210,6 @@
         xdg-user-dirs
 
         # CLI Tools
-        blueberry
         bluetui
         btop
         bat
@@ -262,7 +256,7 @@
 
     users.users.majunior = {
         isNormalUser = true;
-        description = "Marco Aurélio S.S.Jr";
+        description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
         packages = with pkgs; [
