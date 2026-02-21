@@ -2,7 +2,7 @@
 
 {
     boot = {
-        kernelPackages = pkgs.linuxPackages_latest;
+        kernelPackages = pkgs.linuxPackages_6_18;
         kernelModules = ["nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia"];
         kernelParams = [
             "quiet"
@@ -208,6 +208,7 @@
         linuxKernel.packages.linux_6_18.cpupower
         pciutils
         xdg-user-dirs
+        neovim
 
         # CLI Tools
         bluetui
@@ -222,13 +223,6 @@
         tmux
         yazi
         zoxide
-
-        # lazyvim pack
-        neovim
-        fd
-        lazygit
-        ripgrep
-        tree-sitter
 
         # Gnome system level
         gnomeExtensions.pop-shell
@@ -245,7 +239,6 @@
 
         # Games
         lutris
-        heroic
 
         # Fonts
         nerd-fonts.jetbrains-mono
@@ -259,9 +252,9 @@
         description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
-        packages = with pkgs; [
-            pokemon-colorscripts
-        ];
+        # packages = with pkgs; [
+        #     
+        # ];
     };
 
 
