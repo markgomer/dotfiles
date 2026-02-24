@@ -14,7 +14,13 @@ in
 
     # The home.packages option allows you to install Nix packages into your environment
     home.packages = with pkgs; [
+        asdf-vm
+        git
         pokemon-colorscripts
+        tealdeer
+
+        distrobox
+        podman-compose
 
         # lazyvim pack
         fd

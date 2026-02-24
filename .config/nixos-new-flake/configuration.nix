@@ -146,10 +146,6 @@
             uncoreOffset = -127;
         };
 
-        # udev.extraRules = ''
-        #     SUBSYSTEM=="usb", ATTRS{idVendor}=="057e", ATTRS{idProduct}=="3000", MODE="0666"
-        # '';
-
         keyd = {
             enable = true;
             keyboards = {
@@ -213,13 +209,8 @@
         # CLI Tools
         bluetui
         btop
-        bat
-        distrobox
         eza
         fastfetch
-        git
-        podman-compose
-        tealdeer
         tmux
         yazi
         zoxide
@@ -252,9 +243,7 @@
         description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
-        # packages = with pkgs; [
-        #     
-        # ];
+        packages = with pkgs; [ ]; # NOTE: let's use home-manager for this part
     };
 
 
