@@ -1,45 +1,46 @@
-{ config, pkgs, ... }:
-let
-  ConfigDir = "/home/majunior/.config/nixos-new-flake";
-in
+{ config, pkgs, lib, ... }:
 {
-    # Home Manager needs a bit of information about you and the paths it should manage
-    home.username = "majunior";
-    home.homeDirectory = "/home/majunior";
+    home = {
+        username = "majunior";
+        homeDirectory = "/home/majunior";
+        packages = with pkgs; [
+            clang-tools
+            asdf-vm
+            git
+            pokemon-colorscripts
+            tealdeer
 
-    # This value determines the Home Manager release that your configuration is
-    # compatible with. This helps avoid breakage when a new Home Manager release
-    # introduces backwards incompatible changes.
-    home.stateVersion = "25.11"; # Please read the comment before changing.
+            distrobox
+            podman-compose
 
-    # The home.packages option allows you to install Nix packages into your environment
-    home.packages = with pkgs; [
-        asdf-vm
-        git
-        pokemon-colorscripts
-        tealdeer
+            # lazyvim pack
+            fd
+            lazygit
+            ripgrep
+            tree-sitter
+        ];
 
-        distrobox
-        podman-compose
+        sessionVariables = {
+            EDITOR = "nvim";
+            # gnome extensions gtk access
+            GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; 
+        };
 
-        # lazyvim pack
-        fd
-        lazygit
-        ripgrep
-        tree-sitter
-    ];
+        # currently managing it through ZSH
+        # sessionPath = [
+        #   "$HOME/.local/bin"
+        # ];
 
-    home.sessionVariables = {
-        EDITOR = "nvim";
-        GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; # gnome extensions gtk access
-        QT_QPA_PLATFORMTHEME = "qt5ct";
+        # This value determines the Home Manager release that your configuration is
+        # compatible with. This helps avoid breakage when a new Home Manager release
+        # introduces backwards incompatible changes.
+        stateVersion = "25.11"; # Please read the comment before changing.
     };
 
-    # home.sessionPath = [
-    #   "$HOME/.local/bin"
-    # ];
-
     programs = {
+        # Let Home Manager install and manage itself
+        home-manager.enable = true;
+
         zsh = {
             enable = true;
             dotDir = "/home/majunior/.config/zsh";
@@ -65,6 +66,17 @@ in
         };
     };
 
-    # Let Home Manager install and manage itself
-    programs.home-manager.enable = true;
+    # NOTE: Workaround for theming KDE applications with stylix
+    xdg.configFile.kdeglobals.source =
+    let
+        themePackage = builtins.head (
+            builtins.filter (
+            p: builtins.match ".*stylix-kde-theme.*" (builtins.baseNameOf p) != null
+            ) config.home.packages
+        );
+        colorSchemeSlug = lib.concatStrings (
+            lib.filter lib.isString (builtins.split "[^a-zA-Z]" config.lib.stylix.colors.scheme)
+        );
+    in
+        "${themePackage}/share/color-schemes/${colorSchemeSlug}.colors";
 }

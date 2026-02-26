@@ -21,7 +21,8 @@
         loader = {
             limine = {
                 enable = true;
-                # Customizing Limine: Place a 'background.png' in /boot/ or
+                # Customizing Limine: Place a 'background.png'
+                # in /boot/limine/wallpapers or
                 # use 'config' attribute to define colors/fonts.
                 # Limine looks for 'limine.conf' which NixOS generates.
             };
@@ -30,7 +31,6 @@
         };
         plymouth = {
             enable = true;
-            theme = "breeze";
         };
         consoleLogLevel = 0;
         initrd.verbose = false;
@@ -187,6 +187,39 @@
         };
     };
 
+    stylix = {
+        enable = true;
+        polarity = "dark";
+        targets.qt.enable = true;
+        # https://tinted-theming.github.io/tinted-gallery/
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+        # stylix.image = ./wallpaper.png;
+        fonts = {
+            serif = {
+                package = pkgs.nerd-fonts.caskaydia-cove;
+                name = "CaskaydiaCove Nerd Font";
+            };
+            sansSerif = {
+                package = pkgs.nerd-fonts.caskaydia-cove;
+                name = "CaskaydiaCove Nerd Font";
+            };
+            monospace = {
+                package = pkgs.nerd-fonts.jetbrains-mono;
+                name = "JetBrains Mono Nerd Font";
+            };
+            emoji = {
+                package = pkgs.noto-fonts-color-emoji;
+                name = "Noto Color Emoji";
+            };
+            sizes = {
+                applications = 10;
+                terminal = 11;
+                desktop = 10;
+                popups = 10;
+            };
+        };
+    };
+
     xdg.terminal-exec = {
         enable = true;
         settings = {
@@ -219,23 +252,11 @@
         gnomeExtensions.pop-shell
         nautilus
 
-        # Theming
-        gtk3
-        libsForQt5.qt5ct
-        kdePackages.qt6ct
-        nwg-look
-
         # Terminals
         kitty
 
         # Games
         lutris
-
-        # Fonts
-        nerd-fonts.jetbrains-mono
-        nerd-fonts.fira-code
-        nerd-fonts.fantasque-sans-mono
-        nerd-fonts.caskaydia-mono
     ];
 
     users.users.majunior = {
