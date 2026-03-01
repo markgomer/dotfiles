@@ -2,10 +2,11 @@ ConfigDir=$HOME/.config/nixos-new-flake
 
 alias lzg='lazygit'
 alias ls='eza'
+alias cd='z'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
 alias ijust='just -g'
-alias box='distrobox enter box'
+alias box='distrobox enter archbox'
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
