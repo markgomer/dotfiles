@@ -63,7 +63,7 @@ function pokefetch()
 }
 
 # Starts fastfetch with a pokemon with the same name as the zellij session
-function pokefetch2()
+function pokefetchz()
 {
     # check if fastfetch is installed
     if ! command -v fastfetch &>/dev/null; then
