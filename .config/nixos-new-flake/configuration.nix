@@ -121,6 +121,12 @@
                 pkgs.gutenprint
             ];
         };
+        # guess I need this to print??? Doesn't it come in GNOME?
+        avahi = {
+            enable = true;
+            nssmdns4 = true;
+            openFirewall = true; # This opens the ports for discovery
+        };
 
         pulseaudio.enable = false;
         pipewire = {
@@ -192,7 +198,7 @@
         polarity = "dark";
         targets.qt.enable = true;
         # https://tinted-theming.github.io/tinted-gallery/
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-moon.yaml";
+        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
         # stylix.image = ./wallpaper.png;
         fonts = {
             serif = {
