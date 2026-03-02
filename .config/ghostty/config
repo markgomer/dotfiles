@@ -1,8 +1,18 @@
-config-file = "./init"
-# config-file = "./theme"
-config-file = "./font"
-config-file = "./window"
+# init command
+command =
 
+theme =
+
+window-padding-x = 12
+window-padding-y = 12
+window-height = 35
+window-width = 90
+
+font-family = "Caskaydia Mono Nerd Font"
+font-family-bold = 
+font-family-italic = 
+font-family-bold-italic = 
+font-size = 11
 
 # This is the configuration file for Ghostty.
 #
