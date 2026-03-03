@@ -20,13 +20,15 @@
                 modules = [
                     # Ensure this exists via nixos-generate-config
                     /etc/nixos/hardware-configuration.nix
-                    ./configuration.nix
+                    ./hosts/avell.nix
+                    ./modules/gnome.nix
+
                     home-manager.nixosModules.home-manager {
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
                             users.majunior.imports = [
-                                ./home.nix
+                                ./home/majunior.nix
                             ];
                         };
                     }

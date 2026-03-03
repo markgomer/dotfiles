@@ -99,29 +99,13 @@
             };
         };
 
-        displayManager = {
-            gdm.enable = true;
-        };
-        desktopManager = {
-            gnome.enable = true;
-            cosmic = {
-                enable = false;
-                xwayland.enable = true;
-            };
-        };
-        gnome = {
-            core-apps.enable = false;
-            gnome-software.enable = true;
-        };
-        # environment.cosmic.excludePackages = [];
-
         printing = {
             enable = true;
             drivers = [
                 pkgs.gutenprint
             ];
         };
-        # guess I need this to print??? Doesn't it come in GNOME?
+        # guess I need this to print???
         avahi = {
             enable = true;
             nssmdns4 = true;
@@ -253,7 +237,7 @@
         fastfetch
         yazi
 
-        gnomeExtensions.pop-shell
+        # file browser
         nautilus
 
         # Terminals
@@ -275,3 +259,4 @@
     nixpkgs.config.allowUnfree = true;
     system.stateVersion = "25.11";
 }
+
