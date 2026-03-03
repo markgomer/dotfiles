@@ -9,6 +9,9 @@
             git
             pokemon-colorscripts
             tealdeer
+            tmux
+            eza
+            zoxide
 
             distrobox
             podman-compose
@@ -18,6 +21,9 @@
             lazygit
             ripgrep
             tree-sitter
+
+            # Games
+            lutris
         ];
 
         sessionVariables = {
@@ -31,9 +37,9 @@
         #   "$HOME/.local/bin"
         # ];
 
-        # This value determines the Home Manager release that your configuration is
-        # compatible with. This helps avoid breakage when a new Home Manager release
-        # introduces backwards incompatible changes.
+        # WARN: This value determines the Home Manager release that your
+        # configuration is compatible with. This helps avoid breakage when a new
+        # Home Manager release introduces backwards incompatible changes.
         stateVersion = "25.11"; # Please read the comment before changing.
     };
 
@@ -57,7 +63,7 @@
                 plugins = [
                     "history-substring-search"
                 ];
-                # theme = "robbyrussell"; # or any other theme you like
+                # theme = "robbyrussell";
             };
         };
         fzf = {

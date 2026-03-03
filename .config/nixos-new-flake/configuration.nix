@@ -177,22 +177,6 @@
         defaultNetwork.settings.dns_enabled = true;
     };
 
-    programs = {
-        zsh.enable = true;
-        starship.enable = true;
-        ns-usbloader.enable = true;
-        steam = {
-            enable = true;
-            remotePlay.openFirewall = true;
-            dedicatedServer.openFirewall = true;
-        };
-        nix-ld.enable = true; # Run Homebrew/external binaries
-        appimage = {
-            enable = true;
-            binfmt = true;
-        };
-    };
-
     stylix = {
         enable = true;
         polarity = "dark";
@@ -235,8 +219,26 @@
         };
     };
 
+    programs = {
+        zsh.enable = true;
+        starship.enable = true;
+        ns-usbloader.enable = true;
+        steam = {
+            enable = true;
+            remotePlay.openFirewall = true;
+            dedicatedServer.openFirewall = true;
+        };
+        nix-ld.enable = true; # Run Homebrew/external binaries
+        appimage = {
+            enable = true;
+            binfmt = true;
+        };
+    };
+
+
     environment.systemPackages = with pkgs; [
         # Essentials
+        gcc
         unzip
         curl
         tree
@@ -248,21 +250,15 @@
         # CLI Tools
         bluetui
         btop
-        eza
         fastfetch
-        tmux
         yazi
-        zoxide
 
-        # Gnome system level
         gnomeExtensions.pop-shell
         nautilus
 
         # Terminals
+        ghostty
         kitty
-
-        # Games
-        lutris
     ];
 
     users.users.majunior = {
