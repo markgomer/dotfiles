@@ -1,17 +1,17 @@
 # init command
 command =
 
-theme =
+theme = TokyoNight Storm
 
 window-padding-x = 12
 window-padding-y = 12
 window-height = 35
 window-width = 90
 
-font-family = "Caskaydia Mono Nerd Font"
-font-family-bold = 
-font-family-italic = 
-font-family-bold-italic = 
+font-family = CaskaydiaCove Nerd Font 
+# font-family-bold = CaskaydiaCove NFM Bold
+# font-family-italic = CaskaydiaCove NFM Italic
+# font-family-bold-italic = CaskaydiaCove NFM Bold Italic
 font-size = 11
 
 # This is the configuration file for Ghostty.
