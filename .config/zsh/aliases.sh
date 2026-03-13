@@ -15,7 +15,7 @@ alias jctl="journalctl -p 3 -xb"
 alias nrs="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell"
 alias update="cd $ConfigDir && nix flake update && nrs"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
-alias ecf="nvim $ConfigDir"; # edit config file
+alias ecf="nvim $ConfigDir/flake.nix"; # edit config file
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # Cleanup orphaned packages
