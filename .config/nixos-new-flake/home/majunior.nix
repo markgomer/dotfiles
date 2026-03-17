@@ -28,6 +28,7 @@
 
         sessionVariables = {
             EDITOR = "nvim";
+            TERM = "kitty";
             # gnome extensions gtk access
             GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0"; 
         };

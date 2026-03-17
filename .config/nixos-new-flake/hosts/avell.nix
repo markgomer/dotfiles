@@ -166,6 +166,8 @@
         polarity = "dark";
         targets.qt.enable = true;
         # https://tinted-theming.github.io/tinted-gallery/
+        # I like changing theme from time to time so I'll left the approved ones
+        # here commented out until I take time to modularize it the "Nix way"
         base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
         # stylix.image = ./wallpaper.png;
         fonts = {
