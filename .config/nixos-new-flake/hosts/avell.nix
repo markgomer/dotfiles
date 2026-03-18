@@ -7,6 +7,9 @@
         /etc/nixos/hardware-configuration.nix
     ];
 
+    gnomeModule.enable = true;
+    dwlModule.enable = false;
+
     boot = {
         kernelPackages = pkgs.linuxPackages_6_18;
         kernelModules = [ "nvidia_modeset" "nvidia_drm" "nvidia" ];

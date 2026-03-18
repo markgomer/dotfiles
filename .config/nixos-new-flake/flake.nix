@@ -12,14 +12,14 @@
         stylix.url = "github:nix-community/stylix/release-25.11";
     };
 
-    outputs = { self, nixpkgs, home-manager, stylix, ... }: {
+    outputs = { nixpkgs, home-manager, stylix, ... }: {
         nixosConfigurations = {
             # sudo nixos-rebuild switch --flake .#avell --impure
             # avell Serial number = GI5KN4721712000??
             avell = nixpkgs.lib.nixosSystem {
                 modules = [
                     ./hosts/avell.nix
-                    ./modules/gnome.nix
+                    ./modules
 
                     home-manager.nixosModules.home-manager {
                         home-manager = {
