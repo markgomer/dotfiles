@@ -9,7 +9,7 @@
 
     boot = {
         kernelPackages = pkgs.linuxPackages_6_18;
-        kernelModules = ["nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia"];
+        kernelModules = [ "nvidia_modeset" "nvidia_drm" "nvidia" ];
         kernelParams = [
             "quiet"
             "splash"
@@ -258,7 +258,7 @@
         description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
         shell = pkgs.zsh;
-        packages = with pkgs; [ ]; # NOTE: let's use home-manager for this part
+        packages = [ ]; # NOTE: let's use home-manager for this part
     };
 
 
