@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
 {
+    imports = [
+        # Ensure this exists via nixos-generate-config
+        # sudo nixos-rebuild switch --flake .#avell --impure
+        /etc/nixos/hardware-configuration.nix
+    ];
+
     boot = {
         kernelPackages = pkgs.linuxPackages_6_18;
         kernelModules = ["nvidia_uvm" "nvidia_modeset" "nvidia_drm" "nvidia"];
