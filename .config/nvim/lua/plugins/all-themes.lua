@@ -4,7 +4,7 @@ return {
     {
         "LazyVim/LazyVim",
         opts = {
-            colorscheme = "kanagawa",
+            colorscheme = "onedark",
         },
     },
     {
@@ -62,7 +62,7 @@ return {
             require("onedark").setup({
                 term_colors = true, -- Change terminal color as per the selected theme style
                 ending_tildes = true, -- Show the end-of-buffer tildes. By default they are hidden
-                style = "deep", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
+                style = "cool", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
                 -- Change code style ---
                 -- Options are italic, bold, underline, none
                 -- You can configure multiple style with comma separated, For e.g., keywords = 'italic,bold'

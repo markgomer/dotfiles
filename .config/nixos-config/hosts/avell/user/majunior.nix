@@ -1,5 +1,4 @@
 # 💫 https://github.com/JaKooLit 💫 #
-# Users - NOTE: Packages defined on this will be on current user only
 
 { pkgs, username, ... }:
 

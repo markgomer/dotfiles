@@ -18,8 +18,6 @@
             # avell Serial number = GI5KN4721712000??
             avell = nixpkgs.lib.nixosSystem {
                 modules = [
-                    # Ensure this exists via nixos-generate-config
-                    /etc/nixos/hardware-configuration.nix
                     ./hosts/avell.nix
                     ./modules/gnome.nix
 
