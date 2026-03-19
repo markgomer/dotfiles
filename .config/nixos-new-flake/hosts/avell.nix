@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs-stable, ... }:
 
 {
     imports = [
@@ -8,10 +8,11 @@
     ];
 
     # WARN: HEY!!!! ENABLE ONLY ONE HERE!!!
-    gnomeModule.enable = true;
+    gnomeModule.enable = false;
+    CosmicModule.enable = true;
 
     boot = {
-        kernelPackages = pkgs.linuxPackages_6_18;
+        kernelPackages = pkgs-stable.linuxPackages_6_18;
         kernelModules = [ "nvidia_modeset" "nvidia_drm" "nvidia" ];
         kernelParams = [
             "quiet"
@@ -40,6 +41,7 @@
         };
         plymouth = {
             enable = true;
+            theme = "breeze";
         };
         consoleLogLevel = 0;
         initrd.verbose = false;
@@ -111,7 +113,7 @@
         printing = {
             enable = true;
             drivers = [
-                pkgs.gutenprint
+                pkgs-stable.gutenprint
             ];
         };
         # guess I need this to print???
@@ -162,7 +164,27 @@
         };
     };
 
-    security.rtkit.enable = true;
+    security = {
+        rtkit.enable = true;
+        polkit = {
+            enable = true;
+            # This lets anyone in the wheel group run the powerscripts without a prompt
+            extraConfig = ''
+                polkit.addRule(function(action, subject) {
+                    var scripts = [
+                        "/home/majunior/dotfiles/.local/bin/powersave.sh",
+                        "/home/majunior/dotfiles/.local/bin/balanced.sh",
+                        "/home/majunior/dotfiles/.local/bin/performance.sh"
+                    ];
+                    if (action.id == "org.freedesktop.policykit.exec" &&
+                        scripts.indexOf(action.lookup("program")) !== -1 &&
+                        subject.isInGroup("wheel")) {
+                        return polkit.Result.YES;
+                    }
+                });
+            '';
+        };
+    };
 
     virtualisation.podman = {
         enable = true;
@@ -171,29 +193,29 @@
     };
 
     stylix = {
-        enable = true;
+        enable = false;
         polarity = "dark";
         targets.qt.enable = true;
         # https://tinted-theming.github.io/tinted-gallery/
         # I like changing theme from time to time so I'll left the approved ones
         # here commented out until I take time to modularize it the "Nix way"
-        base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+        base16Scheme = "${pkgs-stable.base16-schemes}/share/themes/nord.yaml";
         # stylix.image = ./wallpaper.png;
         fonts = {
             serif = {
-                package = pkgs.nerd-fonts.caskaydia-cove;
+                package = pkgs-stable.nerd-fonts.caskaydia-cove;
                 name = "CaskaydiaCove Nerd Font";
             };
             sansSerif = {
-                package = pkgs.nerd-fonts.caskaydia-cove;
+                package = pkgs-stable.nerd-fonts.caskaydia-cove;
                 name = "CaskaydiaCove Nerd Font";
             };
             monospace = {
-                package = pkgs.nerd-fonts.jetbrains-mono;
+                package = pkgs-stable.nerd-fonts.jetbrains-mono;
                 name = "JetBrains Mono Nerd Font";
             };
             emoji = {
-                package = pkgs.noto-fonts-color-emoji;
+                package = pkgs-stable.noto-fonts-color-emoji;
                 name = "Noto Color Emoji";
             };
             sizes = {
@@ -231,7 +253,7 @@
     };
 
 
-    environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs-stable; [
         # Essentials
         gcc
         unzip
@@ -241,6 +263,7 @@
         pciutils
         xdg-user-dirs
         neovim
+        polkit_gnome
 
         # CLI Tools
         bluetui
@@ -252,7 +275,6 @@
         nautilus
 
         # Terminals
-        ghostty
         kitty
     ];
 
@@ -260,7 +282,7 @@
         isNormalUser = true;
         description = "Marco Aurélio S.S.Jr.";
         extraGroups = [ "networkmanager" "wheel" "video" "input" "audio" ];
-        shell = pkgs.zsh;
+        shell = pkgs-stable.zsh;
         packages = [ ]; # NOTE: let's use home-manager for this part
     };
 
