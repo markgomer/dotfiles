@@ -25,9 +25,8 @@
                         home-manager = {
                             useGlobalPkgs = true;
                             useUserPackages = true;
-                            users.majunior.imports = [
-                                ./home/majunior.nix
-                            ];
+                            users.majunior.imports = [ ./home/majunior.nix ];
+                            backupFileExtension = "backup";
                         };
                     }
                     stylix.nixosModules.stylix
