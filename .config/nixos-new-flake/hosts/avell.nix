@@ -171,7 +171,7 @@
     };
 
     stylix = {
-        enable = true;
+        enable = false;
         polarity = "dark";
         targets.qt.enable = true;
         # https://tinted-theming.github.io/tinted-gallery/
