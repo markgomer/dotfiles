@@ -7,8 +7,8 @@
         /etc/nixos/hardware-configuration.nix
     ];
 
+    # WARN: HEY!!!! ENABLE ONLY ONE HERE!!!
     gnomeModule.enable = true;
-    dwlModule.enable = false;
 
     boot = {
         kernelPackages = pkgs.linuxPackages_6_18;
