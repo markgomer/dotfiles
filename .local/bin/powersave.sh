@@ -6,7 +6,7 @@
 # echo 1 > /sys/devices/system/cpu/cpu7/online;'
 
 sudo cpupower set --perf-bias 15
-sudo cpupower frequency-set -g powersave -d 800MHz -u 1100MHz
+sudo cpupower frequency-set -g powersave -d 800MHz -u 1300MHz
 
 sudo sh -c 'echo "350" > /sys/class/drm/card1/gt_min_freq_mhz; \
 echo "500" > /sys/class/drm/card1/gt_max_freq_mhz; \
