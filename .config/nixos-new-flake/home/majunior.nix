@@ -21,6 +21,7 @@
             lazygit
             ripgrep
             tree-sitter
+            nixd
 
             # Games
             lutris
