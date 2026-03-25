@@ -73,6 +73,11 @@
                             source $HOME/.config/zsh/functions.sh
                             source $HOME/.config/zsh/init.sh
                             '';
+                        profileExtra = ''
+                            if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+                                exec Hyprland
+                            fi
+                        '';
                         oh-my-zsh = {
                             enable = true;
                             plugins = [

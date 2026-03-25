@@ -102,6 +102,10 @@
 
         services = {
             xserver.videoDrivers = [ "nvidia" ];
+
+            # Auto-login to TTY1
+            getty.autologinUser = "majunior";
+
             beesd = {
                 filesystems = {
                     root = {
