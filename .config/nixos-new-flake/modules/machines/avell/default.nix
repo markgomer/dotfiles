@@ -13,7 +13,7 @@
 
             modules = [
                 self.nixosModules.AvellConfiguration
-                self.nixosModules.GnomeModule
+                self.nixosModules.HyprModule
                 self.nixosModules.majuniorHome
                 inputs.stylix.nixosModules.stylix
             ];

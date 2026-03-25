@@ -80,7 +80,10 @@
         console.keyMap = "br-abnt2";
 
         hardware = {
-            bluetooth.enable = true;
+            bluetooth = {
+                enable = true;
+                powerOnBoot = true;
+            };
             graphics = {
                 enable = true;
                 enable32Bit = true;
@@ -127,6 +130,8 @@
                 alsa.enable = true;
                 alsa.support32Bit = true;
                 pulse.enable = true;
+                wireplumber.enable = true;
+
                 # If you want to use JACK applications, uncomment this
                 #jack.enable = true;
 
