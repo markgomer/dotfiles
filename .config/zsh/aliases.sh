@@ -1,4 +1,4 @@
-ConfigDir=$HOME/.config/nixos-new-flake
+ConfigDir=$HOME/dotfiles/.config/nixos-new-flake
 
 alias lzg='lazygit'
 alias ls='eza'

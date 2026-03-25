@@ -1,9 +1,7 @@
-{ pkgs, lib, config, ... }:
+{ ... }:
 {
-    options = {
-        gnomeModule.enable = lib.mkEnableOption "Enables Gnome";
-    };
-    config = lib.mkIf config.gnomeModule.enable {
+    flake.nixosModules.GnomeModule = { pkgs, ... }:
+    {
         services = {
             displayManager = {
                 gdm.enable = true;
