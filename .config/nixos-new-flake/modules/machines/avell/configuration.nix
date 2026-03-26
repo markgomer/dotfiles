@@ -105,6 +105,11 @@
 
             # Auto-login to TTY1
             getty.autologinUser = "majunior";
+            logind = {
+                lidSwitch = "ignore";
+                lidSwitchExternalPower = "ignore";
+                lidSwitchDocked = "ignore";
+            };
 
             beesd = {
                 filesystems = {

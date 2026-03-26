@@ -1,4 +1,4 @@
-{ ... }:
+{ inputs, ... }:
 {
     flake.nixosModules.HyprModule = { pkgs, pkgs-unstable, ... }: {
         programs.hyprland = {
@@ -25,6 +25,8 @@
             pkgs.slurp            # screenshots
             pkgs.pavucontrol           # audio GUI fallback
             pkgs.upower
+            pkgs.wayland-pipewire-idle-inhibit
+            pkgs.playerctl
         ];
     };
 }
