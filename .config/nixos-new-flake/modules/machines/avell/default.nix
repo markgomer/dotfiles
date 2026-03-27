@@ -15,6 +15,7 @@
                 self.nixosModules.AvellConfiguration
                 self.nixosModules.HyprModule
                 self.nixosModules.majuniorHome
+                self.nixosModules.DisplayManagerModule
                 inputs.stylix.nixosModules.stylix
             ];
         };

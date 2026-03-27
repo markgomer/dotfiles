@@ -103,9 +103,6 @@
         services = {
             xserver.videoDrivers = [ "nvidia" ];
 
-            # Auto-login to TTY1
-            getty.autologinUser = "majunior";
-
             beesd = {
                 filesystems = {
                     root = {
@@ -121,9 +118,10 @@
                     pkgs.gutenprint
                 ];
             };
+
             # guess I need this to print???
             avahi = {
-                enable = true;
+                enable = false;
                 nssmdns4 = true;
                 openFirewall = true; # This opens the ports for discovery
             };
@@ -169,6 +167,9 @@
                     };
                 };
             };
+            # for external media
+            udisks2.enable = true;
+            gvfs.enable = true;
         };
 
         security = {
