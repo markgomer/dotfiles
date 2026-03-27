@@ -32,8 +32,7 @@
             pkgs.brightnessctl # laptop brightness
             pkgs.nwg-look # GTK theme configurator
             pkgs.nwg-displays # multiple display configuration
-            pkgs.grim
-            pkgs.slurp # screenshots
+            pkgs.grimblast # screenshots
             pkgs.pavucontrol # audio GUI fallback
             pkgs.wayland-pipewire-idle-inhibit
             pkgs.playerctl # for using keyboard media keys
