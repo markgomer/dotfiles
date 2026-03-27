@@ -2,6 +2,7 @@
 {
     flake.nixosModules.DisplayManagerModule = { pkgs, ... }:
     let
+        # https://github.com/Keyitdev/sddm-astronaut-theme
         myCustomSDDM = pkgs.sddm-astronaut.override {
             embeddedTheme = "pixel_sakura";
             # themeConfig = {
