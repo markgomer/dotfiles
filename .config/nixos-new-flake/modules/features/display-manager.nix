@@ -26,7 +26,7 @@
                         pkgs.kdePackages.qtmultimedia
                         pkgs.hyprland-qt-support
                     ];
-                    settings.Theme.ThemeDir = "${pkgs.sddm-astronaut}/share/sddm/themes";
+                    settings.Theme.ThemeDir = "${myCustomSDDM}/share/sddm/themes";
                 };
                 ly.enable = false;
                 gdm.enable = false;
