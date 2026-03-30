@@ -7,5 +7,5 @@ if [ -z "$EXTERNAL" ]; then
     exit 1
 fi
 
-hyprctl keyword monitor "$LAPTOP,preferred,auto,1"
+hyprctl keyword monitor "$LAPTOP,preferred,auto,1.2"
 hyprctl keyword monitor "$EXTERNAL,preferred,auto@right,1"
