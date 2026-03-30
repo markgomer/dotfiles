@@ -36,6 +36,7 @@
             pkgs.pavucontrol # audio GUI fallback
             pkgs.wayland-pipewire-idle-inhibit
             pkgs.playerctl # for using keyboard media keys
+            pkgs.ianny # break reminder progrgam
         ];
     };
 }
