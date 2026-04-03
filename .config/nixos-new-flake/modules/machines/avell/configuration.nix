@@ -282,7 +282,7 @@
             yazi
 
             # file browser
-            nautilus
+            xfce.thunar
 
             # Terminals
             kitty
