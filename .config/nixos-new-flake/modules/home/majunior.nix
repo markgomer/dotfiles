@@ -45,6 +45,7 @@
                         # gnome extensions gtk access
                         GI_TYPELIB_PATH = "/run/current-system/sw/lib/girepository-1.0";
                         # GTK_IM_MODULE = "simple";
+                        TZ = "America/Sao_Paulo";
                     };
 
                     # currently managing it through ZSH
