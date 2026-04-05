@@ -281,11 +281,10 @@
             fastfetch
             yazi
 
-            # file browser
-            xfce.thunar
-
             # Terminals
             kitty
+
+            pcmanfm
         ];
 
         users.users.majunior = {
