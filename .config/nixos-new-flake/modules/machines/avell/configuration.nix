@@ -281,11 +281,10 @@
             fastfetch
             yazi
 
-            # file browser
-            nautilus
-
             # Terminals
             kitty
+
+            pcmanfm
         ];
 
         users.users.majunior = {

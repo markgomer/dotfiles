@@ -26,7 +26,8 @@
         environment.systemPackages = [
             pkgs-unstable.noctalia-shell # legendary shell
             pkgs.kitty # we might get cooked without this
-            pkgs.hyprpolkitagent # or polkit_gnome
+            # NOTE: disabled in favor of noctalia plugin
+            # pkgs.hyprpolkitagent # or polkit_gnome
             pkgs.wl-clipboard
             pkgs.cliphist
             pkgs.brightnessctl # laptop brightness
