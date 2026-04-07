@@ -37,7 +37,13 @@
             };
             plymouth = {
                 enable = true;
-                theme = "breeze";
+                theme = "circuit";
+                themePackages = with pkgs; [
+                    # By default we would install all themes
+                    (adi1090x-plymouth-themes.override {
+                        selected_themes = [ "circuit" ];
+                    })
+                ];
             };
             consoleLogLevel = 0;
             initrd.verbose = false;
