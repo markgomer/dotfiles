@@ -27,17 +27,25 @@
             loader = {
                 limine = {
                     enable = true;
-                    # Customizing Limine: Place a 'background.png'
-                    # in /boot/limine/wallpapers or
-                    # use 'config' attribute to define colors/fonts.
-                    # Limine looks for 'limine.conf' which NixOS generates.
+                    # list of absolute path
+                    # FIXME: image can't be webp!
+                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/funny-linux-high-quality-hl78brohj3tittem.webp ];
+                    # INFO: to randomly rotate through images in a directory
+                    # style.wallpapers = map (f: /home/majunior/.cache/noctalia/images/wallpapers/thumbnails + "/${f}")
+                    #     (builtins.attrNames (builtins.readDir /home/majunior/.cache/noctalia/images/wallpapers/thumbnails));
                 };
                 timeout = 1;
                 efi.canTouchEfiVariables = true;
             };
             plymouth = {
                 enable = true;
-                theme = "breeze";
+                theme = "circuit";
+                themePackages = with pkgs; [
+                    # By default we would install all themes
+                    (adi1090x-plymouth-themes.override {
+                        selected_themes = [ "circuit" ];
+                    })
+                ];
             };
             consoleLogLevel = 0;
             initrd.verbose = false;
