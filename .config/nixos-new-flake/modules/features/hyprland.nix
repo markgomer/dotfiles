@@ -35,7 +35,7 @@
             pkgs.nwg-displays # multiple display configuration
             pkgs.grimblast # screenshots
             pkgs.pavucontrol # audio GUI fallback
-            pkgs.wayland-pipewire-idle-inhibit
+            pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys
             pkgs.ianny # break reminder progrgam
         ];

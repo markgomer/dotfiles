@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
         "*.js", "*.jsx", "*.ts", "*.tsx", "*.html"
     },
     callback = function()
-        local tabstop = 2
+        local tabstop = 3
         vim.opt_local.tabstop = tabstop
         vim.opt_local.softtabstop = tabstop
         vim.opt_local.shiftwidth = tabstop
