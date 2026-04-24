@@ -62,8 +62,8 @@ return {
                 variables = {},
             },
             on_highlights = function(hl, c)
-                hl["@variable"]           = { fg = "#FF7777" }
-                hl["@tag.tsx"]            = { fg = "#FF77FF"}
+                hl["@variable"]           = { fg = "#FF5599" }
+                hl["@tag.tsx"]            = { fg = "#FF5599"}
                 -- hl["@variable.builtin"]   = { fg = dark_red }
                 -- hl["@variable.member"]    = { fg = dark_red }
                 -- hl["@variable.parameter"] = { fg = dark_red }

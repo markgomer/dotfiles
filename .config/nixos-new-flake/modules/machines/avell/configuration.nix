@@ -29,7 +29,7 @@
                     enable = true;
                     # list of absolute path
                     # FIXME: image can't be webp!
-                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/funny-linux-high-quality-hl78brohj3tittem.webp ];
+                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/crt.png ];
                     # INFO: to randomly rotate through images in a directory
                     # style.wallpapers = map (f: /home/majunior/.cache/noctalia/images/wallpapers/thumbnails + "/${f}")
                     #     (builtins.attrNames (builtins.readDir /home/majunior/.cache/noctalia/images/wallpapers/thumbnails));
@@ -41,7 +41,6 @@
                 enable = true;
                 theme = "circuit";
                 themePackages = with pkgs; [
-                    # By default we would install all themes
                     (adi1090x-plymouth-themes.override {
                         selected_themes = [ "circuit" ];
                     })
@@ -60,6 +59,7 @@
                 allowedTCPPorts = [
                     53317 # LocalSend
                     631 # CUPS
+                    53 # CUPS DNS
                 ];
                 allowedUDPPorts = [];
             };
@@ -104,12 +104,23 @@
                 # WARN: Options below are incompatible with 1050! Must be false!
                 powerManagement.finegrained = false;
                 open = false;
-                prime.offload.enable = false;
+                prime = {
+                    sync.enable = false;
+                    offload.enable = true;
+                    intelBusId = "PCI:0@0:2:0";
+                    nvidiaBusId = "PCI:1@0:0:0";
+                };
             };
         };
 
         services = {
             xserver.videoDrivers = [ "nvidia" ];
+
+            scx = {
+                enable = true;
+                # scx_lavd; scx_bpfland; scx_rustland; scx_flash
+                scheduler = "scx_bpfland";
+            };
 
             beesd = {
                 filesystems = {
