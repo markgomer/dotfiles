@@ -12,8 +12,9 @@ alias box='distrobox enter archbox'
 alias jctl="journalctl -p 3 -xb"
 
 # NixOS aliases
-alias nrs="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell"
-alias update="cd $ConfigDir && nix flake update && nrs"
+alias nrs-avell="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell"
+alias nrs-think="sudo nixos-rebuild switch --impure --flake $ConfigDir#thinkpad"
+alias update="cd $ConfigDir && nix flake update"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
 alias ecf="nvim $ConfigDir/flake.nix"; # edit config file
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
