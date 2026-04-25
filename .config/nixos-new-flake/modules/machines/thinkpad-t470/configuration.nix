@@ -99,9 +99,9 @@
 
         services = {
             xserver.xkb = {
-	        layout = "br";
-            variant = "thinkpad";
-	    };
+                layout = "br";
+                variant = "thinkpad";
+            };
 
             # beesd = {
             #     filesystems = {
@@ -152,31 +152,11 @@
                 uncoreOffset = -127;
             };
 
-            keyd = {
-                enable = true;
-                keyboards = {
-                    # The name is just the name of the configuration file, it does not really matter
-                    default = {
-                        ids = [ "*" ]; # what goes into the [id] section, here we select all keyboards
-                        settings = {
-                            main = {
-                                capslock = "overload(control,esc)";
-                                esc = "capslock";
-                                rightcontrol = "slash";
-                            };
-                            shift = {
-                                rightcontrol = "question";
-                            };
-                            altgr = {
-                                rightcontrol = "degree";
-                            };
-                        };
-                    };
-                };
-            };
             # for external media
             udisks2.enable = true;
             gvfs.enable = true;
+
+            input-remapper.enable = true;
         };
 
         security = {
