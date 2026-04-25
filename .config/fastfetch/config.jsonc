@@ -69,10 +69,15 @@
         */
         {
             "type": "memory",
-            "key": "󰍛 ",
+            "key": " ",
             "keyColor": "magenta",
             // format: used / total
             "format": "{1} / {2}"
+        },
+        {
+            "type": "swap",
+            "key": "󰓡 ",
+            "keyColor": "green"
         },
         {
             "type": "disk",
