@@ -272,6 +272,8 @@
             kitty
 
             pcmanfm
+
+            brave
         ];
 
         users.users.majunior = {
