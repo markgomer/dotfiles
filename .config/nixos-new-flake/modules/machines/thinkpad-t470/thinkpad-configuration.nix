@@ -20,9 +20,6 @@
                 "udev.log_priority=3"
                 "vt.global_cursor_default=0"
             ];
-            extraModprobeConfig = ''
-                options vblank_sem_control=0 
-	    '';
             loader = {
                 limine = {
                     enable = true;
@@ -103,15 +100,6 @@
                 variant = "thinkpad";
             };
 
-            # beesd = {
-            #     filesystems = {
-            #         root = {
-            #             spec = "LABEL=nixos";
-            #             hashTableSizeMB = 128;
-            #         };
-            #     };
-            # };
-
             printing = {
                 enable = true;
                 drivers = [
@@ -145,11 +133,11 @@
             flatpak.enable = true;
 
             undervolt = {
-                enable = false;
-                coreOffset = -127;
-                gpuOffset = -320;
-                analogioOffset = -127;
-                uncoreOffset = -127;
+                enable = true;
+                coreOffset = -75;
+                gpuOffset = -50;
+                analogioOffset = -27;
+                uncoreOffset = -50;
             };
 
             # for external media
