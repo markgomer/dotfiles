@@ -1,6 +1,6 @@
 { inputs, ... }:
 {
-    flake.nixosModules.majuniorHome = { ... }: {
+    flake.nixosModules.majuniorHome = { pkgs-unstable, ... }: {
         imports = [
             inputs.home-manager.nixosModules.home-manager
         ];
@@ -13,30 +13,30 @@
                 home = {
                     username = "majunior";
                     homeDirectory = "/home/majunior";
-                    packages = with pkgs; [
-                        clang-tools
-                        asdf-vm
-                        git
-                        pokemon-colorscripts
-                        tealdeer
-                        tmux
-                        eza
-                        zoxide
+                    packages = [
+                        pkgs.clang-tools
+                        pkgs-unstable.asdf-vm
+                        pkgs.git
+                        pkgs.pokemon-colorscripts
+                        pkgs.tealdeer
+                        pkgs.tmux
+                        pkgs.eza
+                        pkgs.zoxide
 
-                        distrobox
-                        podman-compose
+                        pkgs.distrobox
+                        pkgs.podman-compose
 
                         # lazyvim pack
-                        fd
-                        lazygit
-                        ripgrep
-                        tree-sitter
-                        nixd
+                        pkgs.fd
+                        pkgs.lazygit
+                        pkgs.ripgrep
+                        pkgs.tree-sitter
+                        pkgs.nixd
 
                         # Games
-                        lutris
+                        pkgs.lutris
 
-                        nwg-look
+                        pkgs.nwg-look
                     ];
 
                     sessionVariables = {
