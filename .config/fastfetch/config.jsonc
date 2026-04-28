@@ -27,7 +27,7 @@
             "type": "command",
             "key": " ",
             "keyColor": "magenta",
-            "text": "echo Estamos há $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) dias sem trocar de Linux"
+            "text": "echo Estamos há $(( ($(date +%s) - $(stat -c %W /)) / 86400 )) dias neste GNU Linux"
         },
         {
             "type": "custom",
@@ -37,13 +37,13 @@
             "type": "cpu",
             "format": "{1} ({3}) @ {7}",
             "key": " ",
-            "keyColor": "33",
+            "keyColor": "blue",
         },
         {
             "type": "gpu",
             "format": "{2}",
             "key": "󰢮 ",
-            "keyColor": "33",
+            "keyColor": "blue",
         },
         {
             "type": "kernel",
@@ -53,24 +53,12 @@
         {
             "type": "os",
             "key": " ",
-            "keyColor": "31",
+            "keyColor": "yellow",
         },
-        {
-            "type": "wm",
-            "key": " ",
-            "keyColor": "blue"
-        },
-        /*
-        {
-            "type": "packages",
-            "key": "󰏖 ",
-            "keyColor": "yellow"
-        },
-        */
         {
             "type": "memory",
             "key": " ",
-            "keyColor": "magenta",
+            "keyColor": "green",
             // format: used / total
             "format": "{1} / {2}"
         },
@@ -82,16 +70,22 @@
         {
             "type": "disk",
             "key": "󰋊 ",
-            "keyColor": "33",
+            "keyColor": "red",
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "31"
         },
         {
             "type": "uptime",
             "key": "󰔛 ",
-            "keyColor": "green"
+            "keyColor": "36"
         },
         {
             "type": "custom",
-            "format": " ─────────────────────────── "
+            "format": " ─────────────────────────── ",
+            "keyColor": "90"
         },
         {
             "type": "custom",
