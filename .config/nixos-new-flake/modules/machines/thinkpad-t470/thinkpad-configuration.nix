@@ -24,11 +24,14 @@
                 limine = {
                     enable = true;
                     # list of absolute path
-                    # FIXME: image can't be webp!
-                    # style.wallpapers = [ /home/majunior/Pictures/Wallpapers/funny-linux-high-quality-hl78brohj3tittem.webp ];
+                    # WARN: image can't be webp!
+                    style.wallpapers = [ /home/majunior/Pictures/Wallpapers/crt.png ];
+
                     # INFO: to randomly rotate through images in a directory
+
                     # style.wallpapers = map (f: /home/majunior/.cache/noctalia/images/wallpapers/thumbnails + "/${f}")
                     #     (builtins.attrNames (builtins.readDir /home/majunior/.cache/noctalia/images/wallpapers/thumbnails));
+
                 };
                 timeout = 1;
                 efi.canTouchEfiVariables = true;

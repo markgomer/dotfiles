@@ -38,6 +38,18 @@
             pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys
             pkgs.ianny # break reminder progrgam
+
+            # screen tools plugin dependencies
+            pkgs.grim
+            pkgs.slurp
+            pkgs.tesseract
+            pkgs.imagemagick
+            pkgs.zbar
+            pkgs.translate-shell
+            pkgs.wl-screenrec
+            pkgs.ffmpeg
+            pkgs.gifski
+            pkgs.jq
         ];
     };
 }
