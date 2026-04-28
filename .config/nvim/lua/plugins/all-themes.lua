@@ -8,32 +8,6 @@ return {
         },
     },
     {
-        "ribru17/bamboo.nvim",
-        lazy = true,
-        priority = 1000,
-    },
-    {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = true,
-        priority = 1000,
-    },
-    {
-        "sainnhe/everforest",
-        lazy = true,
-        priority = 1000,
-    },
-    {
-        "bjarneo/ethereal.nvim",
-        lazy = true,
-        priority = 1000,
-    },
-    {
-        "ellisonleao/gruvbox.nvim",
-        lazy = true,
-        priority = 1000,
-    },
-    {
         "rebelot/kanagawa.nvim",
         lazy = true,
         priority = 1000,
