@@ -97,6 +97,15 @@
             };
         };
 
+        systemd.services.battery-threshold = {
+            wantedBy = [ "multi-user.target" ];
+            script = ''
+                echo 80 > /sys/class/power_supply/BAT1/charge_control_start_threshold
+                echo 85 > /sys/class/power_supply/BAT1/charge_control_end_threshold
+            '';
+            serviceConfig.Type = "oneshot";
+        };
+
         services = {
             xserver.xkb = {
                 layout = "br";
@@ -114,7 +123,7 @@
             avahi = {
                 enable = true;
                 nssmdns4 = true;
-                openFirewall = true; # This opens the ports for discovery
+                openFirewall = true; # open ports for discovery
             };
 
             pulseaudio.enable = false;
@@ -137,10 +146,10 @@
 
             undervolt = {
                 enable = true;
-                coreOffset = -80;
-                gpuOffset = -75;
-                analogioOffset = -75;
-                uncoreOffset = -50;
+                coreOffset = -95; # 100 fail
+                gpuOffset = -90; # 95 fail
+                analogioOffset = -85;
+                uncoreOffset = -70;
             };
 
             # for external media
@@ -148,16 +157,6 @@
             gvfs.enable = true;
 
             input-remapper.enable = true;
-
-            tlp = {
-                enable = true;
-                settings = {
-                    START_CHARGE_THRESH_BAT0 = 75;
-                    STOP_CHARGE_THRESH_BAT0 = 80;
-                    START_CHARGE_THRESH_BAT1 = 75;
-                    STOP_CHARGE_THRESH_BAT1 = 80;
-                };
-            };
         };
 
         security = {
@@ -251,7 +250,6 @@
         environment.systemPackages = with pkgs; [
             # Essentials
             gcc
-            python314
             unzip
             curl
             tree
