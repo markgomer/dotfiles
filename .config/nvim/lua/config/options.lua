@@ -12,7 +12,7 @@ vim.opt.relativenumber = true
 vim.opt.clipboard = ""
 
 -- Tabulation
-local tabstop = 4
+local tabstop = 3
 vim.opt.tabstop = tabstop
 vim.opt.softtabstop = tabstop
 vim.opt.shiftwidth = tabstop

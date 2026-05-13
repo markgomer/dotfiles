@@ -1,6 +1,6 @@
 return {
     {
-        "Cliffback/ripple-vscode-plugin.nvim",
+        -- "Cliffback/ripple-vscode-plugin.nvim",
         -- config = function()
         --     require("ripple-lsp").setup({
         --         -- optional overrides
@@ -11,10 +11,10 @@ return {
         -- end,
     },
     {
-        "Ripple-TS/ripple",
-        config = function(plugin)
-            vim.opt.rtp:append(plugin.dir .. "/packages/nvim-plugin")
-            require("ripple").setup(plugin)
-        end,
+        -- "Ripple-TS/ripple",
+        -- config = function(plugin)
+        --     vim.opt.rtp:append(plugin.dir .. "/packages/nvim-plugin")
+        --     require("ripple").setup(plugin)
+        -- end,
     },
 }
