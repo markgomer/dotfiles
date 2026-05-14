@@ -1,11 +1,10 @@
 .config/zsh/.histfile
-.config/zsh/.zcompdump
-.config/zsh/.zcompdump-avell-5.9
-.config/zsh/.zcompdump-avell-5.9.zwc
 .local/bin/zaparoo
-.config/zsh/.zcompdump-bazzite-5.9
-.config/zsh/.zcompdump-bazzite-5.9.zwc
 .config/zsh/.zshrc
+.config/zsh/.z*
 .config/fontconfig/conf.d/10-hm-fonts.conf
 .config/fontconfig/conf.d/52-hm-default-fonts.conf
-.config/zsh/.zsh_history
+.config/btop/themes/noctalia.theme
+.config/hypr-thinkpad/noctalia/noctalia-colors.conf
+.config/hypr-thinkpad/hyprtoolkit.conf
+.config/yazi/flavors/noctalia.yazi/flavor.toml
