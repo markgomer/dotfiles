@@ -1,4 +1,4 @@
-ConfigDir=$HOME/dotfiles/.config/nixos-new-flake
+NixConfigDir=$HOME/dotfiles/.config/nixos-new-flake
 
 alias lzg='lazygit'
 alias ls='eza'
@@ -12,11 +12,11 @@ alias box='distrobox enter archbox'
 alias jctl="journalctl -p 3 -xb"
 
 # NixOS aliases
-alias nrs-avell="sudo nixos-rebuild switch --impure --flake $ConfigDir#avell"
-alias nrs-think="sudo nixos-rebuild switch --impure --flake $ConfigDir#thinkpad"
-alias update="cd $ConfigDir && nix flake update"
+alias nrs-avell="sudo nixos-rebuild switch --impure --flake $NixConfigDir#avell"
+alias nrs-think="sudo nixos-rebuild switch --impure --flake $NixConfigDir#thinkpad"
+alias update="cd $NixConfigDir && nix flake update"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
-alias ecf="nvim $ConfigDir/flake.nix"; # edit config file
+alias ecf="nvim $NixConfigDir/flake.nix"; # edit config file
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # Cleanup orphaned packages
