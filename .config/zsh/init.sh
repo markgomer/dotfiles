@@ -6,11 +6,5 @@ if command -v zoxide &>/dev/null; then
     eval "$(zoxide init zsh)"
 fi
 
-if command -v asdf &>/dev/null; then
-    export ASDF_DATA_DIR="$HOME/.local/share/asdf-vm"
-    export PATH="$HOME/.local/bin:${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-fi
-
-export PATH="/home/majunior/.cache/.bun/bin:$PATH"
-
-# pokefetch
+# at functions.sh
+setup_path
