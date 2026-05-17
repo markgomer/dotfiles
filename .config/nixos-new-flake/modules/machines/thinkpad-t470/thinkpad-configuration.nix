@@ -268,7 +268,7 @@
             yazi
 
             # Terminals
-            kitty
+            foot
 
             pcmanfm
 

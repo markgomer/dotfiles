@@ -37,7 +37,7 @@
             pkgs.pavucontrol # audio GUI fallback
             pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys
-            pkgs.ianny # break reminder progrgam
+            pkgs-unstable.ianny # break reminder program
 
             # screen tools plugin dependencies
             pkgs.grim
