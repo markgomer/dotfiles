@@ -2,7 +2,8 @@
 {
     flake.nixosConfigurations = {
         thinkpad = inputs.nixpkgs.lib.nixosSystem {
-            specialArgs = let
+            specialArgs =
+            let
                 system = "x86_64-linux";
             in {
                 pkgs-unstable = import inputs.nixpkgs-unstable {
@@ -16,7 +17,6 @@
                 self.nixosModules.HyprModule
                 self.nixosModules.majuniorHome
                 self.nixosModules.DisplayManagerModule
-                inputs.stylix.nixosModules.stylix
             ];
         };
     };

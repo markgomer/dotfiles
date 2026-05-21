@@ -187,39 +187,6 @@
             defaultNetwork.settings.dns_enabled = true;
         };
 
-        stylix = {
-            enable = false;
-            polarity = "dark";
-            targets.qt.enable = true;
-            # https://tinted-theming.github.io/tinted-gallery/
-            base16Scheme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
-            # stylix.image = ./wallpaper.png;
-            fonts = {
-                serif = {
-                    package = pkgs.nerd-fonts.caskaydia-cove;
-                    name = "CaskaydiaCove Nerd Font";
-                };
-                sansSerif = {
-                    package = pkgs.nerd-fonts.caskaydia-cove;
-                    name = "CaskaydiaCove Nerd Font";
-                };
-                monospace = {
-                    package = pkgs.nerd-fonts.jetbrains-mono;
-                    name = "JetBrains Mono Nerd Font";
-                };
-                emoji = {
-                    package = pkgs.noto-fonts-color-emoji;
-                    name = "Noto Color Emoji";
-                };
-                sizes = {
-                    applications = 10;
-                    terminal = 11;
-                    desktop = 10;
-                    popups = 10;
-                };
-            };
-        };
-
         xdg.terminal-exec = {
             enable = true;
             settings = {
