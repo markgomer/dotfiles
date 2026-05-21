@@ -1,6 +1,6 @@
 { ... }:
 {
-    flake.nixosModules.ThinkPadConfiguration = { pkgs, config, ... }:
+    flake.nixosModules.ThinkPadConfiguration = { pkgs, pkgs-unstable, ... }:
     {
         # import any other modules from here
         imports = [
@@ -214,32 +214,32 @@
         };
 
 
-        environment.systemPackages = with pkgs; [
+        environment.systemPackages = [
             # Essentials
-            gcc
-            unzip
-            curl
-            tree
-            linuxKernel.packages.linux_6_18.cpupower
-            pciutils
-            xdg-user-dirs
-            neovim
-            polkit_gnome
-            gnupg
-            gnumake
+            pkgs.gcc
+            pkgs.unzip
+            pkgs.curl
+            pkgs.tree
+            pkgs.linuxKernel.packages.linux_6_18.cpupower
+            pkgs.pciutils
+            pkgs.xdg-user-dirs
+            pkgs.neovim
+            pkgs.polkit_gnome
+            pkgs.gnupg
+            pkgs.gnumake
 
             # CLI Tools
-            bluetui
-            btop
-            fastfetch
-            yazi
+            pkgs.bluetui
+            pkgs.btop
+            pkgs.fastfetch
+            pkgs.yazi
 
             # Terminals
-            foot
+            pkgs-unstable.foot
 
-            pcmanfm
+            pkgs.pcmanfm
 
-            brave
+            pkgs.brave
         ];
 
         users.users.majunior = {
