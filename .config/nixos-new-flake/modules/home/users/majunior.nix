@@ -6,12 +6,12 @@
         ];
 
         home-manager = {
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            backupFileExtension = "backup";
             extraSpecialArgs = {
                 inherit pkgs-unstable;
             };
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            backupFileExtension = "backup";
 
             users.majunior = { pkgs, pkgs-unstable, ... }: {
                 imports = [

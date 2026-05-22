@@ -1,0 +1,166 @@
+// https://kdl.dev
+// "/-" comments out the following node.
+// https://niri-wm.github.io/niri/Configuration:-Introduction
+
+spawn-at-startup "noctalia-shell &"
+spawn-at-startup "wayland-pipewire-idle-inhibit &"
+spawn-at-startup "ianny &"
+spawn-at-startup "input-remapper-control --command autoload"
+
+prefer-no-csd
+
+// https://niri-wm.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        repeat-rate 35
+        repeat-delay 200
+        xkb {
+            layout "br"
+            variant "thinkpad"
+        }
+        numlock
+    }
+
+    touchpad {
+        // off
+        tap
+        natural-scroll
+        accel-speed 0
+        accel-profile "flat"
+    }
+
+    mouse {
+        // off
+        accel-speed 0
+        accel-profile "flat"
+    }
+    // warp-mouse-to-focus
+
+    // Focus windows and outputs automatically when moving the mouse into them.
+    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    focus-follows-mouse max-scroll-amount="0%"
+
+    trackpoint {
+        // off
+        // natural-scroll
+        accel-speed 0.5
+        accel-profile "flat"
+        // scroll-method "on-button-down"
+        // scroll-button 273
+        // scroll-button-lock
+        // middle-emulation
+    }
+}
+
+// You can configure outputs by their name, which you can find
+// by running `niri msg outputs` while inside a niri instance.
+// The built-in laptop monitor is usually called "eDP-1".
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Outputs
+// Remember to uncomment the node by removing "/-"!
+output "eDP-1" {
+    // off
+    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>"
+    mode "1920x1080@60.010"
+    scale 1.2
+    transform "normal" // normal, 90, flipped, flipped-90, etc
+    position x=1920 y=0
+}
+output "HDMI-A-2" {
+    position x=0 y=0
+}
+
+// Settings that influence how windows are positioned and sized.
+// Find more information on the wiki:
+// https://niri-wm.github.io/niri/Configuration:-Layout
+layout {
+    // Set gaps around windows in logical pixels.
+    gaps 6
+    center-focused-column "never" // always, on-overflow
+    preset-column-widths {
+        // toggle with Mod+R
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    tab-indicator {
+        hide-when-single-tab
+    }
+    default-column-width {} //proportion 0.5;
+    focus-ring {
+        off
+        width 1
+    }
+    // similar to focus ring, but always visible.
+    border {
+        on
+        width 2
+        inactive-color "#000F"
+        urgent-color "#9b0000"
+    }
+    // You can enable drop shadows for windows.
+    shadow {
+        off
+        softness 0
+        spread 4
+
+        // Offset moves the shadow relative to the window.
+        offset x=0 y=0
+
+        // You can also change the shadow color and opacity.
+        color "#000F"
+    }
+}
+
+hotkey-overlay {
+    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
+    // skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// https://niri-wm.github.io/niri/Configuration:-Animations
+animations {
+    // off
+    // slowdown 3.0
+}
+
+// https://niri-wm.github.io/niri/Configuration:-Window-Rules
+
+// Open the Firefox picture-in-picture player as floating by default.
+window-rule {
+    // This app-id regular expression will work for both:
+    // - host Firefox (app-id is "firefox")
+    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"zen_browser$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Example: block out two password managers from screen capture.
+// (This example rule is commented out with a "/-" in front.)
+/-window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+    match app-id=r#"^org\.gnome\.World\.Secrets$"#
+
+    block-out-from "screen-capture"
+
+    // Use this instead if you want them visible on third-party screenshot tools.
+    // block-out-from "screencast"
+}
+
+// Example: enable rounded corners for all windows.
+// (This example rule is commented out with a "/-" in front.)
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+// Set the overview wallpaper on the backdrop.
+layer-rule {
+    match namespace="^noctalia-overview*"
+    place-within-backdrop true
+}
+
+include "./binds.kdl"
+include "./noctalia.kdl"
