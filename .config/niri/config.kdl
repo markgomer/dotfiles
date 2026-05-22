@@ -2,10 +2,11 @@
 // "/-" comments out the following node.
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
-spawn-at-startup "noctalia-shell &"
-spawn-at-startup "wayland-pipewire-idle-inhibit &"
-spawn-at-startup "ianny &"
-spawn-at-startup "input-remapper-control --command autoload"
+spawn-at-startup "noctalia-shell"
+spawn-at-startup "wayland-pipewire-idle-inhibit"
+spawn-at-startup "ianny"
+spawn-at-startup "xwayland-satellite"
+spawn-sh-at-startup "input-remapper-control --command autoload"
 
 prefer-no-csd
 
