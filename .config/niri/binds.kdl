@@ -2,11 +2,13 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     Mod+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "pcmanfm"; }
 
-    XF86AudioPlay        allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-    XF86AudioStop        allow-when-locked=true { spawn-sh "playerctl stop"; }
-    XF86AudioPrev        allow-when-locked=true { spawn-sh "playerctl previous"; }
-    XF86AudioNext        allow-when-locked=true { spawn-sh "playerctl next"; }
+    XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
+    XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
+    XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
+    XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
@@ -32,6 +34,10 @@ binds {
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
     Mod+Shift+L     { move-column-right-or-to-monitor-right; } 
+    Mod+Shift+A     { move-column-left-or-to-monitor-left; }
+    Mod+Shift+S     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+W     { move-window-up-or-to-workspace-up; }
+    Mod+Shift+D     { move-column-right-or-to-monitor-right; } 
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -79,18 +85,15 @@ binds {
     Mod+7 { focus-workspace 7; }
     Mod+8 { focus-workspace 8; }
     Mod+9 { focus-workspace 9; }
-    Mod+Ctrl+1 { move-column-to-workspace 1; }
-    Mod+Ctrl+2 { move-column-to-workspace 2; }
-    Mod+Ctrl+3 { move-column-to-workspace 3; }
-    Mod+Ctrl+4 { move-column-to-workspace 4; }
-    Mod+Ctrl+5 { move-column-to-workspace 5; }
-    Mod+Ctrl+6 { move-column-to-workspace 6; }
-    Mod+Ctrl+7 { move-column-to-workspace 7; }
-    Mod+Ctrl+8 { move-column-to-workspace 8; }
-    Mod+Ctrl+9 { move-column-to-workspace 9; }
-
-    // Alternatively, there are commands to move just a single window:
-    // Mod+Ctrl+1 { move-window-to-workspace 1; }
+    Mod+Shift+1 { move-window-to-workspace 1; }
+    Mod+Shift+2 { move-window-to-workspace 2; }
+    Mod+Shift+3 { move-window-to-workspace 3; }
+    Mod+Shift+4 { move-window-to-workspace 4; }
+    Mod+Shift+5 { move-window-to-workspace 5; }
+    Mod+Shift+6 { move-window-to-workspace 6; }
+    Mod+Shift+7 { move-window-to-workspace 7; }
+    Mod+Shift+8 { move-window-to-workspace 8; }
+    Mod+Shift+9 { move-window-to-workspace 9; }
 
     // Switches focus between the current and the previous workspace.
     // Mod+Tab { focus-workspace-previous; }
@@ -98,38 +101,23 @@ binds {
     // The following binds move the focused window in and out of a column.
     // If the window is alone, they will consume it into the nearby column to the side.
     // If the window is already in a column, they will expel it out.
-    Mod+BracketLeft  { consume-or-expel-window-left; }
-    Mod+BracketRight { consume-or-expel-window-right; }
-
-    // Consume one window from the right to the bottom of the focused column.
-    Mod+Comma  { consume-window-into-column; }
-    // Expel the bottom window from the focused column to the right.
-    Mod+Period { expel-window-from-column; }
+    Mod+Comma  { consume-or-expel-window-left; }
+    Mod+Period { consume-or-expel-window-right; }
 
     // Cycle through widths set in preset-column-widths.
     Mod+R { switch-preset-column-width; }
     // Cycling through the presets in reverse order is also possible.
     Mod+Shift+R { switch-preset-column-width-back; }
 
-    Mod+Ctrl+Shift+R { switch-preset-window-height; }
-    Mod+Ctrl+R { reset-window-height; }
+    Mod+Alt+R { switch-preset-window-height; }
+    Mod+Alt+Shift+R { reset-window-height; }
 
     Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
-
-    // While maximize-column leaves gaps and borders around the window,
-    // maximize-window-to-edges doesn't: the window expands to the edges of the screen.
-    // This bind corresponds to normal window maximizing,
-    // e.g. by double-clicking on the titlebar.
+    Mod+Alt+F { expand-column-to-available-width; }
     Mod+M { maximize-window-to-edges; }
-
-    // Expand the focused column to space not taken up by other fully visible columns.
-    // Makes the column "fill the rest of the space".
-    Mod+Ctrl+F { expand-column-to-available-width; }
+    F11 { fullscreen-window; }
 
     Mod+C { center-column; }
-
-    // Center all fully visible columns on screen.
     Mod+Ctrl+C { center-visible-columns; }
 
     // Finer width adjustments.
@@ -140,24 +128,16 @@ binds {
     // * adjust width as a percentage of screen width: "-10%" or "+10%"
     // Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     // set-column-width "100" will make the column occupy 200 physical screen pixels.
-    Mod+Minus { set-column-width "-2%"; }
-    Mod+Equal { set-column-width "+2%"; }
+    Mod+Minus { set-column-width "-1%"; }
+    Mod+Equal { set-column-width "+1%"; }
 
     // Finer height adjustments when in column with other windows.
-    Mod+Shift+Minus { set-window-height "-2%"; }
-    Mod+Shift+Equal { set-window-height "+2%"; }
+    Mod+Shift+Minus { set-window-height "-1%"; }
+    Mod+Shift+Equal { set-window-height "+1%"; }
 
     // Move the focused window between the floating and the tiling layout.
     Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
-
-    // Actions to switch layouts.
-    // Note: if you uncomment these, make sure you do NOT have
-    // a matching layout switch hotkey configured in xkb options above.
-    // Having both at once on the same hotkey will break the switching,
-    // since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    // Mod+Space       { switch-layout "next"; }
-    // Mod+Shift+Space { switch-layout "prev"; }
+    Alt+Tab     { switch-focus-between-floating-and-tiling; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -173,19 +153,14 @@ binds {
     // which ensures niri always processes them, even when an inhibitor is active.
     Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
-    // The quit action will show a confirmation dialog to avoid accidental exits.
-    // Mod+Shift+E { quit; }
-    // Ctrl+Alt+Delete { quit; }
-
-
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 
     // Core Noctalia binds
-    Mod+Space { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    XF86Tools { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
-    Mod+XF86Tools { spawn-sh "noctalia-shell ipc call settings toggle"; }
+    Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
+    XF86Tools hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
+    Mod+XF86Tools hotkey-overlay-title="Open Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
 
     // Audio & Brightness
     XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
@@ -194,6 +169,6 @@ binds {
     XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
-    Mod+Escape { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 }
 
