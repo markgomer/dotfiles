@@ -10,3 +10,4 @@
 .config/yazi/flavors/noctalia.yazi/flavor.toml
 .config/foot/themes/noctalia
 .config/niri/noctalia.kdl
+.config/zsh/.zshenv
