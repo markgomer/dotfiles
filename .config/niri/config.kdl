@@ -164,3 +164,4 @@ layer-rule {
 
 include "./binds.kdl"
 include "./noctalia.kdl"
+include "./animations/tv_crt.kdl"
