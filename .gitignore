@@ -8,3 +8,5 @@
 .config/hypr-thinkpad/noctalia/noctalia-colors.conf
 .config/hypr-thinkpad/hyprtoolkit.conf
 .config/yazi/flavors/noctalia.yazi/flavor.toml
+.config/foot/themes/noctalia
+.config/niri/noctalia.kdl
