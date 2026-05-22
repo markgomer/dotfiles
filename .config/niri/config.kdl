@@ -89,15 +89,13 @@ layout {
     }
     default-column-width {} //proportion 0.5;
     focus-ring {
-        off
+        on
         width 1
     }
     // similar to focus ring, but always visible.
     border {
         on
-        width 2
-        inactive-color "#000F"
-        urgent-color "#9b0000"
+        width 1
     }
     // You can enable drop shadows for windows.
     shadow {
@@ -107,9 +105,6 @@ layout {
 
         // Offset moves the shadow relative to the window.
         offset x=0 y=0
-
-        // You can also change the shadow color and opacity.
-        color "#000F"
     }
 }
 
