@@ -11,3 +11,4 @@
 .config/foot/themes/noctalia
 .config/niri/noctalia.kdl
 .config/zsh/.zshenv
+*.bak
