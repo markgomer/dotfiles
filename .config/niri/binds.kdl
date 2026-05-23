@@ -112,8 +112,8 @@ binds {
     Mod+Alt+R { switch-preset-window-height; }
     Mod+Alt+Shift+R { reset-window-height; }
 
-    Mod+F { maximize-column; }
-    Mod+Alt+F { expand-column-to-available-width; }
+    // Mod+F { maximize-column; }
+    Mod+F { expand-column-to-available-width; }
     Mod+M { maximize-window-to-edges; }
     F11 { fullscreen-window; }
 

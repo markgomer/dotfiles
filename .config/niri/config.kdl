@@ -13,8 +13,8 @@ prefer-no-csd
 // https://niri-wm.github.io/niri/Configuration:-Input
 input {
     keyboard {
-        repeat-rate 35
-        repeat-delay 200
+        repeat-rate 30
+        repeat-delay 250
         xkb {
             layout "br"
             variant "thinkpad"
@@ -37,8 +37,7 @@ input {
     }
     // warp-mouse-to-focus
 
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+    // "0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 
     trackpoint {
@@ -53,15 +52,11 @@ input {
     }
 }
 
-// You can configure outputs by their name, which you can find
-// by running `niri msg outputs` while inside a niri instance.
-// The built-in laptop monitor is usually called "eDP-1".
-// Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Outputs
-// Remember to uncomment the node by removing "/-"!
+// `niri msg outputs`
 output "eDP-1" {
     // off
-    // The format is "<width>x<height>" or "<width>x<height>@<refresh rate>"
+    // "<width>x<height>" or "<width>x<height>@<refresh_rate>"
     mode "1920x1080@60.010"
     scale 1.2
     transform "normal" // normal, 90, flipped, flipped-90, etc
@@ -89,13 +84,13 @@ layout {
     }
     default-column-width {} //proportion 0.5;
     focus-ring {
-        on
+        off
         width 1
     }
     // similar to focus ring, but always visible.
     border {
         on
-        width 1
+        width 1.5
     }
     // You can enable drop shadows for windows.
     shadow {
@@ -123,13 +118,17 @@ animations {
 
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
-// Open the Firefox picture-in-picture player as floating by default.
+// All windows
 window-rule {
-    // This app-id regular expression will work for both:
-    // - host Firefox (app-id is "firefox")
+    // Rounded corners
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
+window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"zen_browser$"# title="^Picture-in-Picture$"
+    match app-id=r#"$app.zen_browser.zen$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -145,13 +144,6 @@ window-rule {
     // block-out-from "screencast"
 }
 
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
-}
-
 // Set the overview wallpaper on the backdrop.
 layer-rule {
     match namespace="^noctalia-overview*"
@@ -160,4 +152,4 @@ layer-rule {
 
 include "./binds.kdl"
 include "./noctalia.kdl"
-include "./animations/tv_crt.kdl"
+include "./animations/pop-drop.kdl"
