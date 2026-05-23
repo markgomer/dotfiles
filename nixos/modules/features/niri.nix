@@ -28,7 +28,6 @@
             pkgs.cliphist
             pkgs.brightnessctl # laptop brightness
             pkgs.nwg-look # GTK theme configurator
-            pkgs.nwg-displays # multiple display configuration
             pkgs.pavucontrol # audio GUI fallback
             pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys

@@ -10,6 +10,23 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
+    XF86Display allow-when-locked=true { spawn-sh "niri msg output eDP-1 on"; }
+    Mod+Alt+Up allow-when-locked=true {
+        spawn-sh "niri msg output eDP-1 off && niri msg output HDMI-A-2 on";
+    }
+    Mod+Alt+Down allow-when-locked=true {
+        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 off";
+    }
+    // Move Ext Right (Laptop at 0, Ext at Laptop width)
+    Mod+Alt+Right { 
+        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/eDP-1/{getline; print $3}' | cut -dx -f1) && niri msg output eDP-1 position set 0 0 && niri msg output HDMI-A-2 position set $W 0"
+    }
+
+    // Move Ext Left (Ext at 0, Laptop at Ext width)
+    Mod+Alt+Left { 
+        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/HDMI-A-2/{getline; print $3}' | cut -dx -f1) && niri msg output HDMI-A-2 position set 0 0 && niri msg output eDP-1 position set $W 0"
+    }
+
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
 
@@ -44,20 +61,17 @@ binds {
     Mod+Shift+Home { move-column-to-first; }
     Mod+Shift+End  { move-column-to-last; }
 
-    Mod+Shift+Page_Down { move-column-to-workspace-down; }
-    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
-
     Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
     Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
-    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
-    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+    Mod+Shift+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Shift+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
 
     // Usually scrolling up and down with Shift in applications results in
     // horizontal scrolling; these binds replicate that.
-    Mod+Shift+WheelScrollDown      { focus-column-right; }
-    Mod+Shift+WheelScrollUp        { focus-column-left; }
-    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
-    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+    Mod+Ctrl+WheelScrollDown        cooldown-ms=150 { focus-column-right; }
+    Mod+Ctrl+WheelScrollUp          cooldown-ms=150 { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown  cooldown-ms=150 { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp    cooldown-ms=150 { move-column-left; }
 
     // Similarly, you can bind touchpad scroll "ticks".
     // Touchpad scrolling is continuous, so for these binds it is split into
