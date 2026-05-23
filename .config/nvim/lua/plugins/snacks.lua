@@ -9,15 +9,14 @@ return {
                     explorer = {
                         layout = {
                             layout = {
-                                width = 25, -- your desired width
+                                width = 25,
                                 min_width = 25,
-                                -- optional: position = "right" to show on the right
                             },
                         },
                     },
                     files = {
                         hidden = true, -- Show hidden/dotfiles
-                        ignored = false, -- Respect .gitignore
+                        ignored = false, -- Don't respect .gitignore
                     },
                     grep = {
                         hidden = true, -- Also search in hidden files
