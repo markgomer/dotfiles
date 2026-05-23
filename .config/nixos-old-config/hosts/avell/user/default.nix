@@ -1,6 +1,0 @@
-{
-  imports = [
-    ./majunior.nix
-    ./programs
-  ];
-}
