@@ -269,6 +269,7 @@
                 enable = true;
                 remotePlay.openFirewall = true;
                 dedicatedServer.openFirewall = true;
+                gamescopeSession.enable = true;
             };
             nix-ld.enable = true; # Run Homebrew/external binaries
             appimage = {

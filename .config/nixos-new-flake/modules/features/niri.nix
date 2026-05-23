@@ -33,6 +33,7 @@
             pkgs.wayland-pipewire-idle-inhibit # idle inhibition
             pkgs.playerctl # for using keyboard media keys
             pkgs-unstable.ianny # break reminder program
+            pkgs-unstable.xwayland-satellite
 
             # screen tools plugin dependencies
             pkgs.grim

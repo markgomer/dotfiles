@@ -29,7 +29,7 @@ function y() {
 
 function filesize()
 {
-    du -sk * | sort -h
+    du -sh * | sort -h
 }
 
 

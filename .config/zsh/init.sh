@@ -6,5 +6,5 @@ if command -v zoxide &>/dev/null; then
     eval "$(zoxide init zsh)"
 fi
 
-# at functions.sh
+# at ./functions.sh
 setup_path

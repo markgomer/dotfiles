@@ -229,7 +229,6 @@
             pkgs.gnumake
 
             # CLI Tools
-            pkgs.bluetui
             pkgs.btop
             pkgs.fastfetch
             pkgs.yazi
