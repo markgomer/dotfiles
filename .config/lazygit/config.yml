@@ -1,0 +1,14 @@
+# git:
+#   pagers:
+#     - colorArg: always
+#       pager: diff-so-fancy
+gui:
+  # sidePanelWidth: 0.25
+  expandFocusedSidePanel: true
+  # Options are:
+  # - 'horizontal': split the window horizontally
+  # - 'vertical': split the window vertically
+  # - 'flexible': (default) split the window horizontally if the window is wide
+  mainPanelSplitMode: horizontal
+
+  border: bold
