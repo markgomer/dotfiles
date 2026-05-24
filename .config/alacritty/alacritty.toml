@@ -30,10 +30,10 @@ multiplier = 3
 
 
 [font]
-normal = { family = "terminal-font", style = "Regular" }
-bold = { family = "terminal-font", style = "Bold" }
-italic = { family = "terminal-font", style = "Italic" }
-size = 11
+normal = { family = "Caskaydia Cove NF", style = "Regular" }
+bold = { family = "Caskaydia Cove NF", style = "Bold" }
+italic = { family = "Caskaydia Cove NF", style = "Italic" }
+size = 11.0
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
