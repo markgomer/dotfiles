@@ -6,6 +6,7 @@ vim.opt.nu = true -- show line numbers
 vim.opt.hlsearch = false -- highlight search
 vim.opt.colorcolumn = "80" -- the limit black bar
 vim.opt.wrap = true
+vim.opt.conceallevel = 0
 
 -- Tabulation
 local tabstop = 4
