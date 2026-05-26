@@ -52,46 +52,41 @@ input {
     }
 }
 
-// Settings that influence how windows are positioned and sized.
-// Find more information on the wiki:
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-    // Set gaps around windows in logical pixels.
-    gaps 6
+    gaps 6 // logical pixels
     center-focused-column "never" // always, on-overflow
     preset-column-widths {
         // toggle with Mod+R
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 1.0
     }
     tab-indicator {
         hide-when-single-tab
     }
-    default-column-width {} //proportion 0.5;
-    focus-ring {
-        off
-        width 1
+    default-column-width {
+        proportion 0.5;
     }
-    // similar to focus ring, but always visible.
-    border {
+    focus-ring { // border outside the window
         on
         width 1.5
     }
-    // You can enable drop shadows for windows.
+    border { // border inside the window
+        off
+        width 1.5
+    }
     shadow {
         off
         softness 0
         spread 4
-
-        // Offset moves the shadow relative to the window.
         offset x=0 y=0
     }
 }
 
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
-    // skip-at-startup
+    skip-at-startup
 }
 
 screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"

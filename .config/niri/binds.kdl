@@ -10,22 +10,31 @@ binds {
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
     XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
 
-    XF86Display allow-when-locked=true { spawn-sh "niri msg output eDP-1 on"; }
-    Mod+Alt+Up allow-when-locked=true {
+
+    // DISPLAY MANAGEMENT
+    XF86Display allow-when-locked=true hotkey-overlay-title="Turn on builtin monitor" {
+        spawn-sh "niri msg output eDP-1 on";
+    }
+
+    Mod+Alt+Up allow-when-locked=true hotkey-overlay-title="HDMI monitor only" {
         spawn-sh "niri msg output eDP-1 off && niri msg output HDMI-A-2 on";
     }
-    Mod+Alt+Down allow-when-locked=true {
+
+    Mod+Alt+Down allow-when-locked=true hotkey-overlay-title="Builtin monitor only" {
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 off";
     }
+
     // Move Ext Right (Laptop at 0, Ext at Laptop width)
-    Mod+Alt+Right { 
+    Mod+Alt+Right hotkey-overlay-title="Extend screen to the right" { 
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/eDP-1/{getline; print $3}' | cut -dx -f1) && niri msg output eDP-1 position set 0 0 && niri msg output HDMI-A-2 position set $W 0"
+
     }
 
     // Move Ext Left (Ext at 0, Laptop at Ext width)
-    Mod+Alt+Left { 
+    Mod+Alt+Left hotkey-overlay-title="Extend screen to the left" { 
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/HDMI-A-2/{getline; print $3}' | cut -dx -f1) && niri msg output HDMI-A-2 position set 0 0 && niri msg output eDP-1 position set $W 0"
     }
+
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
@@ -165,11 +174,17 @@ binds {
     //
     // The allow-inhibiting=false property can be applied to other binds as well,
     // which ensures niri always processes them, even when an inhibitor is active.
-    Mod+Shift+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    Mod+Shift+Escape allow-inhibiting=false {
+        toggle-keyboard-shortcuts-inhibit;
+    }
 
     // Powers off the monitors. To turn them back on, do any input like
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
+
+    Mod+P hotkey-overlay-title="Power profile cycle" {
+        spawn-sh "noctalia-shell ipc call powerProfile cycle";
+    }
 
     // Core Noctalia binds
     Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
@@ -184,5 +199,7 @@ binds {
     XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 
     Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+
+    Mod+N hotkey-overlay-title="View Notifications" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
 }
 

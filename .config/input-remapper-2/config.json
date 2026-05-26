@@ -1,6 +1,7 @@
 {
     "version": "2.1.1",
     "autoload": {
-        "AT Translated Set 2 keyboard": "capsswap"
+        "AT Translated Set 2 keyboard": "capsswap",
+        "Logitech Wireless Keyboard PID:4023": "capsswap"
     }
 }
