@@ -21,7 +21,7 @@
         };
         environment.systemPackages = [
             pkgs-unstable.noctalia-shell # legendary shell
-            pkgs.alacritty
+            pkgs.alacritty # default terminal
             # NOTE: disabled in favor of noctalia plugin
             # pkgs.hyprpolkitagent # or polkit_gnome
             pkgs.wl-clipboard
@@ -33,6 +33,7 @@
             pkgs.playerctl # for using keyboard media keys
             pkgs-unstable.ianny # break reminder program
             pkgs-unstable.xwayland-satellite
+            pkgs.swaybg # wallpaper
 
             # screen tools plugin dependencies
             pkgs.grim
