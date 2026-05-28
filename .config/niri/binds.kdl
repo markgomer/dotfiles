@@ -5,6 +5,12 @@ binds {
     Mod+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "pcmanfm"; }
 
+    Mod+O repeat=false { toggle-overview; }
+    Mod+Q repeat=false { close-window; }
+    Mod+F5 repeat=false hotkey-overlay-title="Restart Noctalia" {
+        spawn-sh "pkill .quickshell-wra && sleep 0.3 && noctalia-shell";
+    }
+
     XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
     XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
     XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
@@ -35,10 +41,7 @@ binds {
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/HDMI-A-2/{getline; print $3}' | cut -dx -f1) && niri msg output HDMI-A-2 position set 0 0 && niri msg output eDP-1 position set $W 0"
     }
 
-
-    Mod+O repeat=false { toggle-overview; }
-    Mod+Q repeat=false { close-window; }
-
+    // WINDOW MANAGEMENT
     Mod+Left  { focus-column-or-monitor-left; }   
     Mod+Down  { focus-window-or-workspace-down; } 
     Mod+Up    { focus-window-or-workspace-up; }   

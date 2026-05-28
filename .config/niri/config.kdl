@@ -2,6 +2,7 @@
 // "/-" comments out the following node.
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
+spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "wayland-pipewire-idle-inhibit"
 spawn-at-startup "ianny"
@@ -67,7 +68,7 @@ layout {
         hide-when-single-tab
     }
     default-column-width {
-        proportion 0.5;
+        // proportion 0.5;
     }
     focus-ring { // border outside the window
         on
@@ -102,14 +103,14 @@ animations {
 // All windows
 window-rule {
     // Rounded corners
-    geometry-corner-radius 12
+    geometry-corner-radius 10
     clip-to-geometry true
 }
 
 window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"$app.zen_browser.zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"org.qt-project.qml"#
     open-floating true
 }
 
@@ -134,4 +135,4 @@ layer-rule {
 include "./binds.kdl"
 include "./monitors.kdl"
 include "./noctalia.kdl"
-include "./animations/pop-drop.kdl"
+include "./animations/glide.kdl"
