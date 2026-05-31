@@ -2,7 +2,6 @@
 {
     flake.nixosModules.ThinkPadConfiguration = { pkgs, pkgs-unstable, ... }:
     {
-        # import any other modules from here
         imports = [
             /etc/nixos/hardware-configuration.nix
         ];
@@ -133,13 +132,6 @@
                 alsa.support32Bit = true;
                 pulse.enable = true;
                 wireplumber.enable = true;
-
-                # If you want to use JACK applications, uncomment this
-                #jack.enable = true;
-
-                # use the example session manager (no others are packaged yet so this is enabled by default,
-                # no need to redefine it in your config for now)
-                #media-session.enable = true;
             };
 
             flatpak.enable = true;
@@ -147,9 +139,9 @@
             undervolt = {
                 enable = true;
                 coreOffset = -95; # 100 fail
-                gpuOffset = -90; # 95 fail
-                analogioOffset = -85;
-                uncoreOffset = -70;
+                gpuOffset = -85; # 95 fail
+                analogioOffset = -40;
+                uncoreOffset = -40;
             };
 
             # for external media
@@ -163,21 +155,6 @@
             rtkit.enable = true;
             polkit = {
                 enable = true;
-                # This lets anyone in the wheel group run the powerscripts without a prompt
-                extraConfig = ''
-                    polkit.addRule(function(action, subject) {
-                        var scripts = [
-                            "/home/majunior/dotfiles/.local/bin/powersave.sh",
-                            "/home/majunior/dotfiles/.local/bin/balanced.sh",
-                            "/home/majunior/dotfiles/.local/bin/performance.sh"
-                        ];
-                        if (action.id == "org.freedesktop.policykit.exec" &&
-                            scripts.indexOf(action.lookup("program")) !== -1 &&
-                            subject.isInGroup("wheel")) {
-                            return polkit.Result.YES;
-                        }
-                    });
-                '';
             };
         };
 
@@ -191,7 +168,7 @@
             enable = true;
             settings = {
                 default = [
-                    "kitty.desktop"
+                    "foot.desktop"
                 ];
             };
         };
@@ -205,7 +182,7 @@
                 remotePlay.openFirewall = true;
                 dedicatedServer.openFirewall = true;
             };
-            nix-ld.enable = true; # Run Homebrew/external binaries
+            nix-ld.enable = true;
             appimage = {
                 enable = true;
                 binfmt = true;
@@ -223,7 +200,7 @@
             pkgs.linuxKernel.packages.linux_6_18.cpupower
             pkgs.pciutils
             pkgs.xdg-user-dirs
-            pkgs.neovim
+            pkgs-unstable.neovim
             pkgs.polkit_gnome
             pkgs.gnupg
             pkgs.gnumake
@@ -233,10 +210,10 @@
             pkgs.fastfetch
             pkgs.yazi
 
+            pkgs.nautilus
+
             # Terminals
             pkgs-unstable.foot
-
-            pkgs.pcmanfm
 
             pkgs.brave
         ];

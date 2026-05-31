@@ -21,15 +21,15 @@ in
         ".config/foot".source =
             config.lib.file.mkOutOfStoreSymlink "${dotPath}/foot";
 
-        ".config/hypr".source =
-            config.lib.file.mkOutOfStoreSymlink "${dotPath}/hypr-thinkpad";
-
         ".config/input-remapper-2".source =
             config.lib.file.mkOutOfStoreSymlink "${dotPath}/input-remapper-2";
 
         ".config/io.github.zefr0x.ianny".source =
             config.lib.file.mkOutOfStoreSymlink
                 "${dotPath}/io.github.zefr0x.ianny";
+
+        ".config/niri".source =
+            config.lib.file.mkOutOfStoreSymlink "${dotPath}/niri";
 
         ".config/tmux".source =
             config.lib.file.mkOutOfStoreSymlink "${dotPath}/tmux";

@@ -23,7 +23,7 @@
                     username = "majunior";
                     homeDirectory = "/home/majunior";
                     packages = [
-                        pkgs.clang-tools
+                        pkgs.clang-tools # neovim LSP
                         pkgs-unstable.asdf-vm
                         pkgs.git
                         pkgs.pokemon-colorscripts
@@ -41,6 +41,8 @@
                         pkgs.ripgrep
                         pkgs.tree-sitter
                         pkgs.nixd
+                        pkgs.nixfmt
+                        pkgs.luajitPackages.tree-sitter-cli
 
                         # Games
                         pkgs.lutris
@@ -59,7 +61,7 @@
                         TZ = "America/Sao_Paulo";
                     };
 
-                    stateVersion = "25.11";
+                    stateVersion = "26.05";
                 };
 
                 programs.home-manager.enable = true;
