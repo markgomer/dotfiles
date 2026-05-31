@@ -3,7 +3,9 @@ binds {
     Mod+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "pcmanfm"; }
+    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" {
+        spawn "nautilus";
+    }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
@@ -204,5 +206,7 @@ binds {
     Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
 
     Mod+N hotkey-overlay-title="View Notifications" { spawn-sh "noctalia-shell ipc call notifications toggleHistory"; }
+
+    Mod+Print { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit toggle"; }
 }
 

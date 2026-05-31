@@ -94,8 +94,8 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
-    // off
-    // slowdown 3.0
+    on
+    slowdown 1.0 // percentage
 }
 
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
@@ -135,4 +135,3 @@ layer-rule {
 include "./binds.kdl"
 include "./monitors.kdl"
 include "./noctalia.kdl"
-include "./animations/glide.kdl"
