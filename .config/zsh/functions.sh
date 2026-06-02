@@ -1,7 +1,3 @@
-# Compression
-compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
-alias decompress="tar -xzf"
-
 function setup_path()
 {
    if command -v asdf &>/dev/null; then
@@ -30,6 +26,15 @@ function y() {
 function filesize()
 {
     du -sh * | sort -h
+}
+
+
+function pkgsize() {
+    if [ -z "$1" ]; then
+        echo "Error: Provide package name (e.g., pkgsize clang)"
+        return 1
+    fi
+    nix path-info -sh --closure-size "nixpkgs#$1"
 }
 
 

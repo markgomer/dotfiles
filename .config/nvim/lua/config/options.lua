@@ -13,5 +13,6 @@ local tabstop = 4
 vim.opt.tabstop = tabstop
 vim.opt.softtabstop = tabstop
 vim.opt.shiftwidth = tabstop
+vim.opt.expandtab = true -- Use spaces instead of tabs by default
 
 vim.g.autoformat = false

@@ -1,3 +1,5 @@
+
+# LINKS
 [[mgr.prepend_keymap]]
 on   = [ "c", "l", "s" ]
 run  = "plugin makelink save"

@@ -24,7 +24,6 @@ input {
     }
 
     touchpad {
-        // off
         tap
         natural-scroll
         accel-speed 0
@@ -55,10 +54,15 @@ input {
 
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-    gaps 6 // logical pixels
+    gaps 8 // logical pixels
     center-focused-column "never" // always, on-overflow
-    preset-column-widths {
-        // toggle with Mod+R
+    preset-column-widths { // toggle with Mod+R
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 1.0
+    }
+    preset-window-heights { // toggle with Mod+Alt+R
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
@@ -71,11 +75,11 @@ layout {
         // proportion 0.5;
     }
     focus-ring { // border outside the window
-        on
+        off
         width 1.5
     }
     border { // border inside the window
-        off
+        on
         width 1.5
     }
     shadow {
@@ -101,9 +105,8 @@ animations {
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
 // All windows
-window-rule {
-    // Rounded corners
-    geometry-corner-radius 10
+window-rule { // Rounded corners
+    geometry-corner-radius 14
     clip-to-geometry true
 }
 
