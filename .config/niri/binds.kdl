@@ -2,6 +2,7 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     Mod+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+Z hotkey-overlay-title="Open Zed Editor" { spawn "zeditor"; }
     Mod+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+Ctrl+F hotkey-overlay-title="Open File Browser" {
         spawn "nautilus";
@@ -33,21 +34,21 @@ binds {
     }
 
     // Move Ext Right (Laptop at 0, Ext at Laptop width)
-    Mod+Alt+Right hotkey-overlay-title="Extend screen to the right" { 
+    Mod+Alt+Right hotkey-overlay-title="Extend screen to the right" {
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/eDP-1/{getline; print $3}' | cut -dx -f1) && niri msg output eDP-1 position set 0 0 && niri msg output HDMI-A-2 position set $W 0"
 
     }
 
     // Move Ext Left (Ext at 0, Laptop at Ext width)
-    Mod+Alt+Left hotkey-overlay-title="Extend screen to the left" { 
+    Mod+Alt+Left hotkey-overlay-title="Extend screen to the left" {
         spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/HDMI-A-2/{getline; print $3}' | cut -dx -f1) && niri msg output HDMI-A-2 position set 0 0 && niri msg output eDP-1 position set $W 0"
     }
 
     // WINDOW MANAGEMENT
-    Mod+Left  { focus-column-or-monitor-left; }   
-    Mod+Down  { focus-window-or-workspace-down; } 
-    Mod+Up    { focus-window-or-workspace-up; }   
-    Mod+Right { focus-column-or-monitor-right; }  
+    Mod+Left  { focus-column-or-monitor-left; }
+    Mod+Down  { focus-window-or-workspace-down; }
+    Mod+Up    { focus-window-or-workspace-up; }
+    Mod+Right { focus-column-or-monitor-right; }
     Mod+H     { focus-column-or-monitor-left; }
     Mod+J     { focus-window-or-workspace-down; }
     Mod+K     { focus-window-or-workspace-up; }
@@ -57,18 +58,18 @@ binds {
     Mod+W     { focus-window-or-workspace-up; }
     Mod+D     { focus-column-or-monitor-right; }
 
-    Mod+Shift+Left  { move-column-left-or-to-monitor-left; }     
-    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }   
-    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }       
-    Mod+Shift+Right { move-column-right-or-to-monitor-right; }   
+    Mod+Shift+Left  { move-column-left-or-to-monitor-left; }
+    Mod+Shift+Down  { move-window-down-or-to-workspace-down; }
+    Mod+Shift+Up    { move-window-up-or-to-workspace-up; }
+    Mod+Shift+Right { move-column-right-or-to-monitor-right; }
     Mod+Shift+H     { move-column-left-or-to-monitor-left; }
     Mod+Shift+J     { move-window-down-or-to-workspace-down; }
     Mod+Shift+K     { move-window-up-or-to-workspace-up; }
-    Mod+Shift+L     { move-column-right-or-to-monitor-right; } 
+    Mod+Shift+L     { move-column-right-or-to-monitor-right; }
     Mod+Shift+A     { move-column-left-or-to-monitor-left; }
     Mod+Shift+S     { move-window-down-or-to-workspace-down; }
     Mod+Shift+W     { move-window-up-or-to-workspace-up; }
-    Mod+Shift+D     { move-column-right-or-to-monitor-right; } 
+    Mod+Shift+D     { move-column-right-or-to-monitor-right; }
 
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
@@ -209,4 +210,3 @@ binds {
 
     Mod+Print { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit toggle"; }
 }
-
