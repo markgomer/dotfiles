@@ -8,7 +8,7 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "typescript", "typescriptreact" },
+    pattern = { "*.ts", "*.tsx", "*.html" },
     callback = function()
         vim.opt_local.expandtab = true
         vim.opt_local.shiftwidth = 2

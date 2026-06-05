@@ -17,6 +17,17 @@ vim.keymap.set("x", "p", [["_dP]])
 
 vim.keymap.set("n", "Q", "<nop>")
 
+-- better yanking
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+
 -- tmux-sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<M-p>", "<cmd>silent !tmux switch-client -l<CR>")
+
+-- Replace token you're in
+vim.keymap.set(
+    "n",
+    "<leader>r",
+    [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]
+)
