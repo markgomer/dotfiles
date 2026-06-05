@@ -99,8 +99,8 @@
         systemd.services.battery-threshold = {
             wantedBy = [ "multi-user.target" ];
             script = ''
-                echo 80 > /sys/class/power_supply/BAT1/charge_control_start_threshold
-                echo 85 > /sys/class/power_supply/BAT1/charge_control_end_threshold
+                echo 75 > /sys/class/power_supply/BAT1/charge_control_start_threshold
+                echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold
             '';
             serviceConfig.Type = "oneshot";
         };
@@ -138,10 +138,10 @@
 
             undervolt = {
                 enable = true;
-                coreOffset = -95; # 100 fail
-                gpuOffset = -85; # 95 fail
-                analogioOffset = -40;
-                uncoreOffset = -40;
+                coreOffset = -80; # 100 fail
+                gpuOffset = -80; # 95 fail
+                analogioOffset = -80;
+                uncoreOffset = -80;
             };
 
             # for external media
