@@ -23,7 +23,6 @@
                     username = "majunior";
                     homeDirectory = "/home/majunior";
                     packages = [
-                        pkgs.clang-tools # neovim LSP
                         pkgs-unstable.asdf-vm
                         pkgs.git
                         pkgs.pokemon-colorscripts
@@ -36,19 +35,20 @@
                         pkgs.podman-compose
 
                         # lazyvim pack
+                        pkgs.clang-tools # neovim LSP
                         pkgs.fd
                         pkgs.lazygit
                         pkgs.ripgrep
                         pkgs.tree-sitter
                         pkgs.nixd
                         pkgs.nixfmt
-                        pkgs.luajitPackages.tree-sitter-cli
+                        pkgs.statix
 
-                        # Games
+                        pkgs-unstable.zed-editor
+
                         pkgs.lutris
 
                         pkgs.nwg-look
-                        pkgs-unstable.antigravity-fhs
                     ];
 
                     sessionVariables = {
