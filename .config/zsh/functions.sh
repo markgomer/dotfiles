@@ -34,6 +34,7 @@ function pkgsize() {
         echo "Error: Provide package name (e.g., pkgsize clang)"
         return 1
     fi
+    echo "nix path-info -sh --closure-size \"nixpkgs#$1\""
     nix path-info -sh --closure-size "nixpkgs#$1"
 }
 

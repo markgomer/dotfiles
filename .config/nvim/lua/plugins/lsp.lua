@@ -15,8 +15,8 @@ return {
                 nixd = {
                     nixpkgs = { expr = "import <nixpkgs> { }" },
                     formatting = { command = { "alejandra" } },
-                }
-            }
+                },
+            },
         }
     end,
 }
