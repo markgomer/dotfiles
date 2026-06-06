@@ -8,7 +8,7 @@ spawn-at-startup "wayland-pipewire-idle-inhibit"
 spawn-at-startup "ianny"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
-// prefer-no-csd
+prefer-no-csd
 
 // https://niri-wm.github.io/niri/Configuration:-Input
 input {
