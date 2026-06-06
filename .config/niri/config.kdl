@@ -6,7 +6,6 @@ spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nix
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "wayland-pipewire-idle-inhibit"
 spawn-at-startup "ianny"
-// spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
 // prefer-no-csd
