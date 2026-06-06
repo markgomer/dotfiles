@@ -9,7 +9,7 @@ spawn-at-startup "ianny"
 // spawn-at-startup "xwayland-satellite"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
-prefer-no-csd
+// prefer-no-csd
 
 // https://niri-wm.github.io/niri/Configuration:-Input
 input {
