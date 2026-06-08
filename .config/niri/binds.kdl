@@ -192,6 +192,10 @@ binds {
         spawn-sh "noctalia-shell ipc call powerProfile cycle";
     }
 
+    Mod+Alt+P hotkey-overlay-title="Toggle animations" {
+        spawn-sh "~/dotfiles/.config/niri/scripts/toggle-animation.sh"
+    }
+
     // Core Noctalia binds
     Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     XF86Tools hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }

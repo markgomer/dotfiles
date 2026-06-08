@@ -140,8 +140,8 @@
                 enable = true;
                 coreOffset = -80; # 100 fail
                 gpuOffset = -80; # 95 fail
-                analogioOffset = -80;
-                uncoreOffset = -80;
+                analogioOffset = -40;
+                uncoreOffset = -40;
             };
 
             # for external media
