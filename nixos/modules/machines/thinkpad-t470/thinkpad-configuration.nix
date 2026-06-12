@@ -59,7 +59,9 @@
                     53317 # LocalSend
                     631 # CUPS
                 ];
-                allowedUDPPorts = [];
+                allowedUDPPorts = [
+                    53317
+                ];
             };
             # Configure network proxy if necessary
             # networking.proxy.default = "http://user:password@proxy:port/";
@@ -138,8 +140,8 @@
 
             undervolt = {
                 enable = true;
-                coreOffset = -80; # 100 fail
-                gpuOffset = -80; # 95 fail
+                coreOffset = -72; # 100 fail
+                gpuOffset = -72; # 95 fail
                 analogioOffset = -40;
                 uncoreOffset = -40;
             };

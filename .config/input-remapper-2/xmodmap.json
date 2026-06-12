@@ -186,7 +186,7 @@
     "XF86LaunchB": 204,
     "XF86Suspend": 205,
     "XF86AudioForward": 208,
-    "0x100810d1": 209,
+    "XF86AudioBassBoost": 209,
     "XF86WebCam": 212,
     "XF86AudioPreset": 213,
     "XF86Messenger": 216,

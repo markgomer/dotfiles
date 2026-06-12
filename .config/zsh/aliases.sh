@@ -5,6 +5,8 @@ alias ls='eza'
 alias cd='z'
 
 alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
+alias ecf="nvim $NixConfigDir/flake.nix" # edit config file
+alias obs="nvim ~/Documents/Obsidian/_\📋\ Life\ Management\ 📋/_\ \✴️\ Life\ Kanban.md"
 alias ijust='just -g'
 alias box='distrobox enter archbox'
 
@@ -16,7 +18,6 @@ alias nrs-avell="sudo nixos-rebuild switch --impure --flake $NixConfigDir#avell"
 alias nrs-think="sudo nixos-rebuild switch --impure --flake $NixConfigDir#thinkpad"
 alias update="cd $NixConfigDir && nix flake update"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
-alias ecf="nvim $NixConfigDir/flake.nix"; # edit config file
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # Cleanup orphaned packages

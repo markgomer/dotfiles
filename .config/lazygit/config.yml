@@ -11,4 +11,4 @@ gui:
   # - 'flexible': (default) split the window horizontally if the window is wide
   mainPanelSplitMode: horizontal
 
-  border: bold
+  border: rounded # or: bold

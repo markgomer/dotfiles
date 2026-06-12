@@ -14,7 +14,6 @@
 
             modules = [
                 self.nixosModules.ThinkPadConfiguration
-                self.nixosModules.HyprModule
                 self.nixosModules.NiriModule
                 self.nixosModules.majuniorHome
                 self.nixosModules.DisplayManagerModule

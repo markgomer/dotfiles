@@ -201,10 +201,11 @@ binds {
     XF86Tools hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Mod+XF86Tools hotkey-overlay-title="Open Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
 
-    // Audio & Brightness
     XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
     XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
     XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
+    XF86AudioMicMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+
     XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
     XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
 

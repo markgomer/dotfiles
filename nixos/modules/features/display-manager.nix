@@ -1,6 +1,6 @@
 { ... } :
 {
-    flake.nixosModules.DisplayManagerModule = { pkgs, ... }:
+    flake.nixosModules.DisplayManagerModule = { pkgs, pkgs-unstable, ... }:
     let
         # https://github.com/Keyitdev/sddm-astronaut-theme
         myCustomSDDM = pkgs.sddm-astronaut.override {
@@ -31,7 +31,10 @@
                 };
                 ly.enable = false;
                 gdm.enable = false;
-                sessionPackages = [ pkgs.hyprland ];
+                sessionPackages = [
+                    # pkgs.hyprland
+                    pkgs-unstable.niri
+                ];
             };
         };
     };

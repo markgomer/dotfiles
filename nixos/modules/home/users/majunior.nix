@@ -35,7 +35,7 @@
                         pkgs.podman-compose
 
                         # lazyvim pack
-                        pkgs.clang-tools # neovim LSP
+                        pkgs.bear # create compile_commands.json
                         pkgs.fd
                         pkgs.lazygit
                         pkgs.ripgrep

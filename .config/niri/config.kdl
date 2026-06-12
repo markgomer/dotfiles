@@ -34,10 +34,10 @@ input {
         accel-speed 0
         accel-profile "flat"
     }
-    // warp-mouse-to-focus
 
     // "0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="5%"
+    // warp-mouse-to-focus
 
     trackpoint {
         // off
@@ -97,7 +97,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
-    on
+    off
     slowdown 0.8 // percentage
 }
 
