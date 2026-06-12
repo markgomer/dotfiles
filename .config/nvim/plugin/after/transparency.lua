@@ -86,7 +86,3 @@ vim.api.nvim_set_hl(0, "SnacksNotifierBorderWarn", { bg = "none" })
 vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none" })
 vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "none" })
 vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "none" })
-
--- vim.api.nvim_set_hl(0, "GitSignsAdd", { bg = "none", fg = '#00FF00' })
--- vim.api.nvim_set_hl(0, "GitSignsChange", { bg = "none", fg = '#FFFF00' })
--- vim.api.nvim_set_hl(0, "GitSignsDelete", { bg = "none", fg = '#FF0000' })

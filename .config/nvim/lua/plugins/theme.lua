@@ -37,4 +37,17 @@ return {
             end,
         },
     },
+    -- lua/plugins/rose-pine.lua
+    {
+        "rose-pine/neovim",
+        name = "rose-pine",
+        opts = {
+            variant = "moon", -- auto, main, moon, or dawn
+            styles = {
+                bold = true,
+                italic = true,
+                transparency = true,
+            },
+        },
+    },
 }
