@@ -1,22 +1,20 @@
-NixConfigDir=$HOME/dotfiles/nixos
+NixConfDir=$HOME/dotfiles/nixos
 
 alias lzg='lazygit'
 alias ls='eza'
 alias cd='z'
 
-alias edf='nvim ~/dotfiles/README.md' # Edit dotfiles
-alias ecf="nvim $NixConfigDir/flake.nix" # edit config file
-alias obs="nvim ~/Documents/Obsidian/_\📋\ Life\ Management\ 📋/_\ \✴️\ Life\ Kanban.md"
-alias ijust='just -g'
-alias box='distrobox enter archbox'
+alias edf="cd ~/dotfiles && nvim README.md && cd -"
+alias ecf="cd $NixConfDir && nvim flake.nix $$ cd -" # edit config file
+alias obs="cd ~/Documents/Obsidian && nvim _\📋\ Life\ Management\ 📋/_\ \✴️\ Life\ Kanban.md && cd -"
 
 # Get the error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
 
 # NixOS aliases
-alias nrs-avell="sudo nixos-rebuild switch --impure --flake $NixConfigDir#avell"
-alias nrs-think="sudo nixos-rebuild switch --impure --flake $NixConfigDir#thinkpad"
-alias update="cd $NixConfigDir && nix flake update"
+alias nrs-avell="sudo nixos-rebuild switch --impure --flake $NixConfDir#avell"
+alias nrs-think="sudo nixos-rebuild switch --impure --flake $NixConfDir#thinkpad"
+alias update="cd $NixConfDir && nix flake update"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
@@ -32,5 +30,4 @@ alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/syste
 bindkey -s ^n "pokemux\n"
 bindkey -s ^f "tmux-sessionizer\n"
 
-
-
+bindkey -s ^y "yazi\n"

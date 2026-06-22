@@ -53,7 +53,7 @@ input {
 
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-    gaps 8 // logical pixels
+    gaps 4 // logical pixels
     center-focused-column "never" // always, on-overflow
     preset-column-widths { // toggle with Mod+R
         proportion 0.33333
@@ -97,7 +97,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
-    off
+    on
     slowdown 0.8 // percentage
 }
 
@@ -105,7 +105,7 @@ animations {
 
 // All windows
 window-rule { // Rounded corners
-    geometry-corner-radius 14
+    geometry-corner-radius 8
     clip-to-geometry true
 }
 

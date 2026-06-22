@@ -22,8 +22,23 @@
 `-----------------------------------------------------'
 ```
 
-NOTE: input-remapper macro for caps lock:
 
-`if_single(key(Escape), hold(Control_L))`
+**Includes:**
 
-> caps as ctrl on hold, as esc on tap.
+- alacritty
+- btop
+- fastfetch
+- fontconfig
+- foot
+- hyprland
+- input-remapper-2
+- io.github.zefr0x.ianny
+- lazygit
+- niri
+- nvim -> LazyVim
+- tmux
+- yazi
+- zellij
+- zsh
+- starship.toml
+- NixOS

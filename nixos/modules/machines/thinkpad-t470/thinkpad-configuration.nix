@@ -36,7 +36,7 @@
                 efi.canTouchEfiVariables = true;
             };
             plymouth = {
-                enable = true;
+                enable = false;
                 theme = "circuit";
                 themePackages = with pkgs; [
                     # By default we would install all themes
@@ -61,6 +61,7 @@
                 ];
                 allowedUDPPorts = [
                     53317
+                    631
                 ];
             };
             # Configure network proxy if necessary
@@ -101,8 +102,8 @@
         systemd.services.battery-threshold = {
             wantedBy = [ "multi-user.target" ];
             script = ''
-                echo 75 > /sys/class/power_supply/BAT1/charge_control_start_threshold
-                echo 80 > /sys/class/power_supply/BAT1/charge_control_end_threshold
+                echo 80 > /sys/class/power_supply/BAT1/charge_control_start_threshold
+                echo 85 > /sys/class/power_supply/BAT1/charge_control_end_threshold
             '';
             serviceConfig.Type = "oneshot";
         };
