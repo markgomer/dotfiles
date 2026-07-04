@@ -35,7 +35,7 @@
 - io.github.zefr0x.ianny
 - lazygit
 - niri
-- nvim -> LazyVim
+- nvim
 - tmux
 - yazi
 - zellij

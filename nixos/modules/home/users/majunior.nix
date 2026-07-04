@@ -34,19 +34,12 @@
                         pkgs.distrobox
                         pkgs.podman-compose
 
-                        # lazyvim pack
+                        # coding pack
                         pkgs.bear # create compile_commands.json
                         pkgs.fd
                         pkgs.lazygit
                         pkgs.ripgrep
                         pkgs.tree-sitter
-                        pkgs.nixd
-                        pkgs.nixfmt
-                        pkgs.statix
-
-                        pkgs-unstable.zed-editor
-
-                        pkgs.lutris
 
                         pkgs.nwg-look
                     ];

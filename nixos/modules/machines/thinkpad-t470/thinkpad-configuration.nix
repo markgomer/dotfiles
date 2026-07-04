@@ -58,10 +58,14 @@
                 allowedTCPPorts = [
                     53317 # LocalSend
                     631 # CUPS
+                    5173 # Vite
+                    8080 # dev
                 ];
                 allowedUDPPorts = [
                     53317
                     631
+                    5173
+                    8080
                 ];
             };
             # Configure network proxy if necessary

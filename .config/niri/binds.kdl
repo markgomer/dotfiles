@@ -192,7 +192,7 @@ binds {
         spawn-sh "noctalia-shell ipc call powerProfile cycle";
     }
 
-    Mod+Alt+P hotkey-overlay-title="Toggle animations" {
+    Mod+Alt+A hotkey-overlay-title="Toggle animations" {
         spawn-sh "~/dotfiles/.config/niri/scripts/toggle-animation.sh"
     }
 
