@@ -12,3 +12,4 @@
 .config/niri/noctalia.kdl
 .config/zsh/.zshenv
 *.bak
+/.config/alacritty/themes/noctalia.toml
