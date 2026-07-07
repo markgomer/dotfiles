@@ -1,7 +1,5 @@
-[[plugin.deps]]
-use = "WindustH/makelink"
-rev = "032ba10"
-hash = "e2f39c74248ee832eeacd1df141df831"
+[plugin]
+deps = []
 
 [flavor]
 deps = []
