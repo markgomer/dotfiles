@@ -71,6 +71,11 @@ binds {
     Mod+Shift+W     { move-window-up-or-to-workspace-up; }
     Mod+Shift+D     { move-column-right-or-to-monitor-right; }
 
+    Mod+Alt+H       { focus-monitor-left; }
+    Mod+Alt+L       { focus-monitor-right; }
+    Mod+Shift+Alt+H { move-column-to-monitor-left; }
+    Mod+Shift+Alt+L { move-column-to-monitor-right; }
+
     Mod+Home { focus-column-first; }
     Mod+End  { focus-column-last; }
     Mod+Shift+Home { move-column-to-first; }
