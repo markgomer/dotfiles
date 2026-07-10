@@ -104,21 +104,32 @@ animations {
 // https://niri-wm.github.io/niri/Configuration:-Window-Rules
 
 // All windows
-window-rule { // Rounded corners
+window-rule {
+    // rounded corners
     geometry-corner-radius 8
     clip-to-geometry true
+    // layer behind windows
+    draw-border-with-background false
 }
 
+// Floating PIP on browsers
 window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
     match app-id=r#"org.qt-project.qml"#
     open-floating true
 }
 
 window-rule {
     match app-id=r#"foot$"#
+    match app-id=r#"org.gnome.Nautilus$"#
     default-column-width { fixed 700; } // nvim at 80 col
+    opacity 0.8
+    background-effect {
+        xray true
+        blur true
+    }
 }
 
 // Example: block out two password managers from screen capture.
