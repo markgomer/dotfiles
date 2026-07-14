@@ -1,3 +1,6 @@
+source $HOME/.config/zsh/functions.sh
+source $HOME/.config/zsh/aliases.sh
+
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
