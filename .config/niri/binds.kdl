@@ -2,11 +2,8 @@ binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     Mod+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
-    Mod+Z hotkey-overlay-title="Open Zed Editor" { spawn "zeditor"; }
-    Mod+B hotkey-overlay-title="Open a Browser: Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" {
-        spawn "nautilus";
-    }
+    Mod+B hotkey-overlay-title="Open Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
+    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "nautilus"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Q repeat=false { close-window; }
@@ -170,7 +167,7 @@ binds {
     Mod+Shift+Equal { set-window-height "+1%"; }
 
     // Move the focused window between the floating and the tiling layout.
-    Mod+V       { toggle-window-floating; }
+    Mod+G       { toggle-window-floating; }
     Alt+Tab     { switch-focus-between-floating-and-tiling; }
 
     Print { screenshot; }
