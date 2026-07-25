@@ -28,6 +28,7 @@ alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/syste
 
 # Tmux hotkeys
 bindkey -s ^n "pokemux\n"
+bindkey -s ^p "pokefetch\n"
 bindkey -s ^f "tmux-sessionizer\n"
 
-bindkey -s ^y "yazi\n"
+bindkey '^e' autosuggest-accept
