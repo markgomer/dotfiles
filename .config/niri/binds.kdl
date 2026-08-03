@@ -168,7 +168,8 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
     Mod+G       { toggle-window-floating; }
-    Alt+Tab     { switch-focus-between-floating-and-tiling; }
+    // Alt+Tab     { switch-focus-between-floating-and-tiling; }
+    Alt+Tab     { spawn-sh "noctalia msg window-switcher"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -191,7 +192,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 
     Mod+P hotkey-overlay-title="Power profile cycle" {
-        spawn-sh "noctalia-shell ipc call powerProfile cycle";
+        spawn-sh "noctalia msg power-cycle";
     }
 
     Mod+Alt+A hotkey-overlay-title="Toggle animations" {
@@ -199,25 +200,25 @@ binds {
     }
 
     // Core Noctalia binds
-    Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
-    XF86Tools hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
-    Mod+XF86Tools hotkey-overlay-title="Open Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
+    Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+    XF86Tools hotkey-overlay-title="Open Control Center" { spawn-sh "noctalia msg panel-toggle control-center"; }
+    Mod+XF86Tools hotkey-overlay-title="Open Settings" { spawn-sh "noctalia settings-toggle"; }
 
-    XF86AudioRaiseVolume { spawn "noctalia-shell" "ipc" "call" "volume" "increase"; }
-    XF86AudioLowerVolume { spawn "noctalia-shell" "ipc" "call" "volume" "decrease"; }
-    XF86AudioMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteOutput"; }
-    XF86AudioMicMute { spawn "noctalia-shell" "ipc" "call" "volume" "muteInput"; }
+    XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+    XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+    XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+    XF86AudioMicMute { spawn-sh "noctalia msg mic-mute"; }
 
-    XF86MonBrightnessUp { spawn "noctalia-shell" "ipc" "call" "brightness" "increase"; }
-    XF86MonBrightnessDown { spawn "noctalia-shell" "ipc" "call" "brightness" "decrease"; }
+    XF86MonBrightnessUp {spawn-sh "noctalia msg brightness-up";}
+    XF86MonBrightnessDown {spawn-sh "noctalia msg brightness-down";}
 
-    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia-shell ipc call sessionMenu toggle"; }
+    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
 
     Mod+N hotkey-overlay-title="View Notifications" {
-        spawn-sh "noctalia-shell ipc call notifications toggleHistory";
+        spawn-sh "noctalia msg panel-toggle control-center notifications";
     }
     Mod+Shift+N hotkey-overlay-title="Dismiss oldest notification" {
-        spawn-sh "noctalia-shell ipc call notifications removeOldestHistory";
+        spawn-sh "noctalia msg notifications removeOldestHistory";
     }
 
     Mod+E hotkey-overlay-title="Emoji" { spawn-sh "noctalia-shell ipc call launcher emoji"; }

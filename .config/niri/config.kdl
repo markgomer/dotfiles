@@ -3,7 +3,8 @@
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
 spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
-spawn-at-startup "noctalia-shell"
+// spawn-at-startup "noctalia-shell"
+spawn-at-startup "noctalia"
 spawn-at-startup "wayland-pipewire-idle-inhibit"
 spawn-at-startup "ianny"
 spawn-sh-at-startup "input-remapper-control --command autoload"
@@ -97,7 +98,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
-    off
+    on
     slowdown 0.8 // percentage
 }
 
@@ -135,6 +136,13 @@ window-rule {
     open-floating false
 }
 
+window-rule {
+  match app-id="dev.noctalia.Noctalia"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 /-window-rule {
@@ -149,7 +157,8 @@ window-rule {
 
 // Set the overview wallpaper on the backdrop.
 layer-rule {
-    match namespace="^noctalia-overview*"
+    // match namespace="^noctalia-overview*"
+    match namespace="^noctalia-backdrop"
     place-within-backdrop true
 }
 
