@@ -97,7 +97,7 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://niri-wm.github.io/niri/Configuration:-Animations
 animations {
-    on
+    off
     slowdown 0.8 // percentage
 }
 
@@ -106,7 +106,7 @@ animations {
 // All windows
 window-rule {
     // rounded corners
-    geometry-corner-radius 8
+    geometry-corner-radius 4
     clip-to-geometry true
     // layer behind windows
     draw-border-with-background false
@@ -124,12 +124,14 @@ window-rule {
 window-rule {
     match app-id=r#"foot$"#
     match app-id=r#"org.gnome.Nautilus$"#
-    default-column-width { fixed 700; } // nvim at 80 col
-    opacity 0.8
+    default-column-width { fixed 700; } // nvim at ~80 col
+    // default-window-height { fixed 600; }
+    opacity 0.9
     background-effect {
         xray true
         blur true
     }
+    open-floating false
 }
 
 // Example: block out two password managers from screen capture.
