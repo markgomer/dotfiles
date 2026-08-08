@@ -13,3 +13,5 @@
 .config/zsh/.zshenv
 *.bak
 /.config/alacritty/themes/noctalia.toml
+/.config/hypr-avell/hyprtoolkit.conf
+/.config/hypr-avell/noctalia/noctalia-colors.conf
