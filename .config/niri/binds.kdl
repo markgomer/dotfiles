@@ -6,6 +6,7 @@ binds {
     Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "nautilus"; }
 
     Mod+O repeat=false { toggle-overview; }
+    Mod+Alt+O { spawn-sh "niri msg action toggle-window-rule-opacity"; }
     Mod+Q repeat=false { close-window; }
     Mod+F5 repeat=false hotkey-overlay-title="Restart Noctalia" {
         spawn-sh "pkill .quickshell-wra && sleep 0.3 && noctalia-shell";
@@ -168,8 +169,8 @@ binds {
 
     // Move the focused window between the floating and the tiling layout.
     Mod+G       { toggle-window-floating; }
-    // Alt+Tab     { switch-focus-between-floating-and-tiling; }
-    Alt+Tab     { spawn-sh "noctalia msg window-switcher"; }
+    Alt+Tab     { switch-focus-between-floating-and-tiling; }
+    Mod+Tab     { spawn-sh "noctalia msg window-switcher"; }
 
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
@@ -221,7 +222,7 @@ binds {
         spawn-sh "noctalia msg notifications removeOldestHistory";
     }
 
-    Mod+E hotkey-overlay-title="Emoji" { spawn-sh "noctalia-shell ipc call launcher emoji"; }
-
-    Mod+Print { spawn-sh "noctalia-shell ipc call plugin:screen-toolkit toggle"; }
+    Mod+E hotkey-overlay-title="Emoji" { spawn-sh "noctalia msg panel-toggle launcher /emo"; }
+// noctalia msg panel-toggle noctalia/wallhaven:browser
+    Mod+Print { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
 }
