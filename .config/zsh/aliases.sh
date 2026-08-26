@@ -18,14 +18,6 @@ alias update="cd $NixConfDir && nix flake update"
 alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
-# Cleanup orphaned packages
-# alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
-#
-# alias fixpacman="sudo rm /var/lib/pacman/db.lck"
-
-# Recent installed packages
-# alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
 # Tmux hotkeys
 bindkey -s ^n "pokemux\n"
 bindkey -s ^p "pokefetch\n"
