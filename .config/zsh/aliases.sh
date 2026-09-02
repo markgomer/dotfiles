@@ -5,7 +5,7 @@ alias ls='eza'
 alias cd='z'
 
 alias edf="cd ~/dotfiles && nvim README.md && cd -"
-alias ecf="cd $NixConfDir && nvim flake.nix $$ cd -" # edit config file
+alias ecf="cd $NixConfDir && nvim flake.nix && cd -" # edit config file
 alias obs="cd ~/Documents/Obsidian && nvim _\📋\ Life\ Management\ 📋/_\ \✴️\ Life\ Kanban.md && cd -"
 
 # Get the error messages from journalctl
