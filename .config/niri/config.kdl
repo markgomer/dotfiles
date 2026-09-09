@@ -83,9 +83,9 @@ layout {
         width 1.5
     }
     shadow {
-        off
-        softness 0
-        spread 4
+        on
+        softness 10
+        spread 1
         offset x=0 y=0
     }
 }

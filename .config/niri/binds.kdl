@@ -23,23 +23,23 @@ binds {
         spawn-sh "niri msg output eDP-1 on";
     }
 
-    Mod+Alt+Up allow-when-locked=true hotkey-overlay-title="HDMI monitor only" {
-        spawn-sh "niri msg output eDP-1 off && niri msg output HDMI-A-2 on";
+    Mod+Alt+Down allow-when-locked=true hotkey-overlay-title="Builtin monitor only" {
+        spawn-sh "~/dotfiles/.config/niri/scripts/monitor-mgmt.sh 0";
     }
 
-    Mod+Alt+Down allow-when-locked=true hotkey-overlay-title="Builtin monitor only" {
-        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 off";
+    Mod+Alt+Up allow-when-locked=true hotkey-overlay-title="HDMI monitor only" {
+        spawn-sh "~/dotfiles/.config/niri/scripts/monitor-mgmt.sh 1";
     }
 
     // Move Ext Right (Laptop at 0, Ext at Laptop width)
     Mod+Alt+Right hotkey-overlay-title="Extend screen to the right" {
-        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/eDP-1/{getline; print $3}' | cut -dx -f1) && niri msg output eDP-1 position set 0 0 && niri msg output HDMI-A-2 position set $W 0"
+        spawn-sh "~/dotfiles/.config/niri/scripts/monitor-mgmt.sh 2";
 
     }
 
     // Move Ext Left (Ext at 0, Laptop at Ext width)
     Mod+Alt+Left hotkey-overlay-title="Extend screen to the left" {
-        spawn-sh "niri msg output eDP-1 on && niri msg output HDMI-A-2 on && sleep 0.1 && W=$(niri msg outputs | awk '/HDMI-A-2/{getline; print $3}' | cut -dx -f1) && niri msg output HDMI-A-2 position set 0 0 && niri msg output eDP-1 position set $W 0"
+        spawn-sh "~/dotfiles/.config/niri/scripts/monitor-mgmt.sh 3";
     }
 
     // WINDOW MANAGEMENT
