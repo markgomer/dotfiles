@@ -3,7 +3,7 @@ binds {
     Mod+Slash { show-hotkey-overlay; }
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+B hotkey-overlay-title="Open Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
-    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "nautilus"; }
+    Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "thunar"; }
 
     Mod+O repeat=false { toggle-overview; }
     Mod+Alt+O { spawn-sh "niri msg action toggle-window-rule-opacity"; }
