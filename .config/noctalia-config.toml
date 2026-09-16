@@ -1,31 +1,72 @@
 [backdrop]
 enabled = true
 
-[bar.default]
-background_opacity = 0.69999998435378075
-border_width = 1.0
-center = [ "notifications", "clock", "bar", "task" ]
-concave_edge_corners = false
-contact_shadow = true
-end = [ "tray", "network", "bluetooth", "group:g1", "power_profile", "battery", "session" ]
-font_weight = 400
-margin_edge = 4
-margin_ends = 500
-radius = 6
-start = [ "launcher", "cat", "taskbar" ]
-widget_spacing = 14
+[bar]
+order = [ "smolbar", "fullbar" ]
 
-    [bar.default.dead_zone.actions]
-    scroll_down = "exec niri msg action focus-column-right"
-    scroll_up = "exec niri msg action focus-column-left"
+    [bar.fullbar]
+    background_opacity = 0.74999998323619366
+    center = [ "notifications", "clock", "bar_2" ]
+    end = [ "tray", "bluetooth", "group:g2", "network", "group:g1", "session" ]
+    margin_ends = 0
+    radius = 0
+    start = [ "launcher", "taskbar" ]
+    thickness = 26
+    widget_spacing = 16
 
-    [[bar.default.capsule_group]]
-    enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "volume", "input_volume" ]
-    opacity = 1.0
-    padding = 6.0
+        [bar.fullbar.dead_zone.actions]
+        scroll_down = "exec niri msg action focus-column-right"
+        scroll_up = "exec niri msg action focus-column-left"
+
+        [[bar.fullbar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "battery", "power_profile" ]
+        opacity = 1.0
+        padding = 6.0
+        widget_spacing = 0
+
+        [[bar.fullbar.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "volume", "input_volume" ]
+        opacity = 1.0
+        padding = 6.0
+
+    [bar.smolbar]
+    background_opacity = 0.69999998435378075
+    border_width = 1.0
+    center = [ "notifications", "clock", "bar", "task" ]
+    concave_edge_corners = false
+    contact_shadow = true
+    enabled = false
+    end = [ "tray", "network", "bluetooth", "group:g1", "power_profile", "battery", "session" ]
+    font_weight = 400
+    margin_ends = 300
+    radius = 6
+    start = [ "launcher", "cat", "taskbar" ]
+    widget_spacing = 14
+
+        [bar.smolbar.dead_zone.actions]
+        scroll_down = "exec niri msg action focus-column-right"
+        scroll_up = "exec niri msg action focus-column-left"
+
+        [bar.smolbar.monitor.HDMI-A-2]
+        margin_ends = 550
+
+        [[bar.smolbar.capsule_group]]
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "volume", "input_volume" ]
+        opacity = 1.0
+        padding = 6.0
 
 [battery]
 warning_threshold = 15
@@ -36,18 +77,11 @@ warning_threshold = 15
 [config]
 
 [control_center]
-show_shortcut_labels = false
 sidebar = "full"
 sidebar_section = "full"
 
     [[control_center.shortcuts]]
-    type = "wifi"
-
-    [[control_center.shortcuts]]
     type = "nightlight"
-
-    [[control_center.shortcuts]]
-    type = "power_profile"
 
     [[control_center.shortcuts]]
     type = "clipboard"
@@ -60,6 +94,15 @@ sidebar_section = "full"
 
 [desktop_widgets]
 enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
 
 [hot_corners]
 enabled = true
@@ -238,10 +281,10 @@ widget_order = [
         variant = "destructive"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
-    box_height = 272.0
-    box_width = 384.0
-    cx = 1155.000244140625
-    cy = 150.00003051757812
+    box_height = 192.0
+    box_width = 272.0
+    cx = 1144.0
+    cy = 213.0
     output = "eDP-1"
     placement_height = 810.0
     placement_width = 1440.0
@@ -254,7 +297,7 @@ widget_order = [
         background_radius = 8
         forecast_days = 2
         shadow = false
-        show_forecast = true
+        show_forecast = false
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
     box_height = 0.0
@@ -307,12 +350,7 @@ widget_order = [
 enabled = true
 
 [notification]
-border = false
-collapse_on_dismiss = false
 layer = "overlay"
-position = "top_center"
-show_actions = false
-show_app_name = false
 
 [plugin_settings."alexander/screen-toolkit"]
 selected-ocr-lang = "eng+ptbr"
@@ -324,7 +362,13 @@ browser_open_near_click = true
 panel_position = "auto"
 
 [plugins]
-enabled = [ "dotnetrob/cat", "alexander/screen-toolkit", "blackbartblues/audio-switcher", "noctalia/timer" ]
+enabled = [
+    "dotnetrob/cat",
+    "blackbartblues/audio-switcher",
+    "noctalia/timer",
+    "luochen1990/niri-ribbon",
+    "noctalia/wallhaven"
+]
 
 [shell]
 avatar_path = "/home/majunior/Documents/harvestmoonavatar.png"
@@ -340,6 +384,7 @@ screen_time_enabled = true
     [shell.panel]
     floating_layer = "top"
     launcher_placement = "attached"
+    open_near_click_control_center = true
     open_near_click_launcher = true
     session_placement = "floating"
     session_position = "center"
@@ -388,9 +433,6 @@ screen_time_enabled = true
     shortcut = "p"
     variant = "destructive"
 
-    [shell.shadow]
-    direction = "down_right"
-
 [templates]
 
 [theme]
@@ -405,16 +447,16 @@ wallpaper_scheme = "soft"
     community_ids = [ "zen-browser", "yazi" ]
 
 [wallpaper.default]
-path = "/home/majunior/Pictures/Wallpapers/wallhaven_l315vy.jpg"
+path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
 
 [wallpaper.last]
-path = "/home/majunior/Pictures/Wallpapers/wallhaven_l315vy.jpg"
+path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
 
 [wallpaper.monitors.HDMI-A-2]
-path = "/home/majunior/Pictures/Wallpapers/wallhaven_l315vy.jpg"
+path = "/home/majunior/Pictures/Wallpapers/wallhaven_x67prv.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/majunior/Pictures/Wallpapers/wallhaven_w8p5gq.jpg"
+path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
 
 [[wallpaper.favorite]]
 palette_source = "wallpaper"
@@ -433,9 +475,16 @@ enable_scroll = false
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
+[widget.bar_2]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
+
 [widget.battery]
 display_mode = "graphic"
 scale = 0.75
+show_label = false
+
+[widget.brightness]
 show_label = false
 
 [widget.cat]
@@ -448,7 +497,6 @@ type = "dotnetrob/cat:cat"
     right = "exec foot -e yazi"
 
 [widget.clock]
-anchor = true
 format = "{:%H%M} - {:%d/%m}"
 
 [widget.input_volume]
@@ -490,3 +538,5 @@ show_label = false
 
 [widget.workspaces]
 max_label_chars = 3
+show_all_outputs = true
+style = "focus_hint"
