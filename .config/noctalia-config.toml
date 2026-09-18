@@ -1,3 +1,6 @@
+[audio]
+enable_sounds = true
+
 [backdrop]
 enabled = true
 
@@ -6,8 +9,7 @@ order = [ "smolbar", "fullbar" ]
 
     [bar.fullbar]
     background_opacity = 0.74999998323619366
-    center = [ "notifications", "clock", "bar_2" ]
-    end = [ "tray", "bluetooth", "group:g2", "network", "group:g1", "session" ]
+    end = [ "notifications", "tray", "bar_2", "group:g2", "network", "group:g1", "session" ]
     margin_ends = 0
     radius = 0
     start = [ "launcher", "taskbar" ]
@@ -24,10 +26,10 @@ order = [ "smolbar", "fullbar" ]
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "battery", "power_profile" ]
+        members = [ "power_profile", "battery" ]
         opacity = 1.0
-        padding = 6.0
-        widget_spacing = 0
+        padding = 0.0
+        widget_spacing = 6
 
         [[bar.fullbar.capsule_group]]
         accordion = false
@@ -113,7 +115,7 @@ pre_action_fade_seconds = 3
 
     [idle.behavior.lock]
     action = "lock"
-    enabled = true
+    enabled = false
     timeout = 150.0
 
     [idle.behavior.lock-and-suspend]
@@ -350,10 +352,24 @@ widget_order = [
 enabled = true
 
 [notification]
+filter_order = [ "filter" ]
 layer = "overlay"
+
+    [notification.filter.filter]
+    allow_permanent = true
+    bypass_dnd = false
+    enabled = true
+    match = "app.zen_browser.zen"
+    play_sound = false
+    save_history = true
+    show_toast = true
 
 [plugin_settings."alexander/screen-toolkit"]
 selected-ocr-lang = "eng+ptbr"
+
+[plugin_settings."blackbartblues/audio-switcher"]
+show_notification_on_switch = false
+show_percentage = false
 
 [plugin_settings."noctalia/wallhaven"]
 browser_open_near_click = true
@@ -362,13 +378,7 @@ browser_open_near_click = true
 panel_position = "auto"
 
 [plugins]
-enabled = [
-    "dotnetrob/cat",
-    "blackbartblues/audio-switcher",
-    "noctalia/timer",
-    "luochen1990/niri-ribbon",
-    "noctalia/wallhaven"
-]
+enabled = [ "dotnetrob/cat", "noctalia/timer", "noctalia/wallhaven" ]
 
 [shell]
 avatar_path = "/home/majunior/Documents/harvestmoonavatar.png"
@@ -377,6 +387,7 @@ niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
+telemetry_enabled = true
 
     [shell.launcher]
     pinned = [ "app.zen_browser.zen", "foot", "org.mozilla.thunderbird_esr", "io.github.kolunmi.Bazaar", "yazi" ]
@@ -439,7 +450,7 @@ screen_time_enabled = true
 builtin = "Nord"
 community_palette = "Nord Aurora"
 mode = "dark"
-source = "wallpaper"
+source = "community"
 wallpaper_scheme = "soft"
 
     [theme.templates]
@@ -447,16 +458,16 @@ wallpaper_scheme = "soft"
     community_ids = [ "zen-browser", "yazi" ]
 
 [wallpaper.default]
-path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
+path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
 
 [wallpaper.last]
-path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
+path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
 
 [wallpaper.monitors.HDMI-A-2]
-path = "/home/majunior/Pictures/Wallpapers/wallhaven_x67prv.jpg"
+path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/majunior/Pictures/wallhaven-zygeko.jpg"
+path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
 
 [[wallpaper.favorite]]
 palette_source = "wallpaper"
@@ -503,7 +514,7 @@ format = "{:%H%M} - {:%d/%m}"
 show_label = false
 
 [widget.launcher]
-glyph = "lambda"
+glyph = "noctalia"
 
     [widget.launcher.actions]
     right = "exec noctalia msg panel-toggle noctalia/wallhaven:browser"
@@ -534,7 +545,7 @@ show_workspace_label = false
 show_label = false
 
     [widget.volume.actions]
-    right = "exec pavucontrol -t 5"
+    right = "exec /home/majunior/dotfiles/.config/niri/scripts/audio-mgmt.sh"
 
 [widget.workspaces]
 max_label_chars = 3
