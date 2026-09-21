@@ -3,10 +3,7 @@
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
 spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
-// spawn-at-startup "noctalia-shell"
 spawn-at-startup "noctalia"
-spawn-at-startup "wayland-pipewire-idle-inhibit"
-spawn-at-startup "ianny"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
 prefer-no-csd
@@ -54,7 +51,7 @@ input {
 
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
-    gaps 4 // logical pixels
+    gaps 8 // logical pixels
     center-focused-column "never" // always, on-overflow
     preset-column-widths { // toggle with Mod+R
         proportion 0.33333
@@ -107,7 +104,7 @@ animations {
 // All windows
 window-rule {
     // rounded corners
-    geometry-corner-radius 0
+    geometry-corner-radius 4
     clip-to-geometry true
     // layer behind windows
     draw-border-with-background false
