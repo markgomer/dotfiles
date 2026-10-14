@@ -108,15 +108,16 @@ window-rule {
     clip-to-geometry true
     // layer behind windows
     draw-border-with-background false
+    open-floating true
 }
 
 // Floating PIP on browsers
-window-rule {
+/-window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
-    match app-id=r#"org.qt-project.qml"#
+    // match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
+    match app-id=r#"app.zen_browser.zen$"#
     match title=r"^DEBUG"
+    // match app-id=r#"app.zen_browser.zen$"# title="^Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
     open-floating true
 }
 
@@ -130,7 +131,6 @@ window-rule {
     background-effect {
         blur true
     }
-    open-floating false
 }
 
 window-rule {
