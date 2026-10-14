@@ -1,3 +1,15 @@
+# param: $1 percentage
+function bat_end_threshold()
+{
+    echo $1 | sudo tee "/sys/class/power_supply/BAT1/charge_control_end_threshold"
+}
+
+# param: $1 percentage
+function bat_start_threshold()
+{
+    echo $1 | sudo tee "/sys/class/power_supply/BAT1/charge_control_start_threshold"
+}
+
 function setup_path()
 {
    if command -v asdf &>/dev/null; then
