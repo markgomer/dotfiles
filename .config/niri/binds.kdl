@@ -1,9 +1,10 @@
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     Mod+Slash { show-hotkey-overlay; }
-    Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+T hotkey-overlay-title="Open the default Terminal" { spawn-sh "$TERMINAL"; }
     // Mod+B hotkey-overlay-title="Open Zen Browser" { spawn-sh "flatpak run app.zen_browser.zen"; }
     Mod+B hotkey-overlay-title="Open Helium Browser" { spawn-sh "~/AppImages/helium.appimage"; }
+    Mod+Y hotkey-overlay-title="Open Yazi File Browser" { spawn-sh "$TERMINAL -e yazi"; }
     Mod+Ctrl+F hotkey-overlay-title="Open File Browser" { spawn "nautilus"; }
 
     Mod+O repeat=false { toggle-overview; }
