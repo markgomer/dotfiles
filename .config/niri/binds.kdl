@@ -214,7 +214,9 @@ binds {
     XF86MonBrightnessUp {spawn-sh "noctalia msg brightness-up";}
     XF86MonBrightnessDown {spawn-sh "noctalia msg brightness-down";}
 
-    Mod+Escape hotkey-overlay-title="Session Menu" { spawn-sh "noctalia msg panel-toggle session"; }
+    Mod+Escape hotkey-overlay-title="Session Menu" {
+        spawn-sh "noctalia msg panel-toggle session";
+    }
 
     Mod+N hotkey-overlay-title="View Notifications" {
         spawn-sh "noctalia msg panel-toggle control-center notifications";
@@ -223,7 +225,13 @@ binds {
         spawn-sh "noctalia msg notifications removeOldestHistory";
     }
 
-    Mod+E hotkey-overlay-title="Emoji" { spawn-sh "noctalia msg panel-toggle launcher /emo"; }
-// noctalia msg panel-toggle noctalia/wallhaven:browser
+    Mod+Alt+T hotkey-overlay-title="Open timer widget" {
+        spawn-sh "noctalia msg panel-toggle noctalia/timer:panel";
+    }
+
+    Mod+E hotkey-overlay-title="Emoji" {
+        spawn-sh "noctalia msg panel-toggle launcher /emo";
+    }
+
     Mod+Print { spawn-sh "noctalia msg plugin alexander/screen-toolkit:service all toggle"; }
 }
