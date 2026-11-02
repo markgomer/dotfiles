@@ -81,8 +81,8 @@ layout {
     }
     shadow {
         on
-        softness 10
-        spread 1
+        softness 0
+        spread 2
         offset x=0 y=0
     }
 }
@@ -123,11 +123,12 @@ window-rule {
 
 window-rule {
     match app-id=r#"foot$"#
+    match app-id=r#"Alacritty$"#
     match app-id=r#"org.gnome.Nautilus$"#
     match app-id=r#"thunar$"#
     default-column-width { fixed 700; } // nvim at ~80 col
     // default-window-height { fixed 600; }
-    opacity 0.8
+    opacity 0.9
     background-effect {
         blur true
     }
