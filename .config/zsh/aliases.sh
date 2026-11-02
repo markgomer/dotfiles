@@ -16,7 +16,8 @@ alias jctl="journalctl -p 3 -xb"
 alias nrs-avell="sudo nixos-rebuild switch --impure --flake $NixConfDir#avell"
 alias nrs-think="sudo nixos-rebuild switch --impure --flake $NixConfDir#thinkpad"
 alias update="cd $NixConfDir && nix flake update"
-alias ncg="sudo nix-collect-garbage -d && nix-store --optimize"
+alias ncg="sudo nix-collect-garbage -d"
+alias nos="sudo nix-store --optimize"
 alias nlg="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
 
 # Tmux hotkeys
