@@ -3,8 +3,10 @@
 
 mode="$1"
 
+INTERNAL="eDP-1"
+EXTERNAL="HDMI-A-2"
+
 get_logical_width() {
-    # $1 = output name substring, e.g. eDP-1 or HDMI-A-2
     niri msg outputs | awk -v out="$1" '
         $0 ~ out { f=1 }
         f && /Logical size:/ { print $3; exit }
@@ -13,37 +15,33 @@ get_logical_width() {
 
 case "$mode" in
     0)
-        # Builtin monitor only
-        niri msg output eDP-1 on
-        niri msg output HDMI-A-2 off
+        niri msg output "$INTERNAL" on
+        niri msg output "$EXTERNAL" off
         ;;
     1)
-        # HDMI monitor only
-        niri msg output eDP-1 off
-        niri msg output HDMI-A-2 on
+        niri msg output "$INTERNAL" off
+        niri msg output "$EXTERNAL" on
         ;;
     2)
-        # Extend right: laptop at 0, external at laptop's logical width
-        niri msg output eDP-1 on
-        niri msg output HDMI-A-2 on
+        niri msg output "$INTERNAL" on
+        niri msg output "$EXTERNAL" on
         sleep 0.1
-        W=$(get_logical_width eDP-1)
-        niri msg output eDP-1 position set 0 0
-        niri msg output HDMI-A-2 position set "$W" 0
+        W=$(get_logical_width "$INTERNAL")
+        niri msg output "$INTERNAL" position set 0 0
+        niri msg output "$EXTERNAL" position set "$W" 0
         ;;
     3)
-        # Extend left: external at 0, laptop at external's logical width
-        niri msg output eDP-1 on
-        niri msg output HDMI-A-2 on
+        niri msg output "$INTERNAL" on
+        niri msg output "$EXTERNAL" on
         sleep 0.1
-        W=$(get_logical_width HDMI-A-2)
-        niri msg output HDMI-A-2 position set 0 0
-        niri msg output eDP-1 position set "$W" 0
+        W=$(get_logical_width "$EXTERNAL")
+        niri msg output "$EXTERNAL" position set 0 0
+        niri msg output "$INTERNAL" position set "$W" 0
         ;;
     *)
         echo "Usage: $0 [0-3]" >&2
         echo "  0 = builtin only" >&2
-        echo "  1 = HDMI only" >&2
+        echo "  1 = external only" >&2
         echo "  2 = extend right" >&2
         echo "  3 = extend left" >&2
         exit 1

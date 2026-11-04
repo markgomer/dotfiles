@@ -104,11 +104,19 @@ animations {
 // All windows
 window-rule {
     // rounded corners
-    geometry-corner-radius 4
+    geometry-corner-radius 12
     clip-to-geometry true
     // layer behind windows
     draw-border-with-background false
     open-floating true
+}
+
+window-rule {
+    match is-active=false
+    opacity 0.85
+    background-effect {
+        blur true
+    }
 }
 
 // Floating PIP on browsers
@@ -122,13 +130,26 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"foot$"#
-    match app-id=r#"Alacritty$"#
-    match app-id=r#"org.gnome.Nautilus$"#
-    match app-id=r#"thunar$"#
+    match app-id=r#"foot$"# is-focused=true
+    match app-id=r#"Alacritty$"# is-focused=true
+    match app-id=r#"org.gnome.Nautilus$"# is-focused=true
+    match app-id=r#"thunar$"# is-focused=true
     default-column-width { fixed 700; } // nvim at ~80 col
-    // default-window-height { fixed 600; }
+    default-window-height { fixed 600; }
     opacity 0.9
+    background-effect {
+        blur true
+    }
+}
+
+window-rule {
+    match app-id=r#"foot$"# is-focused=false
+    match app-id=r#"Alacritty$"# is-focused=false
+    match app-id=r#"org.gnome.Nautilus$"# is-focused=false
+    match app-id=r#"thunar$"# is-focused=false
+    default-column-width { fixed 700; } // nvim at ~80 col
+    default-window-height { fixed 600; }
+    opacity 0.8
     background-effect {
         blur true
     }
@@ -162,4 +183,5 @@ layer-rule {
 
 include "./binds.kdl"
 include "./monitors.kdl"
+include "./animations.kdl"
 include "./noctalia.kdl"
