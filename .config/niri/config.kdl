@@ -4,6 +4,7 @@
 
 spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
 spawn-at-startup "noctalia"
+spawn-sh-at-startup "pipewire"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
 prefer-no-csd
@@ -157,7 +158,7 @@ layer-rule {
     place-within-backdrop true
 }
 
-include "./binds.kdl"
-include "./monitors.kdl"
-include "./animations.kdl"
-include "./noctalia.kdl"
+include "binds.kdl"
+include "monitors.kdl"
+include "animations.kdl"
+include "noctalia.kdl"
