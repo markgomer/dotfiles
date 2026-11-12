@@ -54,9 +54,11 @@ layout {
     gaps 8 // logical pixels
     center-focused-column "never" // always, on-overflow
     preset-column-widths { // toggle with Mod+R
+        proportion 0.25
         proportion 0.33333
         proportion 0.5
         proportion 0.66667
+        proportion 0.75
         proportion 1.0
     }
     preset-window-heights { // toggle with Mod+Alt+R
@@ -109,8 +111,8 @@ window-rule {
     // layer behind windows
     draw-border-with-background false
     open-floating true
+    opacity 0.9999
 }
-
 window-rule {
     match is-active=false
     opacity 0.85
@@ -119,21 +121,9 @@ window-rule {
     }
 }
 
-// Floating PIP on browsers
-/-window-rule {
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    // match app-id=r#"app.zen_browser.zen$"# title="^Picture-in-Picture$"
-    match app-id=r#"app.zen_browser.zen$"#
-    match title=r"^DEBUG"
-    // match app-id=r#"app.zen_browser.zen$"# title="^Extension: (Bitwarden Password Manager) - Bitwarden — Zen Browser"
-    open-floating true
-}
-
 window-rule {
-    match app-id=r#"foot$"# is-focused=true
-    match app-id=r#"Alacritty$"# is-focused=true
-    match app-id=r#"org.gnome.Nautilus$"# is-focused=true
-    match app-id=r#"thunar$"# is-focused=true
+    match app-id=r#"(foot|Alacritty)$"# is-focused=true
+    match app-id=r#"(org.gnome.Nautilus|thunar)$"# is-focused=true
     default-column-width { fixed 700; } // nvim at ~80 col
     default-window-height { fixed 600; }
     opacity 0.9
@@ -143,10 +133,8 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"foot$"# is-focused=false
-    match app-id=r#"Alacritty$"# is-focused=false
-    match app-id=r#"org.gnome.Nautilus$"# is-focused=false
-    match app-id=r#"thunar$"# is-focused=false
+    match app-id=r#"^(foot|Alacritty)$"# is-focused=false
+    match app-id=r#"^(org.gnome.Nautilus|thunar)$"# is-focused=false
     default-column-width { fixed 700; } // nvim at ~80 col
     default-window-height { fixed 600; }
     opacity 0.8
@@ -160,18 +148,6 @@ window-rule {
   open-floating true
   default-column-width { fixed 1080; }
   default-window-height { fixed 720; }
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
 }
 
 // Set the overview wallpaper on the backdrop.

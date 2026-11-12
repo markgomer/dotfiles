@@ -13,6 +13,13 @@ get_logical_width() {
     ' | cut -dx -f1
 }
 
+get_logical_height() {
+    niri msg outputs | awk -v out="$1" '
+        $0 ~ out { f=1 }
+        f && /Logical size:/ { print $3; exit }
+    ' | cut -dx -f2
+}
+
 case "$mode" in
     0)
         niri msg output "$INTERNAL" on
