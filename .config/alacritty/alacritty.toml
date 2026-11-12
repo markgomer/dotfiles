@@ -26,7 +26,7 @@ multiplier = 3
 
 
 [font] # fc-list : family
-normal = { family = "Iosevka Nerd Font Propo", style = "Regular" }
-bold = { family = "Iosevka Nerd Font Propo", style = "Bold" }
-italic = { family = "Iosevka Nerd Font Propo", style = "Italic" }
+normal = { family = "IosevkaTermSlab NFP", style = "Regular" }
+bold = { family = "IosevkaTermSlab NFP", style = "Bold" }
+italic = { family = "IosevkaTermSlab NFP", style = "Italic" }
 size = 11.5
