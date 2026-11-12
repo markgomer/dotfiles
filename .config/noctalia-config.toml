@@ -9,9 +9,10 @@ order = [ "smolbar", "fullbar" ]
 
     [bar.fullbar]
     background_opacity = 0.74999998323619366
+    contact_shadow = true
     end = [ "notifications", "tray", "bar_2", "group:g2", "network", "group:g1", "session" ]
     margin_ends = 0
-    radius = 0
+    radius = 12
     start = [ "launcher", "taskbar" ]
     thickness = 26
     widget_spacing = 16
@@ -24,7 +25,7 @@ order = [ "smolbar", "fullbar" ]
         accordion = false
         accordion_direction = "end"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g1"
         members = [ "power_profile", "battery" ]
         opacity = 1.0
@@ -35,7 +36,7 @@ order = [ "smolbar", "fullbar" ]
         accordion = false
         accordion_direction = "end"
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g2"
         members = [ "volume", "input_volume" ]
         opacity = 1.0
@@ -60,11 +61,12 @@ order = [ "smolbar", "fullbar" ]
         scroll_up = "exec niri msg action focus-column-left"
 
         [bar.smolbar.monitor.HDMI-A-2]
+        concave_edge_corners = true
         margin_ends = 550
 
         [[bar.smolbar.capsule_group]]
         enabled = true
-        fill = "surface_variant"
+        fill = "surface_container"
         id = "g1"
         members = [ "volume", "input_volume" ]
         opacity = 1.0
@@ -145,16 +147,11 @@ fingerprint = false
 enabled = true
 schema_version = 2
 widget_order = [
-    "lockscreen-login-box@HDMI-A-2",
     "lockscreen-login-box@eDP-1",
+    "lockscreen-login-box@HDMI-A-2",
     "lockscreen-widget-0000000000000001",
     "lockscreen-widget-0000000000000002",
-    "lockscreen-widget-0000000000000003",
-    "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000007",
-    "lockscreen-widget-0000000000000008"
+    "lockscreen-widget-0000000000000003"
 ]
 
     [lockscreen_widgets.grid]
@@ -163,10 +160,10 @@ widget_order = [
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2"]
-    box_height = 70.0
-    box_width = 256.0
+    box_height = 196.0
+    box_width = 810.0
     cx = 960.0
-    cy = 895.0
+    cy = 898.0
     output = "HDMI-A-2"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -174,9 +171,37 @@ widget_order = [
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@HDMI-A-2".settings]
-        background_color = "surface_variant"
-        background_opacity = 1.0
-        background_radius = 32.0
+        background_color = "surface_container"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_password_reveal = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 240.0
+    cx = 720.0
+    cy = 405.0
+    output = "eDP-1"
+    placement_height = 810.0
+    placement_width = 1440.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
+        background_opacity = 0.0
+        background_radius = 12.0
         center_password_text = true
         input_opacity = 1.0
         input_radius = 32.0
@@ -185,33 +210,7 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = false
         show_media = true
-        show_session_buttons = true
-        show_unlock_hint = false
-        show_weather = true
-
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 256.0
-    cx = 1104.0
-    cy = 718.1251220703125
-    output = "eDP-1"
-    placement_height = 810.0
-    placement_width = 1440.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 1.0
-        background_radius = 8.0
-        center_password_text = true
-        input_opacity = 1.0
-        input_radius = 8.0
-        layout = "compact"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = false
-        show_media = true
+        show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = false
         show_weather = true
@@ -219,45 +218,56 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
     box_height = 0.0
     box_width = 0.0
-    cx = 960.0
-    cy = 820.00006103515625
-    output = "HDMI-A-2"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "clock"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 176.0
-    box_width = 176.0
-    cx = 1102.500244140625
-    cy = 637.5001220703125
-    output = "eDP-1"
-    placement_height = 810.0
-    placement_width = 1440.0
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
-        background = false
-        background_padding = 0
-        background_radius = 32
-        center_text = true
-        clock_style = "digital"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 48.0
-    box_width = 48.0
-    cx = 952.0
-    cy = 718.1251220703125
+    cx = 688.0
+    cy = 449.0
     output = "eDP-1"
     placement_height = 810.0
     placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = true
+        color = "on_primary_container"
+        command = "loginctl suspend"
+        glyph = "weather-moon"
+        variant = "outline"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 752.0
+    cy = 449.0
+    output = "eDP-1"
+    placement_height = 810.0
+    placement_width = 1440.0
+    rotation = 0.0
+    type = "button"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = true
+        background_padding = 0
+        background_radius = 32
+        center_text = true
+        clock_style = "digital"
+        command = "loginctl poweroff"
+        glyph = "power"
+        variant = "destructive"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 720.0
+    cy = 322.5
+    output = "eDP-1"
+    placement_height = 810.0
+    placement_width = 1440.0
+    rotation = 0.0
+    type = "clock"
+
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
         background = true
+        background_opacity = 0.0
         command = "systemctl suspend"
         glyph = "moon-filled"
         label = ""
@@ -378,18 +388,22 @@ browser_open_near_click = true
 panel_position = "auto"
 
 [plugins]
-enabled = [ "dotnetrob/cat", "noctalia/timer", "noctalia/wallhaven" ]
+enabled = [ "dotnetrob/cat", "noctalia/timer", "noctalia/wallhaven", "liamwh/emoji-picker" ]
 
 [shell]
 avatar_path = "/home/majunior/Documents/harvestmoonavatar.png"
-font_family = "FantasqueSansM Nerd Font Propo"
+font_family = "IosevkaTermSlab NFP"
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
 screen_time_enabled = true
 telemetry_enabled = true
 
+    [shell.greeter_sync]
+    auto_sync = true
+
     [shell.launcher]
+    app_grid = true
     pinned = [ "app.zen_browser.zen", "foot", "org.mozilla.thunderbird_esr", "io.github.kolunmi.Bazaar", "yazi" ]
 
     [shell.panel]
@@ -403,7 +417,7 @@ telemetry_enabled = true
 
     [shell.screen_corners]
     enabled = true
-    size = 8
+    size = 22
 
     [shell.screenshot]
     confirm_region = true
@@ -450,36 +464,30 @@ telemetry_enabled = true
 builtin = "Nord"
 community_palette = "Nord Aurora"
 mode = "dark"
-source = "community"
+source = "wallpaper"
 wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "alacritty", "btop", "cava", "foot", "gtk3", "gtk4", "niri", "qt", "starship" ]
-    community_ids = [ "zen-browser", "yazi" ]
+    community_ids = [ "neovim", "thunderbird", "lazygit", "starship", "yazi" ]
 
 [wallpaper.default]
-path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
+path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 
 [wallpaper.last]
-path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
+path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 
 [wallpaper.monitors.HDMI-A-2]
-path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
+path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/majunior/Pictures/wallhaven-qdwjvq.png"
+path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 
 [[wallpaper.favorite]]
 palette_source = "wallpaper"
-path = "/home/majunior/Pictures/Wallpapers/wallhaven-rq6yqm.jpg"
+path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 theme_mode = "dark"
-wallpaper_scheme = "soft"
-
-[[wallpaper.favorite]]
-palette_source = "wallpaper"
-path = "/home/majunior/Pictures/Wallpapers/wallhaven-wemx96.png"
-theme_mode = "dark"
-wallpaper_scheme = "soft"
+wallpaper_scheme = "dysfunctional"
 
 [widget.bar]
 enable_scroll = false
@@ -508,6 +516,7 @@ type = "dotnetrob/cat:cat"
     right = "exec foot -e yazi"
 
 [widget.clock]
+font_family = "IosevkaTermSlab Nerd Font Propo"
 format = "{:%H%M} - {:%d/%m}"
 
 [widget.input_volume]
