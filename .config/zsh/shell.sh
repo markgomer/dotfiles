@@ -18,11 +18,11 @@ HISTFILESIZE="${HISTSIZE}"
 export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
 
+autoload -Uz compinit && compinit
+zstyle ':completion:*' menu select
+
 # -------------------------------------------------------------
 
-# # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.local/share/ohmyzsh"
-#
 # # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 #
@@ -32,10 +32,29 @@ export ZSH="$HOME/.local/share/ohmyzsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 [[ -z "${plugins[*]}" ]] && plugins=(fzf)
-#
-source $ZSH/oh-my-zsh.sh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+typeset -g -A key
+key[Home]="${terminfo[khome]}"
+key[End]="${terminfo[kend]}"
+key[Delete]="${terminfo[kdch1]}"
+key[Up]="${terminfo[kcuu1]}"
+key[Down]="${terminfo[kcud1]}"
+
+[[ -n "${key[Home]}" ]] && bindkey -- "${key[Home]}" beginning-of-line
+[[ -n "${key[End]}" ]] && bindkey -- "${key[End]}" end-of-line
+[[ -n "${key[Delete]}" ]] && bindkey -- "${key[Delete]}" delete-char
+
+# terminfo keys only work in application mode
+if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+  autoload -Uz add-zle-hook-widget
+  zle_application_mode_start() { echoti smkx }
+  zle_application_mode_stop() { echoti rmkx }
+  add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+  add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+fi
+
+
+
 
 # -------------------------------------------------------------
 
