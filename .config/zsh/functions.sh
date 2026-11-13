@@ -12,17 +12,20 @@ function bat_start_threshold()
 
 function setup_path()
 {
-   if command -v asdf &>/dev/null; then
-      export ASDF_DATA_DIR="$HOME/.local/share/asdf-vm"
-      PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
-   fi
+    if command -v asdf &>/dev/null; then
+        export ASDF_DATA_DIR="$HOME/.local/share/asdf-vm"
+        PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+    fi
 
-   LOCAL="$HOME/.local/bin"
-   BUN="/home/majunior/.cache/.bun/bin"
-   GO="/home/majunior/.local/share/asdf-vm/installs/golang/1.26.3/bin"
+    LOCAL="$HOME/.local/bin"
+    BUN="/home/majunior/.cache/.bun/bin"
+    GO="/home/majunior/.local/share/asdf-vm/installs/golang/1.26.3/bin"
 
-   PATH="$LOCAL:$BUN:$GO:$PATH"
-   export PATH
+    PATH="$LOCAL:$BUN:$GO:$PATH"
+    export PATH
+    
+    export TERMINAL="alacritty"
+    export EDITOR="nvim"
 }
 
 # change the current working directory when exiting Yazi

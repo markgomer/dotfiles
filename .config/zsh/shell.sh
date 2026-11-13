@@ -1,24 +1,20 @@
-# -------------------------------------------------------------
-
 # History control
+HISTFILE=~/.config/zsh/.histfile
+HISTSIZE=32768
+SAVEHIST=32768
+setopt appendhistory
+setopt incappendhistory
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
 
 # Ignore commands that start with spaces and duplicates.
 export HISTCONTROL=ignoreboth
 
-# Don't add certain commands to the history file.
-export HISTIGNORE="&:[bf]g:c:clear:history:exit:q:pwd:* --help"
-
-HISTFILE=~/.config/zsh/.histfile
-HISTCONTROL=ignoreboth
-HISTSIZE=32768
-HISTFILESIZE="${HISTSIZE}"
-
 # -------------------------------------------------------------
 
-export PATH="./bin:$HOME/.local/bin:$PATH"
 set +h
 
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump
 zstyle ':completion:*' menu select
 
 # -------------------------------------------------------------
@@ -52,9 +48,6 @@ if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
   add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
   add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
-
-
-
 
 # -------------------------------------------------------------
 
