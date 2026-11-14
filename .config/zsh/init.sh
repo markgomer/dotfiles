@@ -11,3 +11,9 @@ fi
 
 # at ./functions.sh
 setup_path
+
+setopt HIST_IGNORE_ALL_DUPS HIST_IGNORE_SPACE HIST_SAVE_NO_DUPS SHARE_HISTORY
+
+mkdir -p ~/.cache/zsh
+autoload -Uz compinit && compinit -d ~/.cache/zsh/.zcompdump
+zstyle ':completion:*' menu select
