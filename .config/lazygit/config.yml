@@ -4,6 +4,33 @@
 #       pager: diff-so-fancy
 gui:
   # sidePanelWidth: 0.25
+  theme:
+    activeBorderColor:
+      - "#39bae6"
+      - bold
+    inactiveBorderColor:
+      - "#aad94c"
+    searchingActiveBorderColor:
+      - "#e6b450"
+      - bold
+    optionsTextColor:
+      - "#8e959e"
+    selectedLineBgColor:
+      - "#272c36"
+    inactiveViewSelectedLineBgColor:
+      - bold
+    cherryPickedCommitFgColor:
+      - "#8e959e"
+    cherryPickedCommitBgColor:
+      - "#e6b450"
+    markedBaseCommitFgColor:
+      - "#e6b450"
+    markedBaseCommitBgColor:
+      - "#d95757"
+    unstagedChangesColor:
+      - "#d95757"
+    defaultFgColor:
+      - "#d1d1c7"
   expandFocusedSidePanel: true
   # Options are:
   # - 'horizontal': split the window horizontally
