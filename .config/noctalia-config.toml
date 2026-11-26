@@ -1,4 +1,5 @@
 [audio]
+colorize_icons = true
 enable_sounds = true
 
 [backdrop]
@@ -10,8 +11,9 @@ order = [ "fullbar", "smolbar" ]
     [bar.fullbar]
     background_opacity = 0.59999998658895493
     capsule_group = []
+    center = [ "clock", "bar_3" ]
     compositor_blur = false
-    end = [ "notifications", "tray", "bar_2", "volume", "input_volume", "network", "power_profile", "battery", "session" ]
+    end = [ "notifications", "tray", "volume", "input_volume", "network", "power_profile", "battery", "session" ]
     margin_ends = 0
     radius = 14
     shadow = false
@@ -96,6 +98,9 @@ widget_order = []
 
     [desktop_widgets.widget]
 
+[dock]
+colorize_icons = true
+
 [hot_corners]
 enabled = true
 
@@ -130,6 +135,7 @@ address = "Curitiba, Brasil"
 [lockscreen]
 blur_intensity = 0.0
 fingerprint = false
+transition = [ "crt" ]
 
 [lockscreen_widgets]
 enabled = true
@@ -173,6 +179,7 @@ widget_order = [
         show_keyboard_layout = false
         show_login_button = false
         show_media = true
+        show_media_controls = true
         show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = false
@@ -181,11 +188,11 @@ widget_order = [
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 70.0
     box_width = 240.0
-    cx = 640.0
-    cy = 360.0
+    cx = 720.0
+    cy = 405.0
     output = "eDP-1"
-    placement_height = 720.0
-    placement_width = 1280.0
+    placement_height = 810.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "login_box"
 
@@ -201,6 +208,7 @@ widget_order = [
         show_keyboard_layout = false
         show_login_button = false
         show_media = true
+        show_media_controls = true
         show_password_reveal = false
         show_session_buttons = true
         show_unlock_hint = false
@@ -223,11 +231,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 0.0
     box_width = 0.0
-    cx = 640.0
-    cy = 288.88888549804688
+    cx = 720.0
+    cy = 325.0
     output = "eDP-1"
-    placement_height = 720.0
-    placement_width = 1280.0
+    placement_height = 810.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "clock"
 
@@ -241,8 +249,8 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
     box_height = 48.0
     box_width = 48.0
-    cx = 742.4000244140625
-    cy = 467.20001220703125
+    cx = 736.0
+    cy = 488.0
     output = "HDMI-A-2"
     placement_height = 864.0
     placement_width = 1536.0
@@ -251,7 +259,7 @@ widget_order = [
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
         background = true
-        command = "loginctl suspend"
+        command = "systemctl suspend"
         glyph = "weather-moon"
         label = ""
         variant = "default"
@@ -259,8 +267,8 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
     box_height = 48.0
     box_width = 48.0
-    cx = 793.60003662109375
-    cy = 467.20001220703125
+    cx = 800.0
+    cy = 488.0
     output = "HDMI-A-2"
     placement_height = 864.0
     placement_width = 1536.0
@@ -270,7 +278,7 @@ widget_order = [
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
         background = true
         color = "on_error"
-        command = "loginctl poweroff"
+        command = "systemctl poweroff"
         glyph = "power"
         label = ""
         variant = "destructive"
@@ -278,11 +286,11 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
     box_height = 48.0
     box_width = 48.0
-    cx = 611.5555419921875
-    cy = 402.66665649414062
+    cx = 688.0
+    cy = 453.0
     output = "eDP-1"
-    placement_height = 720.0
-    placement_width = 1280.0
+    placement_height = 810.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
@@ -290,7 +298,7 @@ widget_order = [
         background = true
         background_padding = 0
         background_radius = 8
-        command = "loginctl suspend"
+        command = "systemctl suspend"
         forecast_days = 2
         glyph = "weather-moon"
         shadow = false
@@ -300,18 +308,18 @@ widget_order = [
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
     box_height = 48.0
     box_width = 48.0
-    cx = 668.4444580078125
-    cy = 402.66665649414062
+    cx = 752.0
+    cy = 453.0
     output = "eDP-1"
-    placement_height = 720.0
-    placement_width = 1280.0
+    placement_height = 810.0
+    placement_width = 1440.0
     rotation = 0.0
     type = "button"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
         background = true
         color = "on_secondary"
-        command = "loginctl poweroff"
+        command = "systemctl poweroff"
         glyph = "power"
         variant = "destructive"
 
@@ -348,6 +356,7 @@ widget_order = [
 enabled = true
 
 [notification]
+colorize_icons = true
 filter_order = [ "filter-2", "filter" ]
 layer = "overlay"
 offset_x = 8
@@ -375,7 +384,7 @@ width = 300
     show_toast = true
 
 [osd]
-offset_y = 80
+offset_y = 8
 
 [plugin_settings."alexander/screen-toolkit"]
 selected-ocr-lang = "eng+ptbr"
@@ -399,12 +408,12 @@ enabled = [ "dotnetrob/cat", "liamwh/emoji-picker", "noctalia/timer", "noctalia/
 
     [[plugins.source]]
     kind = "git"
-    location = "https://github.com/noctalia-dev/official-plugins"
+    location = ""
     name = "official"
 
     [[plugins.source]]
     kind = "git"
-    location = "https://github.com/noctalia-dev/community-plugins"
+    location = ""
     name = "community"
 
     [[plugins.source]]
@@ -414,21 +423,23 @@ enabled = [ "dotnetrob/cat", "liamwh/emoji-picker", "noctalia/timer", "noctalia/
 
 [shell]
 app_icon_color = "on_surface"
-app_icon_colorize = true
 avatar_path = "/home/majunior/Documents/harvestmoonavatar.png"
 font_family = "IosevkaTermSlab NFP"
 niri_overview_close_on_launch_enabled = true
 niri_overview_type_to_launch_enabled = true
 password_style = "random"
 polkit_agent = true
+polkit_colorize_icons = true
+screen_time_colorize_icons = true
 screen_time_enabled = true
 telemetry_enabled = true
 
     [shell.launcher]
     app_grid = true
     category_icons_only = true
+    colorize_icons = false
     layout = "simple"
-    pinned = [ "org.mozilla.thunderbird_esr", "yazi", "Alacritty", "helium" ]
+    pinned = [ "org.mozilla.thunderbird_esr", "yazi", "Alacritty", "helium", "app.zen_browser.zen" ]
 
     [shell.panel]
     floating_layer = "top"
@@ -482,6 +493,10 @@ telemetry_enabled = true
     shortcut = "p"
     variant = "destructive"
 
+    [shell.window_switcher]
+    colorize_icons = true
+    style = "grid"
+
 [templates]
 
 [theme]
@@ -493,7 +508,7 @@ wallpaper_scheme = "soft"
 
     [theme.templates]
     builtin_ids = [ "alacritty", "btop", "cava", "foot", "gtk3", "gtk4", "kcolorscheme", "niri", "qt", "starship" ]
-    community_ids = [ "neovim", "zed", "fastfetch", "thunderbird", "lazygit", "yazi" ]
+    community_ids = [ "neovim", "obsidian", "zed", "fastfetch", "thunderbird", "lazygit", "yazi" ]
 
 [wallpaper.default]
 path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
@@ -508,10 +523,13 @@ path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 
 [[wallpaper.favorite]]
-community_palette = "Ayu Blue"
+community_palette = "Kanagawa Paper"
 palette_source = "community"
 path = "/home/majunior/Pictures/wallhaven-mpw1rk.jpg"
 theme_mode = "dark"
+
+[widget.active_window]
+colorize_icons = true
 
 [widget.bar]
 enable_scroll = false
@@ -519,6 +537,10 @@ show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
 [widget.bar_2]
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
+
+[widget.bar_3]
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
@@ -541,14 +563,16 @@ type = "dotnetrob/cat:cat"
 
 [widget.clock]
 font_family = "IosevkaTermSlab NFP Medium"
-format = "{:%H%M} - {:%d/%m}"
+format = "{:%H:%M} - {:%d/%m}"
 
 [widget.input_volume]
 show_label = false
 
 [widget.launcher]
+custom_image = "/home/majunior/dotfiles/.local/bin/nixos_logo_icon_170910.png"
+custom_image_colorize = true
 glyph = "niri"
-scale = 1.45
+scale = 1.25
 
     [widget.launcher.actions]
     right = "exec noctalia msg panel-toggle noctalia/wallhaven:browser"
@@ -566,6 +590,7 @@ type = "text"
 
 [widget.taskbar]
 active_indicator_color = "on_surface"
+colorize_icons = false
 icon_scale = 1.5000000000000002
 inactive_opacity = 0.65000000000000002
 item_spacing = 12
@@ -577,6 +602,7 @@ show_workspace_label = false
     scroll_up = "workspace-switch prev"
 
 [widget.tray]
+colorize_icons = true
 match_adjacent_spacing = true
 
 [widget.volume]
@@ -586,6 +612,7 @@ show_label = false
     right = "exec /home/majunior/dotfiles/.config/niri/scripts/audio-mgmt.sh"
 
 [widget.workspaces]
+colorize_icons = true
 max_label_chars = 3
-show_all_outputs = true
+monitors = [ "*" ]
 style = "focus_hint"
