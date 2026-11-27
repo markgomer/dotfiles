@@ -2,7 +2,7 @@
 // "/-" comments out the following node.
 // https://niri-wm.github.io/niri/Configuration:-Introduction
 
-spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
+// spawn-sh-at-startup "swaybg -i /home/majunior/Pictures/Wallpapers/wp12329535-nixos-wallpapers.png"
 spawn-at-startup "noctalia"
 spawn-sh-at-startup "input-remapper-control --command autoload"
 
@@ -113,6 +113,7 @@ window-rule {
     open-floating true
     opacity 0.9999
 }
+
 window-rule {
     match is-active=false
     opacity 0.85
